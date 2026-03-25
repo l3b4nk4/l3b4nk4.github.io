@@ -1,51 +1,37 @@
 <svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="bg" x1="160" y1="120" x2="1480" y2="860" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#08121A"/>
-      <stop offset="0.5" stop-color="#0D1F2A"/>
-      <stop offset="1" stop-color="#04070A"/>
+    <linearGradient id="bg" x1="160" y1="96" x2="1450" y2="828" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#090D12"/>
+      <stop offset="0.5" stop-color="#0C1218"/>
+      <stop offset="1" stop-color="#030405"/>
     </linearGradient>
-    <linearGradient id="accent" x1="234" y1="190" x2="1260" y2="760" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#1BE3C4"/>
-      <stop offset="1" stop-color="#4BA3FF"/>
-    </linearGradient>
-    <radialGradient id="glowA" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1120 210) rotate(131.17) scale(356.605 244.494)">
-      <stop stop-color="#27BFA8" stop-opacity="0.45"/>
-      <stop offset="1" stop-color="#27BFA8" stop-opacity="0"/>
+    <radialGradient id="glowA" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1230 180) rotate(132.257) scale(404.402 264.589)">
+      <stop stop-color="#2154F3" stop-opacity="0.24"/>
+      <stop offset="1" stop-color="#2154F3" stop-opacity="0"/>
     </radialGradient>
-    <radialGradient id="glowB" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(430 730) rotate(45.75) scale(486.657 295.613)">
-      <stop stop-color="#155EEF" stop-opacity="0.32"/>
-      <stop offset="1" stop-color="#155EEF" stop-opacity="0"/>
+    <radialGradient id="glowB" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(384 250) rotate(48.891) scale(532.736 321.586)">
+      <stop stop-color="#19D7B4" stop-opacity="0.18"/>
+      <stop offset="1" stop-color="#19D7B4" stop-opacity="0"/>
     </radialGradient>
-    <pattern id="grid" width="56" height="56" patternUnits="userSpaceOnUse">
-      <path d="M56 0H0V56" stroke="white" stroke-opacity="0.08"/>
+    <radialGradient id="glowC" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(824 736) rotate(90) scale(218 648)">
+      <stop stop-color="#FFFFFF" stop-opacity="0.06"/>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" width="64" height="64" patternUnits="userSpaceOnUse">
+      <path d="M64 0H0V64" stroke="white" stroke-opacity="0.06"/>
     </pattern>
   </defs>
-  <rect width="1600" height="900" rx="40" fill="url(#bg)"/>
-  <rect width="1600" height="900" rx="40" fill="url(#grid)"/>
-  <rect width="1600" height="900" rx="40" fill="url(#glowA)"/>
-  <rect width="1600" height="900" rx="40" fill="url(#glowB)"/>
-  <path d="M1034 112H1488V288L1277 499H1034V112Z" fill="#09151E" fill-opacity="0.72" stroke="#FFFFFF" stroke-opacity="0.12"/>
-  <path d="M120 586H778L611 788H120V586Z" fill="#0A1821" fill-opacity="0.9" stroke="#FFFFFF" stroke-opacity="0.12"/>
-  <rect x="124" y="140" width="236" height="34" rx="17" fill="#0F2B39" stroke="#27BFA8" stroke-opacity="0.5"/>
-  <text x="154" y="163" fill="#B5FFF0" font-family="monospace" font-size="18" letter-spacing="2.5">WRITEUP BLOG</text>
-  <text x="120" y="332" fill="url(#accent)" font-family="'Space Grotesk', 'Segoe UI', sans-serif" font-size="140" font-weight="700" letter-spacing="10">L3B4NK4</text>
-  <text x="126" y="404" fill="#D6F6FF" font-family="monospace" font-size="32" letter-spacing="5">RECON / EXPLOIT / PRIVESC / NOTES</text>
-  <text x="126" y="478" fill="#9DB4C0" font-family="'IBM Plex Sans', 'Segoe UI', sans-serif" font-size="28">Practical security write-ups with clean notes, replayable commands,</text>
-  <text x="126" y="518" fill="#9DB4C0" font-family="'IBM Plex Sans', 'Segoe UI', sans-serif" font-size="28">and enough context to still make sense months later.</text>
-  <rect x="1048" y="148" width="252" height="148" rx="22" fill="#0E202A" stroke="#1BE3C4" stroke-opacity="0.35"/>
-  <text x="1080" y="198" fill="#8CEAD9" font-family="monospace" font-size="22">TARGET STATUS</text>
-  <text x="1080" y="244" fill="#E8FCFF" font-family="monospace" font-size="44">ONLINE</text>
-  <text x="1080" y="276" fill="#8BA3AF" font-family="monospace" font-size="18">notes armed / logs persistent</text>
-  <rect x="1328" y="148" width="124" height="148" rx="22" fill="#0E202A" stroke="#4BA3FF" stroke-opacity="0.35"/>
-  <text x="1355" y="198" fill="#A7CCFF" font-family="monospace" font-size="22">TTL</text>
-  <text x="1347" y="258" fill="#F1F7FF" font-family="monospace" font-size="58">64</text>
-  <rect x="1034" y="542" width="420" height="192" rx="24" fill="#08141C" stroke="#FFFFFF" stroke-opacity="0.12"/>
-  <text x="1072" y="592" fill="#B3C7CF" font-family="monospace" font-size="20">CURRENT FOCUS</text>
-  <text x="1072" y="638" fill="#F6FEFF" font-family="'IBM Plex Sans', 'Segoe UI', sans-serif" font-size="34" font-weight="600">Web security, labs, and CTFs</text>
-  <text x="1072" y="684" fill="#8EA5B0" font-family="'IBM Plex Sans', 'Segoe UI', sans-serif" font-size="24">Building a searchable log of what worked,</text>
-  <text x="1072" y="718" fill="#8EA5B0" font-family="'IBM Plex Sans', 'Segoe UI', sans-serif" font-size="24">what failed, and why the final chain held up.</text>
-  <circle cx="1454" cy="108" r="6" fill="#1BE3C4"/>
-  <circle cx="1480" cy="108" r="6" fill="#4BA3FF"/>
-  <circle cx="1506" cy="108" r="6" fill="#D6F6FF"/>
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <rect width="1600" height="900" fill="url(#grid)"/>
+  <rect width="1600" height="900" fill="url(#glowA)"/>
+  <rect width="1600" height="900" fill="url(#glowB)"/>
+  <rect width="1600" height="900" fill="url(#glowC)"/>
+  <path d="M0 690C152 628 276 597 438 608C618 620 718 718 890 718C1067 718 1156 612 1314 569C1422 540 1508 550 1600 588V900H0V690Z" fill="url(#bg)" fill-opacity="0.72"/>
+  <path d="M143 690L422 470L665 548L900 365L1172 454L1468 264" stroke="#19D7B4" stroke-opacity="0.22" stroke-width="2"/>
+  <circle cx="143" cy="690" r="10" fill="#19D7B4" fill-opacity="0.85"/>
+  <circle cx="422" cy="470" r="10" fill="#2154F3" fill-opacity="0.82"/>
+  <circle cx="665" cy="548" r="10" fill="white" fill-opacity="0.55"/>
+  <circle cx="900" cy="365" r="10" fill="#19D7B4" fill-opacity="0.82"/>
+  <circle cx="1172" cy="454" r="10" fill="#2154F3" fill-opacity="0.82"/>
+  <circle cx="1468" cy="264" r="10" fill="white" fill-opacity="0.55"/>
 </svg>
