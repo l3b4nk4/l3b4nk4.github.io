@@ -215,4 +215,4 @@ python3 solvephp.py
 ```text
 CATF{7H3_M057_7H1NG_1_H473_4B0U7_PHP_15_H0W_UNPR3D1C74BL3_17_C4N_B3}
 ```
-That was the challenge that only I managed to solve until the end of the CTF.
+That challenge remained solved exclusively by me until the end of the CTF.
