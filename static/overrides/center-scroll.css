@@ -36,6 +36,28 @@ body.no-hero-page #mobile-nav .sidebar-wrap {
   background: var(--site-shell-nav-bg);
 }
 
+body.no-hero-page #wrap,
+body.no-hero-page #header-nav,
+body.no-hero-page .sidebar-wrapper,
+body.no-hero-page .sidebar-wrap,
+body.no-hero-page .post-wrapper,
+body.no-hero-page #page-nav {
+  transition: none !important;
+}
+
+body.no-hero-page [data-aos],
+body.no-hero-page .aos-init,
+body.no-hero-page .aos-animate {
+  opacity: 1 !important;
+  transform: none !important;
+  transition: none !important;
+  animation: none !important;
+}
+
+#mask.hide {
+  pointer-events: none;
+}
+
 html,
 body {
   scrollbar-width: none;
