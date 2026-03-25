@@ -430,8 +430,26 @@ body.about-page #content {
     height: 100%;
   }
 
+  body.mainsection-scroll-page .sidebar-toc-sidebar,
+  body.mainsection-scroll-page .sidebar-common-sidebar {
+    min-height: 0;
+  }
+
   body.mainsection-scroll-page .sidebar-toc-wrapper,
   body.mainsection-scroll-page .sidebar-common-sidebar {
-    overflow: hidden;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-right: 4px;
+  }
+
+  body.mainsection-scroll-page .sidebar-btn-wrapper {
+    flex-shrink: 0;
+    margin-top: 8px;
+    padding: 8px 0 14px;
+  }
+
+  body.mainsection-scroll-page .sidebar-btn-wrapper .sidebar-toc-btn,
+  body.mainsection-scroll-page .sidebar-btn-wrapper .sidebar-common-btn {
+    margin: 0 10px;
   }
 }
