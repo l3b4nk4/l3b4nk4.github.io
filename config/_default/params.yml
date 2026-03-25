@@ -38,7 +38,7 @@ footer:
   count: false
   busuanzi: false
   icon:
-    url: "../avatar/avatar.png"
+    url: false
     rotate: false
     mask: false
 
