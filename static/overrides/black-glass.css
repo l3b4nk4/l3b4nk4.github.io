@@ -922,3 +922,16 @@
     overflow: visible;
   }
 }
+
+/* Write-up pages: remove hero photo regardless of current theme flag state */
+#container:has(.article-inner) #header {
+  background: transparent !important;
+  background-image: none !important;
+}
+
+#container:has(.article-inner) #header>img,
+#container:has(.article-inner) #header>picture,
+#container:has(.article-inner) #header picture img {
+  display: none !important;
+  visibility: hidden !important;
+}
