@@ -138,14 +138,28 @@
 [data-theme="dark"] .sidebar-right #sidebar {
   width: 24%;
   min-width: 272px;
+}
+
+[data-theme="dark"] .sidebar-left #sidebar {
   margin: 72px 12px 0;
+}
+
+[data-theme="dark"] .sidebar-right #sidebar {
+  margin: 0 12px 0;
 }
 
 [data-theme="dark"] .sidebar-left #main,
 [data-theme="dark"] .sidebar-right #main {
   width: 76%;
   max-width: calc(100% - 272px - 44px);
+}
+
+[data-theme="dark"] .sidebar-left #main {
   margin: 0 10px 0 18px;
+}
+
+[data-theme="dark"] .sidebar-right #main {
+  margin: 0 18px 0 10px;
 }
 
 [data-theme="dark"] .sidebar-wrapper-container.sticky {
@@ -379,45 +393,6 @@
   text-align: center;
   color: #93a2af !important;
   line-height: 1.5;
-}
-
-[data-theme="dark"] .sidebar-site-meta {
-  margin-top: 12px;
-  padding: 10px 14px;
-  width: min(228px, 100%);
-  border-radius: 14px;
-  text-align: center;
-  border: 1px solid rgba(126, 244, 226, 0.22);
-  background: linear-gradient(135deg, rgba(45, 212, 191, 0.07), rgba(59, 130, 246, 0.08));
-}
-
-[data-theme="dark"] .sidebar-site-label {
-  color: #8ef1e1;
-  font-size: 0.66rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-}
-
-[data-theme="dark"] .sidebar-site-domain {
-  display: block;
-  margin-top: 4px;
-  color: #f4f9fc !important;
-  font-size: 0.92rem;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  word-break: break-word;
-}
-
-[data-theme="dark"] .sidebar-site-domain:hover {
-  color: #8ef1e1 !important;
-}
-
-[data-theme="dark"] .sidebar-site-name {
-  margin-top: 4px;
-  color: #99a9b5;
-  font-size: 0.74rem;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
 }
 
 [data-theme="dark"] .sidebar-state {

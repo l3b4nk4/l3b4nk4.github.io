@@ -49,7 +49,7 @@ footer:
     mask: false
 
 sidebar:
-  position: left
+  position: right
   menu: true
   article:
     show_common: true

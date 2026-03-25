@@ -5,17 +5,10 @@
 {{- $showMenu = $params.sidebar.menu -}}
 {{- end -}}
 {{- $posts := where .ctx.Site.RegularPages "Section" "in" .ctx.Site.MainSections -}}
-{{- $baseURL := strings.TrimSuffix "/" .ctx.Site.BaseURL -}}
-{{- $domain := replaceRE "^https?://([^/]+).*$" "$1" $baseURL -}}
 <div class="sidebar-author">
   <img src="{{ " avatar/" | relURL }}{{ $params.avatar }}" alt="{{ $params.author }}" />
   <div class="sidebar-author-name">{{ $params.author }}</div>
   <div class="sidebar-description">{{ $params.description }}</div>
-  <div class="sidebar-site-meta">
-    <div class="sidebar-site-label">MAIN DOMAIN</div>
-    <a class="sidebar-site-domain" href="{{ .ctx.Site.BaseURL }}" aria-label="main-domain-link">{{ $domain }}</a>
-    <div class="sidebar-site-name">{{ .ctx.Site.Title }}</div>
-  </div>
 </div>
 <div class="sidebar-state">
   <div class="sidebar-state-article">
