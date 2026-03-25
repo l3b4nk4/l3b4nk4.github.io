@@ -97,42 +97,6 @@ body,
   display: none !important;
 }
 
-.code-decoration {
-  display: none !important;
-}
-
-.code-figcaption {
-  min-height: 48px;
-  padding: 0 14px;
-  background: var(--highlight-nav);
-  border-bottom: 1px solid var(--color-border);
-}
-
-.code-left-wrap,
-.code-right-wrap {
-  align-items: center;
-  gap: 8px;
-}
-
-.code-lang {
-  padding: 6px 10px;
-  border-radius: 999px;
-  background: var(--color-code-background);
-  color: var(--highlight-comment);
-  font-size: 12px;
-  line-height: 1;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-}
-
-.code-copy,
-.code-expand {
-  padding: 6px;
-  border: 0;
-  background: transparent;
-  color: var(--highlight-comment);
-}
-
 @media screen and (min-width: 960px) {
   html.mainsection-scroll-page,
   body.mainsection-scroll-page {
