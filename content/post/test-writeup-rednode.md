@@ -141,14 +141,4 @@ rednode
 9b2d-demo-proof-flag
 ```
 
-## What Worked
 
-- Recon narrowed the attack surface quickly.
-- The upload feature was the real entry point because client-side filtering was trusted too much.
-- Local enumeration stayed simple and focused, which made the cron issue easy to spot.
-
-## Lessons Learned
-
-> Small validation mistakes and writable automation paths are exactly the kind of chain that turns a low-privilege foothold into full compromise.
-
-For the blog itself, this post also confirms that code blocks, blockquotes, lists, and multi-section write-ups all have a realistic example to render against.
