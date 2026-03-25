@@ -504,7 +504,12 @@
 
   & li {
     margin: 8px 0;
-    padding: 1px 0;
+    padding: 6px 10px;
+    border-radius: 10px;
+    transition:
+      background 0.25s,
+      box-shadow 0.25s,
+      transform 0.25s;
 
     &:before {
       content: "";
@@ -520,6 +525,8 @@
     }
 
     &:hover {
+      background: var(--red-6);
+
       &:before {
         width: 5px;
         height: 5px;
@@ -554,6 +561,33 @@
   .current > a {
     color: var(--red-0);
     opacity: 1;
+  }
+
+  .active {
+    background: var(--red-6);
+  }
+
+  .active:before {
+    opacity: 0.9;
+  }
+
+  .current {
+    background: linear-gradient(90deg, var(--red-5) 0%, transparent 100%);
+    box-shadow: inset 0 0 0 1px var(--red-4), 0 0 12px rgba(20, 153, 135, 0.12);
+    transform: translateX(4px);
+  }
+
+  .current:before {
+    width: 8px;
+    height: 8px;
+    border-radius: 999px;
+    opacity: 1;
+    background: var(--red-1);
+  }
+
+  .current > a {
+    color: var(--red-2);
+    font-weight: 700;
   }
 
   li {
