@@ -99,7 +99,7 @@ local_font:
     - monospace
 
 dark_mode:
-  enable: auto
+  enable: true
 
 preloader:
   enable: false
