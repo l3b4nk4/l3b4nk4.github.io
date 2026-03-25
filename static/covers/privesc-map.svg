@@ -1,0 +1,29 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="128" y1="84" x2="1494" y2="814" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#07121A"/>
+      <stop offset="1" stop-color="#10202A"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="238" y1="224" x2="1332" y2="764" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#4BA3FF"/>
+      <stop offset="1" stop-color="#1BE3C4"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <path d="M148 708L420 490L676 560L954 344L1242 428L1456 214" stroke="url(#accent)" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="148" cy="708" r="22" fill="#4BA3FF"/>
+  <circle cx="420" cy="490" r="22" fill="#1BE3C4"/>
+  <circle cx="676" cy="560" r="22" fill="#D6F6FF"/>
+  <circle cx="954" cy="344" r="22" fill="#4BA3FF"/>
+  <circle cx="1242" cy="428" r="22" fill="#1BE3C4"/>
+  <circle cx="1456" cy="214" r="22" fill="#D6F6FF"/>
+  <text x="142" y="244" fill="url(#accent)" font-family="'Space Grotesk', 'Segoe UI', sans-serif" font-size="122" font-weight="700">PRIVESC MAP</text>
+  <text x="148" y="312" fill="#C9DCE4" font-family="monospace" font-size="30" letter-spacing="4">ENUM / MISCONFIG / ESCALATION CHAIN</text>
+  <rect x="116" y="378" width="412" height="208" rx="30" fill="#0B1821" stroke="#FFFFFF" stroke-opacity="0.12"/>
+  <text x="156" y="444" fill="#8DB4FF" font-family="monospace" font-size="24">LOW PRIV</text>
+  <text x="156" y="502" fill="#F4FBFF" font-family="'IBM Plex Sans', 'Segoe UI', sans-serif" font-size="40">Find signal, not noise</text>
+  <text x="156" y="550" fill="#9BB0B9" font-family="'IBM Plex Sans', 'Segoe UI', sans-serif" font-size="24">Sudo, SUID, caps, cron, writable paths, service perms</text>
+  <rect x="1018" y="560" width="424" height="172" rx="30" fill="#0B1821" stroke="#FFFFFF" stroke-opacity="0.12"/>
+  <text x="1060" y="626" fill="#8DE2D1" font-family="monospace" font-size="24">ROOT</text>
+  <text x="1060" y="684" fill="#F4FBFF" font-family="'IBM Plex Sans', 'Segoe UI', sans-serif" font-size="40">Chain the one pivot that matters</text>
+</svg>

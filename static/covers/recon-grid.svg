@@ -1,0 +1,30 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="94" y1="76" x2="1510" y2="842" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#071019"/>
+      <stop offset="1" stop-color="#0B2430"/>
+    </linearGradient>
+    <pattern id="grid" width="52" height="52" patternUnits="userSpaceOnUse">
+      <path d="M52 0H0V52" stroke="white" stroke-opacity="0.08"/>
+    </pattern>
+    <linearGradient id="accent" x1="212" y1="234" x2="954" y2="666" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1BE3C4"/>
+      <stop offset="1" stop-color="#4BA3FF"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <rect width="1600" height="900" fill="url(#grid)"/>
+  <rect x="108" y="110" width="642" height="452" rx="36" fill="#091620" stroke="#FFFFFF" stroke-opacity="0.12"/>
+  <rect x="860" y="194" width="632" height="516" rx="36" fill="#0B1B24" stroke="#1BE3C4" stroke-opacity="0.35"/>
+  <text x="164" y="220" fill="#91EDE0" font-family="monospace" font-size="24" letter-spacing="3">CARD / 01</text>
+  <text x="160" y="376" fill="url(#accent)" font-family="'Space Grotesk', 'Segoe UI', sans-serif" font-size="118" font-weight="700">RECON</text>
+  <text x="164" y="452" fill="#D2E5ED" font-family="monospace" font-size="32" letter-spacing="4">ENUMERATION / MAPPING / CONTEXT</text>
+  <path d="M924 304H1428" stroke="#4BA3FF" stroke-width="2" stroke-dasharray="10 10"/>
+  <path d="M924 412H1428" stroke="#4BA3FF" stroke-width="2" stroke-dasharray="10 10"/>
+  <path d="M924 520H1428" stroke="#4BA3FF" stroke-width="2" stroke-dasharray="10 10"/>
+  <path d="M924 628H1428" stroke="#4BA3FF" stroke-width="2" stroke-dasharray="10 10"/>
+  <circle cx="1028" cy="304" r="16" fill="#1BE3C4"/>
+  <circle cx="1202" cy="412" r="16" fill="#4BA3FF"/>
+  <circle cx="1104" cy="520" r="16" fill="#D6F6FF"/>
+  <circle cx="1342" cy="628" r="16" fill="#1BE3C4"/>
+</svg>

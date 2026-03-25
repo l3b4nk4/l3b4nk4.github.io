@@ -1,21 +1,25 @@
-# hugo-reimu-template
+# L3b4nk4 Writeups
 
-<img alt="theme version" src="https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2FD-Sketon%2Fhugo-theme-reimu%2Frefs%2Fheads%2Fmain%2Fpackage.json&query=%24.version&label=theme">
+A Hugo-powered personal write-up blog for `L3b4nk4`, built on top of [hugo-theme-reimu](https://github.com/D-Sketon/hugo-theme-reimu).
 
-Template for [hugo-theme-reimu](https://github.com/D-Sketon/hugo-theme-reimu)
-
-## Usage
+## Run locally
 
 ```bash
-git clone https://github.com/D-Sketon/hugo-reimu-template --recursive
-cd hugo-reimu-template
-hugo serve
+git submodule update --init --recursive
+hugo server -D
 ```
 
-## How to use
+## Create a new write-up
 
-- Change your site configuration in `hugo.toml`
-- Change your theme configuration in `config/_default/params.yml`
-- Change your post cover in `data/covers.yml`
-- Change your avatar in `static/avatar/avatar.webp`
-- Add your posts in `content/post`
+```bash
+hugo new content post/your-target.md
+```
+
+## Main files
+
+- `hugo.toml`: site URL and Hugo settings
+- `config/_default/params.yml`: theme branding, menu, colors, and widgets
+- `content/post`: write-ups and blog posts
+- `content/about.md`: author/about page
+- `data/covers.yml`: rotating card covers for posts without a custom `cover`
+- `static/avatar` and `static/images`: custom site visuals
