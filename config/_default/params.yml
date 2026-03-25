@@ -38,7 +38,7 @@ footer:
   count: false
   busuanzi: false
   icon:
-    url: "../avatar/l3b4nk4-avatar.svg"
+    url: "../avatar/avatar.png"
     rotate: false
     mask: false
 
@@ -116,7 +116,7 @@ top:
   enable: true
   position: right
   icon:
-    url: "../avatar/l3b4nk4-avatar.svg"
+    url: "../avatar/avatar.png"
     rotate: false
     mask: false
 
