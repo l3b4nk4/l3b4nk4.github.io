@@ -9,7 +9,7 @@ tags:
   - web
 categories:
   - writeup
-cover: "covers/privesc-map.svg"
+cover: "covers/i_hate_php.png"
 draft: false
 ---
 
