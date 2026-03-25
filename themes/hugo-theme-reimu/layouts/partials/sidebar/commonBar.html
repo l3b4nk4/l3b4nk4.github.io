@@ -5,24 +5,34 @@
 {{- if and (reflect.IsMap $params.sidebar) (isset $params.sidebar "menu") -}}
   {{- $showMenu = $params.sidebar.menu -}}
 {{- end -}}
-<div class="sidebar-author">
-  <img
-    data-src="{{ "avatar/" | relURL }}{{ $params.avatar }}"
-    data-sizes="auto"
-    alt="{{ $params.author }}"
-    class="lazyload"
-  />
-  <div class="sidebar-author-name">{{ $params.author }}</div>
+{{- $isHome := or .ctx.IsHome (eq .ctx.Kind "home") (eq .ctx.RelPermalink "/") (eq .ctx.Permalink .ctx.Site.BaseURL) -}}
+{{- $posts := (where .ctx.Site.RegularPages "Section" "in" $params.mainSections) -}}
+{{- if $isHome -}}
+  {{- $posts = where $posts "Params.categories" "intersect" (slice "writeup") -}}
+{{- end -}}
+<div class="sidebar-profile-card">
+  <div class="sidebar-author">
+    <img
+      data-src="{{ "avatar/" | relURL }}{{ $params.avatar }}"
+      data-sizes="auto"
+      alt="{{ $params.author }}"
+      class="lazyload"
+    />
+    <div class="sidebar-author-name">{{ $params.author }}</div>
+  </div>
 </div>
 <div class="sidebar-state">
   <div class="sidebar-state-article">
     <div>{{ i18n "sidebar.post" }}</div>
-    {{- $isHome := or .ctx.IsHome (eq .ctx.Kind "home") (eq .ctx.RelPermalink "/") (eq .ctx.Permalink .ctx.Site.BaseURL) -}}
-    {{- $posts := (where .ctx.Site.RegularPages "Section" "in" $params.mainSections) -}}
-    {{- if $isHome -}}
-      {{- $posts = where $posts "Params.categories" "intersect" (slice "writeup") -}}
-    {{- end -}}
     <div class="sidebar-state-number">{{ len $posts }}</div>
+  </div>
+  <div class="sidebar-state-category">
+    <div>{{ i18n "categories" }}</div>
+    <div class="sidebar-state-number">{{ len .ctx.Site.Taxonomies.categories }}</div>
+  </div>
+  <div class="sidebar-state-tag">
+    <div>{{ i18n "tags" }}</div>
+    <div class="sidebar-state-number">{{ len .ctx.Site.Taxonomies.tags }}</div>
   </div>
 </div>
 <div class="sidebar-social" {{ if not (or $showMenu $mobile) }}style="margin-bottom: 20px;"{{ end }}>

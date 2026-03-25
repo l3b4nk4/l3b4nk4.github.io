@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Recon Grid Cover</title>
+  <desc id="desc">Dark grid cover with teal scan lines and recon-themed markers.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#081115"/>
+      <stop offset="100%" stop-color="#111c22"/>
+    </linearGradient>
+    <linearGradient id="glow" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#19d3c5" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#19d3c5" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="#19d3c5" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="10"/>
+    </filter>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <rect width="1600" height="900" fill="#020406" opacity="0.28"/>
+
+  <g stroke="#274049" stroke-width="1" opacity="0.5">
+    <path d="M0 120H1600"/>
+    <path d="M0 240H1600"/>
+    <path d="M0 360H1600"/>
+    <path d="M0 480H1600"/>
+    <path d="M0 600H1600"/>
+    <path d="M0 720H1600"/>
+    <path d="M0 840H1600"/>
+    <path d="M160 0V900"/>
+    <path d="M320 0V900"/>
+    <path d="M480 0V900"/>
+    <path d="M640 0V900"/>
+    <path d="M800 0V900"/>
+    <path d="M960 0V900"/>
+    <path d="M1120 0V900"/>
+    <path d="M1280 0V900"/>
+    <path d="M1440 0V900"/>
+  </g>
+
+  <circle cx="1180" cy="280" r="170" fill="#13c7b7" opacity="0.09"/>
+  <circle cx="1180" cy="280" r="170" fill="none" stroke="#19d3c5" stroke-width="2" opacity="0.35"/>
+  <circle cx="1180" cy="280" r="110" fill="none" stroke="#19d3c5" stroke-width="2" opacity="0.3"/>
+  <circle cx="1180" cy="280" r="50" fill="none" stroke="#19d3c5" stroke-width="2" opacity="0.28"/>
+  <path d="M1010 280H1350M1180 110V450" stroke="#19d3c5" stroke-width="2" opacity="0.26"/>
+  <rect x="980" y="260" width="400" height="40" fill="url(#glow)" filter="url(#soft)"/>
+
+  <g fill="#8ef1e7" opacity="0.95">
+    <circle cx="430" cy="250" r="8"/>
+    <circle cx="565" cy="520" r="8"/>
+    <circle cx="860" cy="630" r="8"/>
+    <circle cx="1015" cy="185" r="8"/>
+  </g>
+
+  <g stroke="#53e6d8" stroke-width="3" opacity="0.7">
+    <path d="M430 250L620 320L860 250L1015 185"/>
+    <path d="M620 320L565 520L860 630L1180 280"/>
+  </g>
+
+  <g font-family="'IBM Plex Mono', 'SFMono-Regular', Consolas, monospace" fill="#d8fffb">
+    <text x="110" y="160" font-size="38" opacity="0.72">ENTRY SURFACE / RECON GRID</text>
+    <text x="110" y="735" font-size="92" font-weight="700" fill="#2ce3d3">RECON</text>
+    <text x="110" y="820" font-size="92" font-weight="700" fill="#2ce3d3">GRID</text>
+    <text x="110" y="865" font-size="26" opacity="0.68">ports / hosts / routes / trust edges</text>
+  </g>
+
+  <g font-family="'IBM Plex Mono', 'SFMono-Regular', Consolas, monospace" font-size="22" fill="#a7d6d1" opacity="0.8">
+    <text x="455" y="232">:80</text>
+    <text x="590" y="502">/admin</text>
+    <text x="880" y="614">api/profile</text>
+    <text x="1038" y="168">ssh</text>
+  </g>
+</svg>

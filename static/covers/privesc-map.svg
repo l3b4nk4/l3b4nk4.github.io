@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Privilege Escalation Map Cover</title>
+  <desc id="desc">Dark schematic cover showing a path from user access to root via a writable cron job.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#081014"/>
+      <stop offset="100%" stop-color="#121b22"/>
+    </linearGradient>
+    <linearGradient id="path" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#0fa59a"/>
+      <stop offset="100%" stop-color="#3ff0e1"/>
+    </linearGradient>
+    <filter id="halo" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="14"/>
+    </filter>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <path d="M0 730C180 690 300 770 470 728C660 680 760 548 935 552C1140 558 1280 694 1600 628V900H0Z" fill="#091217"/>
+
+  <g stroke="#223640" stroke-width="1" opacity="0.55">
+    <path d="M0 220H1600"/>
+    <path d="M0 440H1600"/>
+    <path d="M0 660H1600"/>
+    <path d="M200 0V900"/>
+    <path d="M400 0V900"/>
+    <path d="M600 0V900"/>
+    <path d="M800 0V900"/>
+    <path d="M1000 0V900"/>
+    <path d="M1200 0V900"/>
+    <path d="M1400 0V900"/>
+  </g>
+
+  <g>
+    <rect x="140" y="270" width="270" height="150" rx="24" fill="#101820" stroke="#2c4852" stroke-width="2"/>
+    <rect x="665" y="210" width="270" height="150" rx="24" fill="#101820" stroke="#2c4852" stroke-width="2"/>
+    <rect x="1185" y="360" width="270" height="150" rx="24" fill="#101820" stroke="#2c4852" stroke-width="2"/>
+
+    <circle cx="410" cy="345" r="12" fill="#2ce3d3"/>
+    <circle cx="935" cy="285" r="12" fill="#2ce3d3"/>
+    <circle cx="1185" cy="435" r="12" fill="#2ce3d3"/>
+
+    <path d="M422 345H640C700 345 700 285 665 285" fill="none" stroke="url(#path)" stroke-width="8" stroke-linecap="round"/>
+    <path d="M947 285H1090C1145 285 1140 435 1185 435" fill="none" stroke="url(#path)" stroke-width="8" stroke-linecap="round"/>
+    <path d="M422 345H640C700 345 700 285 665 285" fill="none" stroke="#1de0d2" stroke-width="20" opacity="0.12" filter="url(#halo)"/>
+    <path d="M947 285H1090C1145 285 1140 435 1185 435" fill="none" stroke="#1de0d2" stroke-width="20" opacity="0.12" filter="url(#halo)"/>
+  </g>
+
+  <g font-family="'IBM Plex Mono', 'SFMono-Regular', Consolas, monospace">
+    <text x="180" y="332" font-size="34" fill="#2ce3d3">USER SHELL</text>
+    <text x="180" y="376" font-size="22" fill="#a6d2cd">uid=1001(app)</text>
+
+    <text x="705" y="272" font-size="34" fill="#2ce3d3">WRITABLE CRON</text>
+    <text x="705" y="316" font-size="22" fill="#a6d2cd">/opt/backups/backup.sh</text>
+
+    <text x="1225" y="422" font-size="34" fill="#2ce3d3">ROOT</text>
+    <text x="1225" y="466" font-size="22" fill="#a6d2cd">euid=0</text>
+
+    <text x="138" y="126" font-size="34" fill="#d9fffb" opacity="0.7">PRIVILEGE ESCALATION MAP</text>
+    <text x="136" y="700" font-size="98" font-weight="700" fill="#d9fffb">PRI</text>
+    <text x="344" y="700" font-size="98" font-weight="700" fill="#2ce3d3">VESC</text>
+    <text x="138" y="760" font-size="24" fill="#a6d2cd">foothold -> writable path -> root context</text>
+  </g>
+
+  <g fill="#7debe0" opacity="0.9">
+    <circle cx="520" cy="604" r="7"/>
+    <circle cx="640" cy="654" r="7"/>
+    <circle cx="760" cy="612" r="7"/>
+    <circle cx="880" cy="668" r="7"/>
+    <circle cx="1000" cy="620" r="7"/>
+  </g>
+</svg>

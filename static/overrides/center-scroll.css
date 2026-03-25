@@ -91,6 +91,119 @@ body.home-landing-page #content {
   padding-top: 72px;
 }
 
+body.home-landing-page #sidebar .sidebar-wrap {
+  justify-content: flex-start;
+  padding: 22px;
+  gap: 22px;
+}
+
+body.home-landing-page .sidebar-profile-card {
+  width: 100%;
+  padding: 26px 18px 22px;
+  border: 1px solid var(--site-card-border);
+  border-radius: 18px;
+  background: rgba(9, 14, 19, 0.88);
+}
+
+body.home-landing-page .sidebar-author img {
+  width: 176px;
+  height: 176px;
+  min-width: 176px;
+  min-height: 176px;
+  margin: 0 0 18px;
+  border-radius: 22px;
+  box-shadow: 0 18px 32px rgba(0, 0, 0, 0.24);
+}
+
+body.home-landing-page .sidebar-author-name {
+  margin: 0;
+  font-size: 2rem;
+  letter-spacing: 0.08em;
+}
+
+body.home-landing-page .sidebar-state {
+  width: 100%;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0;
+}
+
+body.home-landing-page .sidebar-state > div,
+body.home-landing-page .sidebar-state > a {
+  padding: 0 10px;
+  min-width: 0;
+}
+
+body.home-landing-page .sidebar-state > div + div,
+body.home-landing-page .sidebar-state > a + div,
+body.home-landing-page .sidebar-state > div + a,
+body.home-landing-page .sidebar-state > a + a {
+  border-left: 1px solid var(--site-card-border);
+}
+
+body.home-landing-page .sidebar-state > div div:first-child,
+body.home-landing-page .sidebar-state > a div:first-child {
+  font-size: 0.95rem;
+  color: var(--grey-7);
+}
+
+body.home-landing-page .sidebar-state-number {
+  font-size: 1.9rem;
+}
+
+body.home-landing-page .sidebar-social {
+  width: 100%;
+  gap: 12px;
+}
+
+body.home-landing-page .sidebar-social-icon {
+  width: 48px;
+  height: 48px;
+  border: 1px solid var(--site-card-border);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+body.home-landing-page .post-wrap.compact-home {
+  min-height: 264px;
+  height: 264px;
+  overflow: hidden;
+}
+
+body.home-landing-page .post-wrap.compact-home .post-cover {
+  width: 38%;
+  min-height: 100%;
+  display: block;
+  background: #081115;
+}
+
+body.home-landing-page .post-wrap.compact-home .post-cover.left,
+body.home-landing-page .post-wrap.compact-home .post-cover.right {
+  border-radius: 16px 0 0 16px;
+  -webkit-clip-path: none;
+  clip-path: none;
+}
+
+body.home-landing-page .post-wrap.compact-home .post-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 24px 30px;
+}
+
+body.home-landing-page .post-wrap.compact-home .post-title {
+  padding: 10px 0 16px;
+  font-size: 2rem;
+  line-height: 1.15;
+}
+
+body.home-landing-page .post-wrap.compact-home .post-article {
+  -webkit-line-clamp: 4;
+  line-clamp: 4;
+  line-height: 1.7;
+}
+
 body.about-page #header-nav {
   display: none;
 }
@@ -102,6 +215,57 @@ body.about-page #content {
 @media screen and (max-width: 959px) {
   body.home-landing-page #content {
     padding-top: 48px;
+  }
+
+  body.home-landing-page #sidebar .sidebar-wrap {
+    padding: 16px;
+    gap: 18px;
+  }
+
+  body.home-landing-page .sidebar-profile-card {
+    padding: 20px 16px 18px;
+  }
+
+  body.home-landing-page .sidebar-author img {
+    width: 132px;
+    height: 132px;
+    min-width: 132px;
+    min-height: 132px;
+  }
+
+  body.home-landing-page .sidebar-author-name {
+    font-size: 1.6rem;
+  }
+
+  body.home-landing-page .sidebar-state {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  body.home-landing-page .sidebar-state > div + div,
+  body.home-landing-page .sidebar-state > a + div,
+  body.home-landing-page .sidebar-state > div + a,
+  body.home-landing-page .sidebar-state > a + a {
+    border-left: 0;
+  }
+
+  body.home-landing-page .post-wrap.compact-home {
+    height: auto;
+    min-height: 0;
+  }
+
+  body.home-landing-page .post-wrap.compact-home .post-cover {
+    width: 100%;
+    height: 220px;
+  }
+
+  body.home-landing-page .post-wrap.compact-home .post-cover.left,
+  body.home-landing-page .post-wrap.compact-home .post-cover.right {
+    border-radius: 16px 16px 0 0;
+  }
+
+  body.home-landing-page .post-wrap.compact-home .post-title {
+    font-size: 1.6rem;
   }
 
   body.about-page #content {
