@@ -936,8 +936,9 @@
   visibility: hidden !important;
 }
 
-/* Write-up pages: square moves with page; inner TOC text stays fixed */
+/* Final lock: write-up TOC square must move with page, not stick to viewport */
 @media screen and (min-width: 960px) {
+
   #container:has(.article-inner) #sidebar,
   #container:has(.article-inner) .sidebar-wrapper-container,
   #container:has(.article-inner) .sidebar-wrapper,
@@ -946,19 +947,20 @@
   }
 
   #container:has(.article-inner) .sidebar-wrapper-container.sticky {
-    position: sticky !important;
-    top: 104px !important;
+    position: relative !important;
+    top: auto !important;
   }
 
   #container:has(.article-inner) #sidebar .sidebar-toc-sidebar {
-    position: sticky !important;
+    position: relative !important;
     margin-top: 22px;
-    top: 116px !important;
+    top: auto !important;
     max-height: none !important;
   }
 
   #container:has(.article-inner) #sidebar .sidebar-toc-wrapper {
     max-height: none !important;
     overflow: visible !important;
+    overflow-y: visible !important;
   }
 }
