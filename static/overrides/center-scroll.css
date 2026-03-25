@@ -87,6 +87,16 @@ body,
   box-shadow: var(--site-card-shadow-strong);
 }
 
+.hr-line,
+.footer-line {
+  display: none !important;
+}
+
+.article-footer::before {
+  content: none !important;
+  display: none !important;
+}
+
 .code-decoration {
   display: none !important;
 }
