@@ -906,14 +906,14 @@
 /* Write-up pages: TOC square should move with scrolling, text should stay stable */
 @media screen and (min-width: 960px) {
   [data-theme="dark"] #container:has(.article-inner) .sidebar-wrapper-container.sticky {
-    position: sticky;
-    top: 104px;
+    position: static !important;
+    top: auto !important;
   }
 
   [data-theme="dark"] #container:has(.article-inner) #sidebar .sidebar-toc-sidebar {
-    position: sticky;
+    position: static !important;
     margin-top: 34px;
-    top: 116px;
+    top: auto !important;
     max-height: none;
   }
 
@@ -936,7 +936,7 @@
   visibility: hidden !important;
 }
 
-/* Final lock: write-up TOC square must follow scroll and keep text stable */
+/* Final lock: write-up TOC square follows normal page scroll */
 @media screen and (min-width: 960px) {
 
   #container:has(.article-inner) #sidebar,
@@ -947,14 +947,14 @@
   }
 
   #container:has(.article-inner) .sidebar-wrapper-container.sticky {
-    position: sticky !important;
-    top: 104px !important;
+    position: static !important;
+    top: auto !important;
   }
 
   #container:has(.article-inner) #sidebar .sidebar-toc-sidebar {
-    position: sticky !important;
+    position: static !important;
     margin-top: 34px !important;
-    top: 116px !important;
+    top: auto !important;
     max-height: none !important;
   }
 
