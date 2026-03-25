@@ -100,6 +100,15 @@ _$("#mask")
     _$("#mask").classList.add("hide");
   });
 
+_$("#mobile-nav .mobile-nav-close")
+  ?.off("click")
+  .on("click", () => {
+    if (isMobileNavAnim || !document.body.classList.contains("mobile-nav-on"))
+      return;
+    document.body.classList.remove("mobile-nav-on");
+    _$("#mask").classList.add("hide");
+  });
+
 _$$(".sidebar-toc-btn").forEach((element) => {
   element.off("click").on("click", function () {
     if (this.classList.contains("current")) return;
@@ -274,7 +283,15 @@ function tocInit() {
       }
       parent = parent.parentNode as HTMLElement;
     }
-    // Keep TOC content position stable; do not auto-scroll the TOC wrapper.
+
+    const hiddenToc = _$(".sidebar-toc-sidebar.hidden");
+    const tocWrapper = _$(".sidebar-toc-wrapper") as HTMLElement | null;
+    if (hiddenToc && tocWrapper) {
+      tocWrapper.scrollTo({
+        top: tocWrapper.scrollTop + target.offsetTop - tocWrapper.offsetHeight / 2,
+        behavior: "smooth",
+      });
+    }
   };
 
   const findIndex = (entries) => {
