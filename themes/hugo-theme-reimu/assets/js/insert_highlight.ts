@@ -7,7 +7,9 @@
     </div>
     <div class="code-right-wrap">
       <button type="button" class="code-copy icon-copy" aria-label="Copy code" title="Copy code"></button>
-      <button type="button" class="icon-chevron-down code-expand" aria-label="Toggle code block" title="Toggle code block"></button>
+      <button type="button" class="code-expand" aria-label="Toggle code block" title="Toggle code block">
+        <span class="code-expand-chevron" aria-hidden="true"></span>
+      </button>
     </div>
   </div>
   <div class="code-figcaption-bottom">

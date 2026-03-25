@@ -10,10 +10,28 @@ var getRealPath = (pathname = window.location.pathname, desc = false) => {
   }
 };
 
-var scrollIntoViewAndWait = (element: HTMLElement) => {
+var getArticleScrollContainer = () =>
+  document.querySelector(
+    "body.mainsection-scroll-page #main > article.article",
+  ) as HTMLElement | null;
+
+var getScrollTop = (scrollContainer?: HTMLElement | null) => {
+  if (scrollContainer) {
+    return scrollContainer.scrollTop;
+  }
+  return document.documentElement.scrollTop || document.body.scrollTop;
+};
+
+var scrollIntoViewAndWait = (
+  element: HTMLElement,
+  scrollContainer?: HTMLElement | null,
+) => {
   return new Promise<void>((resolve) => {
-    if ("onscrollend" in window) {
-      document.addEventListener("scrollend", resolve as any, { once: true });
+    const scrollTarget = scrollContainer || document;
+    if ("onscrollend" in scrollTarget) {
+      scrollTarget.addEventListener("scrollend", resolve as any, {
+        once: true,
+      });
       element.scrollIntoView({
         behavior: "smooth",
         block: "center",
@@ -221,6 +239,7 @@ _$$("#mobile-nav .sidebar-menu-link-dummy").forEach((element) => {
 
 function tocInit() {
   if (!_$("#sidebar")) return;
+  const scrollContainer = getArticleScrollContainer();
   const navItems =
     getComputedStyle(_$("#sidebar")!).display === "block"
       ? _$$("#sidebar .sidebar-toc-wrapper li")
@@ -228,6 +247,19 @@ function tocInit() {
   if (!navItems.length) return;
 
   let activeLock = null;
+  let scrollDelta = 0;
+  let lastScrollTop = getScrollTop(scrollContainer);
+
+  const syncScrollDirection = () => {
+    const scrollTop = getScrollTop(scrollContainer);
+    scrollDelta = scrollTop - lastScrollTop;
+    window.diffY = scrollDelta;
+    lastScrollTop = scrollTop;
+  };
+
+  (scrollContainer || document).off("scroll", syncScrollDirection);
+  (scrollContainer || document).on("scroll", syncScrollDirection);
+  syncScrollDirection();
 
   const anchorScroll = (event, index) => {
     event.preventDefault();
@@ -235,7 +267,7 @@ function tocInit() {
       decodeURI(event.currentTarget.getAttribute("href")).slice(1),
     );
     activeLock = index;
-    scrollIntoViewAndWait(target!).then(() => {
+    scrollIntoViewAndWait(target!, scrollContainer).then(() => {
       activateNavByIndex(index);
       activeLock = null;
     });
@@ -314,13 +346,14 @@ function tocInit() {
 
   const observer = new IntersectionObserver(
     (entries) => {
-      const index = findIndex(entries) + (window.diffY > 0 ? 1 : 0);
+      const index = Math.max(0, findIndex(entries) + (scrollDelta > 0 ? 1 : 0));
       if (activeLock === null) {
         activateNavByIndex(index);
       }
     },
     {
-      rootMargin: "0px 0px -100% 0px",
+      root: scrollContainer || null,
+      rootMargin: "0px 0px -72% 0px",
       threshold: 0,
     },
   );
@@ -328,6 +361,8 @@ function tocInit() {
   sections.forEach((element) => {
     element && observer.observe(element);
   });
+
+  activateNavByIndex(0);
 }
 
 tocInit();

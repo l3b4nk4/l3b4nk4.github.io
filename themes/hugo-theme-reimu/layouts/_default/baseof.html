@@ -4,6 +4,11 @@
 {{- $hideHero := or $isLanding $isAboutPage (eq .Params.header false) -}}
 <html
   lang="{{ .Site.Language.LanguageCode }}" 
+  {{ if eq .Site.Params.dark_mode.enable true -}}
+    data-theme="dark"
+  {{ else if eq .Site.Params.dark_mode.enable false -}}
+    data-theme="light"
+  {{ end -}}
   {{ if and .IsPage (in .Site.Params.mainSections .Type) -}}
     class="mainsection-scroll-page"
   {{ end -}}
