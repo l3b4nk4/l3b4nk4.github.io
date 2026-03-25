@@ -378,6 +378,19 @@
   align-items: center;
   padding-top: 12px;
   padding-bottom: 12px;
+  min-height: calc(100vh - 124px);
+}
+
+[data-theme="dark"] #sidebar .sidebar-toc-sidebar {
+  display: flex;
+  flex: 1;
+  min-height: 0;
+  max-height: none;
+}
+
+[data-theme="dark"] #sidebar .sidebar-toc-wrapper {
+  flex: 1;
+  max-height: none;
 }
 
 [data-theme="dark"] .sidebar-author img {
@@ -552,6 +565,10 @@
 
   [data-theme="dark"] .sidebar-status-card {
     margin: 0 0 16px;
+  }
+
+  [data-theme="dark"] .sidebar-wrap {
+    min-height: auto;
   }
 
   [data-theme="dark"] .sidebar-wrapper-container.sticky {
