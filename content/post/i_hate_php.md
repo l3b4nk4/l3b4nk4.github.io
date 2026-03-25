@@ -1,6 +1,7 @@
 ---
 title: "I Hate PHP"
 description: "CTF WEB challenge"
+summary: "I Hate PHP looks like a restricted LFI at first, but the bug is stronger than that because the app uses include(). Once I found a writable file under an allowed path, it turned into RCE."
 date: 2026-03-25T18:49:31+02:00
 lastmod: 2026-03-25T18:49:31+02:00
 tags:
@@ -12,8 +13,6 @@ categories:
 cover: "covers/i_hate_php.png"
 draft: false
 ---
-
-`I Hate PHP` looks like a restricted LFI at first, but the bug is stronger than that because the app uses `include()`. Once I found a writable file under an allowed path, it turned into RCE.
 
 <!--more-->
 
