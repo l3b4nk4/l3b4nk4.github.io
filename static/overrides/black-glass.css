@@ -903,15 +903,22 @@
   display: none !important;
 }
 
-/* Write-up pages: place TOC card slightly lower for easier scrolling */
+/* Write-up pages: move the whole TOC square with page scroll, keep inner text stable */
 @media screen and (min-width: 960px) {
   [data-theme="dark"] #container:has(.article-inner) .sidebar-wrapper-container.sticky {
-    top: 104px;
+    position: relative;
+    top: 0;
   }
 
   [data-theme="dark"] #container:has(.article-inner) #sidebar .sidebar-toc-sidebar {
+    position: relative;
     margin-top: 22px;
-    top: 116px;
-    max-height: calc(100vh - 140px);
+    top: 0;
+    max-height: none;
+  }
+
+  [data-theme="dark"] #container:has(.article-inner) #sidebar .sidebar-toc-wrapper {
+    max-height: none;
+    overflow: visible;
   }
 }
