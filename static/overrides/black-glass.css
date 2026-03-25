@@ -912,7 +912,7 @@
 
   [data-theme="dark"] #container:has(.article-inner) #sidebar .sidebar-toc-sidebar {
     position: relative;
-    margin-top: 22px;
+    margin-top: 34px;
     top: auto;
     max-height: none;
   }
@@ -953,7 +953,7 @@
 
   #container:has(.article-inner) #sidebar .sidebar-toc-sidebar {
     position: relative !important;
-    margin-top: 22px;
+    margin-top: 34px !important;
     top: auto !important;
     max-height: none !important;
   }
