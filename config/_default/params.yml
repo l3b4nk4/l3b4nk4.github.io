@@ -136,8 +136,7 @@ home_categories:
       cover: covers/recon-grid.svg
 
 injector:
-  head_end: |-
-    <link rel="stylesheet" href="/overrides/black-glass.css">
+  head_end: ""
 
 internal_theme:
   light:
