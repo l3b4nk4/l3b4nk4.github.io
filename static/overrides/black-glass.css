@@ -910,8 +910,8 @@
 
 @media screen and (min-width: 960px) {
   #container:has(.article-inner) .sidebar-wrapper-container.sticky {
-    position: sticky !important;
-    top: 76px !important;
+    position: static !important;
+    top: auto !important;
   }
 
   #container:has(.article-inner) #sidebar .sidebar-toc-sidebar {

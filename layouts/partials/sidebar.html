@@ -2,7 +2,8 @@
   {{- if .Site.Params.injector.sidebar_begin -}}
   {{- .Site.Params.injector.sidebar_begin | safeHTML -}}
   {{- end -}}
-  <div class="sidebar-wrapper-container {{ if in .Site.Params.mainSections .Type }}sticky{{ end }}">
+  {{- $useStickySidebar := and (in .Site.Params.mainSections .Type) (ne .Kind "page") -}}
+  <div class="sidebar-wrapper-container {{ if $useStickySidebar }}sticky{{ end }}">
     {{- if or (eq .Site.Params.player.position "before_sidebar") (not .Site.Params.player.position) -}}
     {{- if and .Site.Params.player.aplayer.enable (not .Site.Params.player.meting.enable) (not
     .Site.Params.player.aplayer.options.fixed) -}}
