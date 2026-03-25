@@ -76,47 +76,17 @@ window.throttle = (func: (...args: any[]) => void, limit: number) => {
   window._$$ = (selector: string) => document.querySelectorAll(selector);
 
   // dark_mode
-  const themeButton = document.createElement("a");
-  themeButton.className = "nav-icon dark-mode-btn";
-  _$("#sub-nav").append(themeButton);
-
-  const osMode = window.matchMedia("(prefers-color-scheme: dark)").matches;
   function setTheme(config: string) {
-    const isAuto = config === "auto";
-    const isDark = config === "true" || (isAuto && osMode);
-
-    document.documentElement.setAttribute("data-theme", isDark ? "dark" : null);
-    localStorage.setItem("dark_mode", config);
-
-    themeButton.id = `nav-${
-      config === "true"
-        ? "moon"
-        : config === "false"
-          ? "sun"
-          : "circle-half-stroke"
-    }-btn`;
+    document.documentElement.setAttribute("data-theme", "dark");
+    localStorage.setItem("dark_mode", "true");
 
     document.body.dispatchEvent(
       new CustomEvent("reimu:theme-set", {
-        detail: { isDark, mode: config },
+        detail: { isDark: true, mode: config },
       })
     );
   }
-  const savedMode =
-    localStorage.getItem("dark_mode") ||
-    document.documentElement.getAttribute("data-theme-mode") ||
-    "auto";
-  setTheme(savedMode);
-
-  themeButton.addEventListener(
-    "click",
-    throttle(() => {
-      const modes = ["auto", "false", "true"];
-      const nextMode =
-        modes[(modes.indexOf(localStorage.getItem("dark_mode")) + 1) % 3];
-      setTheme(nextMode);
-    }, 1000),
-  );
+  setTheme("true");
 
   let oldScrollTop = 0;
   document.addEventListener("scroll", () => {
