@@ -123,25 +123,6 @@ body,
   color: var(--highlight-comment);
 }
 
-.sidebar-top .sidebar-top-taichi {
-  display: none !important;
-  opacity: 0 !important;
-}
-
-.sidebar-top .arrow-up {
-  opacity: 1 !important;
-}
-
-@media (hover: hover) {
-  .sidebar-top:hover .sidebar-top-taichi {
-    opacity: 0 !important;
-  }
-
-  .sidebar-top:hover .arrow-up {
-    opacity: 1 !important;
-  }
-}
-
 @media screen and (min-width: 960px) {
   html.mainsection-scroll-page,
   body.mainsection-scroll-page {

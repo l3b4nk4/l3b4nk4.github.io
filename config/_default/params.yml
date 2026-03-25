@@ -38,9 +38,9 @@ footer:
   count: false
   busuanzi: false
   icon:
-    url: false
-    rotate: false
-    mask: false
+    url: "../images/taichi.png"
+    rotate: true
+    mask: true
 
 sidebar:
   position: left
@@ -116,9 +116,9 @@ top:
   enable: true
   position: right
   icon:
-    url: "../avatar/avatar.png"
-    rotate: false
-    mask: false
+    url: "../images/taichi.png"
+    rotate: true
+    mask: true
 
 outdate:
   enable: false
