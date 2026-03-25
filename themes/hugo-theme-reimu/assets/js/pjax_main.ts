@@ -274,15 +274,7 @@ function tocInit() {
       }
       parent = parent.parentNode as HTMLElement;
     }
-    // Keep mobile TOC centered on the active item while scrolling.
-    if (_$(".sidebar-toc-sidebar").classList.contains("hidden")) {
-      const tocWrapper = _$(".sidebar-toc-wrapper");
-      tocWrapper.scrollTo({
-        top:
-          tocWrapper.scrollTop + target.offsetTop - tocWrapper.offsetHeight / 2,
-        behavior: "smooth",
-      });
-    }
+    // Keep TOC content position stable; do not auto-scroll the TOC wrapper.
   };
 
   const findIndex = (entries) => {
