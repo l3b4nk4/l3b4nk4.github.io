@@ -1,4 +1,5 @@
 {{- $params := .Site.Params -}}
+{{- $isArticle := in .Site.Params.mainSections .Type -}}
 <div id="header-nav">
   <nav id="main-nav" aria-label="Primary navigation">
     {{- range .Site.Params.menu -}}
@@ -106,6 +107,7 @@
   {{- end -}}
 </div>
 <header id="header" aria-label="Site header">
+  {{- if not $isArticle -}}
   {{- $headerImage := .Params.banner | default .Params.cover -}}
   {{- if and $headerImage (strings.HasPrefix $headerImage "rgb") -}}
     <picture></picture>
@@ -238,4 +240,5 @@
       {{- end -}}
     </div>
   </div>
+  {{- end -}}
 </header>
