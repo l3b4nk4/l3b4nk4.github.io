@@ -14,6 +14,19 @@
     <span class="code-name"></span>
     <a class="code-link"></a>
   </div>`;
+  const syncExpandState = (wrapper: Element | null) => {
+    if (!wrapper) return;
+    const expandButton = wrapper.querySelector(".code-expand") as
+      | HTMLButtonElement
+      | null;
+    if (!expandButton) return;
+    const isClosed = wrapper.classList.contains("code-closed");
+    expandButton.setAttribute("aria-expanded", (!isClosed).toString());
+    expandButton.setAttribute(
+      "title",
+      isClosed ? "Show code block" : "Hide code block",
+    );
+  };
   const reimuConfig = window.siteConfig?.code_block || {};
   const expandThreshold = reimuConfig.expand;
   _$$("div.highlight").forEach((element) => {
@@ -34,6 +47,7 @@
         element.style.display = "";
       }
     }
+    syncExpandState(element);
     const codeFigcaptionBottom = element.querySelector(
       ".code-figcaption-bottom",
     ) as HTMLDivElement;
@@ -65,7 +79,9 @@
   // 代码收缩
   _$$(".code-expand").forEach((element) => {
     element.off("click").on("click", () => {
-      element.closest("div.highlight")?.classList.toggle("code-closed");
+      const wrapper = element.closest("div.highlight");
+      wrapper?.classList.toggle("code-closed");
+      syncExpandState(wrapper);
     });
   });
 
