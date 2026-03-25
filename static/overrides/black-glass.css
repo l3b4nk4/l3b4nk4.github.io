@@ -826,3 +826,10 @@
   font-size: clamp(1.35rem, 2.2vw, 1.8rem);
   letter-spacing: 0;
 }
+
+/* Align left sidebar with main content row */
+@media screen and (min-width: 960px) {
+  [data-theme="dark"] .sidebar-left #sidebar {
+    margin: 0 12px 0 !important;
+  }
+}
