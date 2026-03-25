@@ -1000,25 +1000,28 @@
 @media screen and (min-width: 960px) {
   #container:has(.article-inner) #sidebar .sidebar-wrapper-container,
   #container:has(.article-inner) .sidebar-wrapper-container.sticky {
-    position: static !important;
-    top: auto !important;
-    max-height: none !important;
+    position: sticky !important;
+    top: 88px !important;
+    align-self: flex-start !important;
+    max-height: calc(100vh - 116px) !important;
   }
 
   #container:has(.article-inner) #sidebar .sidebar-wrapper,
   #container:has(.article-inner) #sidebar .sidebar-wrap {
     overflow: visible !important;
+    height: auto !important;
   }
 
   #container:has(.article-inner) #sidebar .sidebar-toc-sidebar {
     position: static !important;
     top: auto !important;
-    max-height: none !important;
+    max-height: calc(100vh - 148px) !important;
   }
 
   #container:has(.article-inner) #sidebar .sidebar-toc-wrapper {
-    max-height: none !important;
-    overflow: visible !important;
-    overflow-y: visible !important;
+    max-height: calc(100vh - 220px) !important;
+    overflow: auto !important;
+    overflow-y: auto !important;
+    padding-right: 6px;
   }
 }

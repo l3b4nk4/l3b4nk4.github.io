@@ -2,8 +2,7 @@
   {{- if .Site.Params.injector.sidebar_begin -}}
   {{- .Site.Params.injector.sidebar_begin | safeHTML -}}
   {{- end -}}
-  {{- $useStickySidebar := and (in .Site.Params.mainSections .Type) (ne .Kind "page") -}}
-  <div class="sidebar-wrapper-container {{ if $useStickySidebar }}sticky{{ end }}">
+  <div class="sidebar-wrapper-container {{ if in .Site.Params.mainSections .Section }}sticky{{ end }}">
     {{- if or (eq .Site.Params.player.position "before_sidebar") (not .Site.Params.player.position) -}}
     {{- if and .Site.Params.player.aplayer.enable (not .Site.Params.player.meting.enable) (not
     .Site.Params.player.aplayer.options.fixed) -}}
@@ -39,7 +38,7 @@
     {{- end -}}
     <div class="sidebar-wrapper">
       <div class="sidebar-wrap" data-aos="{{ .Site.Params.animation.options.home.sidebar }}">
-        {{- if in .Site.Params.mainSections .Type -}}
+        {{- if in .Site.Params.mainSections .Section -}}
         {{- if eq .Params.toc false -}}
         {{- partial "sidebar/commonBar.html" (dict "ctx" . "mobile" false) -}}
         {{- else if and (ne .Params.toc true) (eq .Site.Params.toc false) -}}
@@ -60,7 +59,7 @@
         {{- partial "sidebar/commonBar.html" (dict "ctx" . "mobile" false) -}}
         {{- end -}}
 
-        {{- if in .Site.Params.mainSections .Type -}}
+        {{- if in .Site.Params.mainSections .Section -}}
         {{- if eq .Params.toc false -}}
         {{- else if and (ne .Params.toc true) (eq .Site.Params.toc false) -}}
         {{- else if not $showCommonSidebar -}}
@@ -104,7 +103,7 @@
     {{- end -}}
     {{- end -}}
     <div class="sidebar-widget">
-      {{- if and (not (in .Site.Params.mainSections .Type)) .Site.Params.widgets -}}
+      {{- if and (not (in .Site.Params.mainSections .Section)) .Site.Params.widgets -}}
       {{- range .Site.Params.widgets -}}
       {{- partialCached (printf "widget/%s.html" .) $ -}}
       {{- end -}}
