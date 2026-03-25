@@ -164,6 +164,13 @@
 
 [data-theme="dark"] .sidebar-wrapper-container.sticky {
   top: 76px;
+  height: calc(100vh - 96px);
+  max-height: calc(100vh - 96px);
+}
+
+[data-theme="dark"] .sidebar-wrapper,
+[data-theme="dark"] .sidebar-wrap {
+  height: 100%;
 }
 
 [data-theme="dark"] #sidebar .sidebar-toc-sidebar {
@@ -573,6 +580,8 @@
 
   [data-theme="dark"] .sidebar-wrapper-container.sticky {
     top: 20px;
+    height: auto;
+    max-height: none;
   }
 
   [data-theme="dark"] #sidebar .sidebar-toc-sidebar {
