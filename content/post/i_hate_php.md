@@ -147,19 +147,6 @@ What it does:
 3. send parallel requests that include `sess_<sid>`
 4. stop once it sees the output markers
 
-Run it with:
-
-```bash
-python3 solvephp.py
-```
-
-## flag
-
-```text
-CATF{7H3_M057_7H1NG_1_H473_4B0U7_PHP_15_H0W_UNPR3D1C74BL3_17_C4N_B3}
-```
-
-## solver 
 ```python
 import requests
 import threading
@@ -215,4 +202,17 @@ try:
         time.sleep(1)
 except KeyboardInterrupt:
     print("\n[-] Stopped.")
+```
+
+Run it with:
+
+```bash
+python3 solvephp.py
+```
+
+
+## flag
+
+```text
+CATF{7H3_M057_7H1NG_1_H473_4B0U7_PHP_15_H0W_UNPR3D1C74BL3_17_C4N_B3}
 ```
