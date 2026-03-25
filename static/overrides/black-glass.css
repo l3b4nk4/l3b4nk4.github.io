@@ -771,3 +771,53 @@
     padding: 18px 18px;
   }
 }
+
+/* Background noise cleanup */
+[data-theme="dark"] body,
+[data-theme="dark"] #wrap,
+[data-theme="dark"] #container,
+[data-theme="dark"] #content {
+  background: #0d1015 !important;
+  background-image: none !important;
+}
+
+[data-theme="dark"] #header,
+[data-theme="dark"] .post-wrap,
+[data-theme="dark"] .article-inner,
+[data-theme="dark"] .sidebar-wrap,
+[data-theme="dark"] .widget-wrap,
+[data-theme="dark"] .article-nav-link-wrap,
+[data-theme="dark"] .post-categories-cover {
+  background-image: none !important;
+}
+
+[data-theme="dark"] #header::before,
+[data-theme="dark"] #header::after,
+[data-theme="dark"] .sidebar-status-card::before,
+[data-theme="dark"] .article-nav-link-wrap::after {
+  content: none !important;
+  background: none !important;
+}
+
+/* Write-up pages: remove remaining hero/cover noise */
+[data-theme="dark"] #container:has(.article-inner) #header {
+  min-height: 88px;
+  height: 88px;
+}
+
+[data-theme="dark"] #container:has(.article-inner) #header img,
+[data-theme="dark"] #container:has(.article-inner) #header picture {
+  display: none !important;
+}
+
+[data-theme="dark"] #container:has(.article-inner) #header-title {
+  position: static;
+  transform: none;
+  margin: 0;
+  padding: 22px 18px 10px;
+}
+
+[data-theme="dark"] #container:has(.article-inner) #logo h1 {
+  font-size: clamp(1.35rem, 2.2vw, 1.8rem);
+  letter-spacing: 0;
+}
