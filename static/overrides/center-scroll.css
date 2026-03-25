@@ -122,10 +122,11 @@ body.home-landing-page .sidebar-author-name {
 }
 
 body.home-landing-page .sidebar-state {
-  width: 100%;
+  width: min(100%, 150px);
+  margin: 0 auto;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: minmax(0, 1fr);
   gap: 0;
 }
 

@@ -26,14 +26,6 @@
     <div>{{ i18n "sidebar.post" }}</div>
     <div class="sidebar-state-number">{{ len $posts }}</div>
   </div>
-  <div class="sidebar-state-category">
-    <div>{{ i18n "categories" }}</div>
-    <div class="sidebar-state-number">{{ len .ctx.Site.Taxonomies.categories }}</div>
-  </div>
-  <div class="sidebar-state-tag">
-    <div>{{ i18n "tags" }}</div>
-    <div class="sidebar-state-number">{{ len .ctx.Site.Taxonomies.tags }}</div>
-  </div>
 </div>
 <div class="sidebar-social" {{ if not (or $showMenu $mobile) }}style="margin-bottom: 20px;"{{ end }}>
   {{- range $name, $url := $params.social -}}
