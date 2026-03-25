@@ -106,6 +106,7 @@
     </a>
   {{- end -}}
 </div>
+{{- if not .IsHome -}}
 <header id="header" aria-label="Site header">
   {{- if not $isArticle -}}
   {{- $headerImage := .Params.banner | default .Params.cover -}}
@@ -216,7 +217,7 @@
             {{- $useTyping = true -}}
           {{- else if and (reflect.IsMap .Site.Params.subtitle) .Site.Params.subtitle.text -}}
             {{- $subtitle = .Site.Params.subtitle.text -}}
-          {{- else if .Site.Params.subtitle -}}
+          {{- else if and (not (reflect.IsMap .Site.Params.subtitle)) .Site.Params.subtitle -}}
             {{- $subtitle = .Site.Params.subtitle -}}
           {{- end -}}
         {{- else if and (eq .Type "categories") (not (eq .Title "Categories")) -}}
@@ -242,3 +243,4 @@
   </div>
   {{- end -}}
 </header>
+{{- end -}}
