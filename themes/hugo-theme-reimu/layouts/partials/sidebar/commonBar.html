@@ -17,7 +17,11 @@
 <div class="sidebar-state">
   <div class="sidebar-state-article">
     <div>{{ i18n "sidebar.post" }}</div>
-    {{- $posts := (where .ctx.Page.Site.RegularPages "Section" "in" $params.mainSections) -}}
+    {{- $isHome := or .ctx.IsHome (eq .ctx.Kind "home") (eq .ctx.RelPermalink "/") (eq .ctx.Permalink .ctx.Site.BaseURL) -}}
+    {{- $posts := (where .ctx.Site.RegularPages "Section" "in" $params.mainSections) -}}
+    {{- if $isHome -}}
+      {{- $posts = where $posts "Params.categories" "intersect" (slice "writeup") -}}
+    {{- end -}}
     <div class="sidebar-state-number">{{ len $posts }}</div>
   </div>
 </div>

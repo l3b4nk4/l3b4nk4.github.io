@@ -52,8 +52,7 @@ sidebar:
 social:
   github: https://github.com/L3B4nk4
 
-widgets:
-  []
+widgets: []
 
 recent_posts_limits: 5
 tagcloud_limits: 20
@@ -130,9 +129,6 @@ pace:
 
 home_categories:
   enable: false
-  content:
-    - categories: writeup
-      cover: covers/recon-grid.svg
 
 injector:
   head_end: |-

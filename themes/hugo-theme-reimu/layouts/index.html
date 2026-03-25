@@ -1,14 +1,16 @@
 {{- define "main" -}}
   {{- $ctx := . -}}
   {{- $pageSize := 0 -}}
+  {{- $homePages := where .Site.RegularPages "Section" "in" .Site.Params.mainSections -}}
+  {{- $homePages = where $homePages "Params.categories" "intersect" (slice "writeup") -}}
   {{- with $.Site.Params.paginate.post -}}
     {{- $pageSize = . -}}
   {{- end -}}
   {{- $paginator := "" -}}
   {{- if gt $pageSize 0 -}}
-    {{- $paginator = .Paginate (where .Site.RegularPages "Section" "in" .Site.Params.mainSections) $pageSize -}}
+    {{- $paginator = .Paginate $homePages $pageSize -}}
   {{- else -}}
-    {{- $paginator = .Paginate (where .Site.RegularPages "Section" "in" .Site.Params.mainSections) -}}
+    {{- $paginator = .Paginate $homePages -}}
   {{- end -}}
   {{- $sort_config := .Site.Params.sort_order.home -}}
   {{- if and (eq 1 $paginator.PageNumber) ($ctx.Site.Params.home_categories.enable) -}}
@@ -53,23 +55,23 @@
   {{- end -}}
   {{- if eq $sort_config "weight" -}}
     {{- range $k, $v := $paginator.Pages.ByWeight -}}
-      {{- partial "post.html"  (dict "index" $k "ctx" . "page" $v ) -}}
+      {{- partial "post.html"  (dict "index" $k "ctx" $ctx "page" $v ) -}}
     {{- end -}}
   {{- else if eq $sort_config "weight-reverse" -}}
     {{- range $k, $v := $paginator.Pages.ByWeight.Reverse -}}
-      {{- partial "post.html"  (dict "index" $k "ctx" . "page" $v ) -}}
+      {{- partial "post.html"  (dict "index" $k "ctx" $ctx "page" $v ) -}}
     {{- end -}}
   {{- else if eq $sort_config "date" -}}
     {{- range $k, $v := $paginator.Pages.ByDate -}}
-      {{- partial "post.html" (dict "index" $k "ctx" . "page" $v ) -}}
+      {{- partial "post.html" (dict "index" $k "ctx" $ctx "page" $v ) -}}
     {{- end -}}
   {{- else if eq $sort_config "date-reverse" -}}
     {{- range $k, $v := $paginator.Pages.ByDate.Reverse -}}
-      {{- partial "post.html" (dict "index" $k "ctx" . "page" $v ) -}}
+      {{- partial "post.html" (dict "index" $k "ctx" $ctx "page" $v ) -}}
     {{- end -}}
   {{- else if eq $sort_config "default" -}}
     {{- range $k, $v := $paginator.Pages -}}
-      {{- partial "post.html"  (dict "index" $k "ctx" . "page" $v ) -}}
+      {{- partial "post.html"  (dict "index" $k "ctx" $ctx "page" $v ) -}}
     {{- end -}}
   {{- end -}}
   {{- partial "pagination.html" . -}}

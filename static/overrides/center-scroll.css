@@ -1,18 +1,12 @@
 :root {
-  --site-shell-bg:
-    radial-gradient(circle at top left, rgba(20, 153, 135, 0.08), transparent 24%),
-    radial-gradient(circle at top right, rgba(99, 230, 217, 0.08), transparent 22%),
-    linear-gradient(180deg, #f6fffd 0%, #eefcf9 100%);
+  --site-shell-bg: #f6fffd;
   --site-card-border: rgba(20, 153, 135, 0.16);
   --site-card-shadow: 0 18px 40px rgba(8, 23, 20, 0.08);
   --site-card-shadow-strong: 0 24px 54px rgba(8, 23, 20, 0.14);
 }
 
 [data-theme="dark"]:root {
-  --site-shell-bg:
-    radial-gradient(circle at top left, rgba(20, 153, 135, 0.08), transparent 26%),
-    radial-gradient(circle at top right, rgba(99, 230, 217, 0.06), transparent 24%),
-    linear-gradient(180deg, #050809 0%, #030506 100%);
+  --site-shell-bg: #030506;
   --site-card-border: rgba(99, 230, 217, 0.14);
   --site-card-shadow: 0 20px 46px rgba(0, 0, 0, 0.22);
   --site-card-shadow-strong: 0 28px 64px rgba(0, 0, 0, 0.3);
