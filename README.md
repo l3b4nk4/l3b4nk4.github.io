@@ -1,6 +1,6 @@
-# L3b4nk4 Writeups
+# L3B4nk4 Writeups
 
-A Hugo-powered personal write-up blog for `L3b4nk4`, built on top of [hugo-theme-reimu](https://github.com/D-Sketon/hugo-theme-reimu).
+A Hugo-powered personal write-up blog for `L3B4nk4`, built on top of [hugo-theme-reimu](https://github.com/D-Sketon/hugo-theme-reimu).
 
 ## Run locally
 

@@ -1,6 +1,6 @@
 baseURL = 'https://l3b4nk4.github.io/'
 languageCode = 'en-us'
-title = 'L3b4nk4'
+title = 'L3B4nk4'
 theme = 'hugo-theme-reimu'
 enableRobotsTXT = true
 

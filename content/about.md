@@ -1,11 +1,11 @@
 ---
 title: About
-description: Who is L3b4nk4 and what this blog is for.
+description: Who is L3B4nk4 and what this blog is for.
 date: 2026-03-25T09:15:00+02:00
 lastmod: 2026-03-25T09:15:00+02:00
 ---
 
-`L3b4nk4` is my space for security write-ups, lab walkthroughs, tooling notes, and the kind of documentation I wish I had open on the second monitor during a long night of debugging.
+`L3B4nk4` is my space for security write-ups, lab walkthroughs, tooling notes, and the kind of documentation I wish I had open on the second monitor during a long night of debugging.
 
 ## What lives here
 
@@ -25,4 +25,4 @@ Good write-ups should be reproducible, honest, and useful after the adrenaline w
 
 ## Find me
 
-GitHub: [github.com/L3b4nk4](https://github.com/L3b4nk4)
+GitHub: [github.com/L3B4nk4](https://github.com/L3B4nk4)

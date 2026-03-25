@@ -13,9 +13,9 @@ menu:
     icon: false
 
 mainSections: ["post"]
-author: L3b4nk4
+author: L3B4nk4
 email: ""
-description: "Security write-ups, CTF notes, recon logs, and lab walkthroughs from L3b4nk4."
+description: "Security write-ups, CTF notes, recon logs, and lab walkthroughs from L3B4nk4."
 subtitle:
   typing:
     enable: true
@@ -55,7 +55,7 @@ sidebar:
     show_common: true
 
 social:
-  github: https://github.com/L3b4nk4
+  github: https://github.com/L3B4nk4
 
 widgets:
   - recent_posts
@@ -73,7 +73,7 @@ summary:
 triangle_badge:
   enable: true
   icon: github
-  link: https://github.com/L3b4nk4/l3b4nk4.github.io
+  link: https://github.com/L3B4nk4/l3b4nk4.github.io
 
 reimu_cursor:
   enable: false
