@@ -136,7 +136,8 @@ home_categories:
       cover: covers/recon-grid.svg
 
 injector:
-  head_end: ""
+  head_end: |-
+    <link rel="stylesheet" href="/overrides/center-scroll.css">
 
 internal_theme:
   light:

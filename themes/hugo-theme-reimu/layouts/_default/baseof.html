@@ -18,7 +18,7 @@
       {{- .Site.Params.injector.head_end | safeHTML -}}
     {{- end -}}
   </head>
-  <body>
+  <body{{ if and .IsPage (in .Site.Params.mainSections .Type) }} class="mainsection-scroll-page"{{ end }}>
     {{- if .Site.Params.injector.body_begin -}}
       {{- .Site.Params.injector.body_begin | safeHTML -}}
     {{- end -}}
