@@ -918,7 +918,19 @@
 
 @media screen and (min-width: 960px) {
   #container:has(.article-inner) .sidebar-wrapper-container.sticky {
-    position: sticky !important;
-    top: 76px !important;
+    position: static !important;
+    top: auto !important;
+  }
+
+  #container:has(.article-inner) #sidebar .sidebar-toc-sidebar {
+    position: static !important;
+    top: auto !important;
+    max-height: none !important;
+  }
+
+  #container:has(.article-inner) #sidebar .sidebar-toc-wrapper {
+    max-height: none !important;
+    overflow: visible !important;
+    overflow-y: visible !important;
   }
 }
