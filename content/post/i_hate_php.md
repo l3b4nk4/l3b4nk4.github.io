@@ -137,14 +137,14 @@ I wrapped the output with markers so the solver could tell when it actually work
 
 ## solver
 
-The final solver is in `solvephp.py`. It is small and fixed to the challenge URL.
+The final solver is in `solvephp.py`. 
 
 What it does:
 
 1. generate a fresh session id
 2. start a multipart upload with the PHP payload in `PHP_SESSION_UPLOAD_PROGRESS`
 3. send parallel requests that include `sess_<sid>`
-4. stop once it sees the output markers
+
 
 ```python
 import requests
