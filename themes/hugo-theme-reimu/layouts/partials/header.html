@@ -226,13 +226,15 @@
             {{- $subtitle = .Summary | plainify | truncate 200 -}}
           {{- end -}}
         {{- end -}}
-        <h2 id="subtitle-wrap" data-aos="{{ .Site.Params.animation.options.header.subTitle }}">
-          {{- if $useTyping -}}
-            <span id="subtitle"><span></span></span>
-          {{- else if $subtitle -}}
-            <span id="subtitle">{{ $subtitle }}</span>
-          {{- end -}}
-        </h2>
+        {{- if or $useTyping $subtitle -}}
+          <h2 id="subtitle-wrap" data-aos="{{ .Site.Params.animation.options.header.subTitle }}">
+            {{- if $useTyping -}}
+              <span id="subtitle"><span></span></span>
+            {{- else if $subtitle -}}
+              <span id="subtitle">{{ $subtitle }}</span>
+            {{- end -}}
+          </h2>
+        {{- end -}}
       {{- end -}}
     </div>
   </div>

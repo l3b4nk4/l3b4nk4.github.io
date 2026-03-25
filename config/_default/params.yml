@@ -26,7 +26,7 @@ subtitle:
     showCursor: true
     cursorChar: "_"
     smartBackspace: true
-  text: "Security write-ups, recon logs, and lab notes"
+  text: ""
 
 banner: "images/l3b4nk4-banner.svg"
 avatar: "avatar.png"
