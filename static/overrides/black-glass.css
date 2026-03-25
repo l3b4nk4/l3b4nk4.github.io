@@ -906,14 +906,14 @@
 /* Write-up pages: TOC square should move with scrolling, text should stay stable */
 @media screen and (min-width: 960px) {
   [data-theme="dark"] #container:has(.article-inner) .sidebar-wrapper-container.sticky {
-    position: sticky;
-    top: 104px;
+    position: relative;
+    top: auto;
   }
 
   [data-theme="dark"] #container:has(.article-inner) #sidebar .sidebar-toc-sidebar {
-    position: sticky;
+    position: relative;
     margin-top: 22px;
-    top: 116px;
+    top: auto;
     max-height: none;
   }
 
