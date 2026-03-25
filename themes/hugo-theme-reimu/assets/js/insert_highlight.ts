@@ -2,11 +2,7 @@
   const codeFigcaption = `
   <div class="code-figcaption">
     <div class="code-left-wrap">
-      <div class="code-decoration" aria-hidden="true">
-        <span class="code-decoration-dot code-decoration-dot-red"></span>
-        <span class="code-decoration-dot code-decoration-dot-yellow"></span>
-        <span class="code-decoration-dot code-decoration-dot-green"></span>
-      </div>
+      <div class="code-decoration" aria-hidden="true"></div>
       <div class="code-lang">TEXT</div>
     </div>
     <div class="code-right-wrap">
