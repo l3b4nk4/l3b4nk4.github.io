@@ -858,15 +858,7 @@
 }
 
 [data-theme="dark"] #container:has(.article-inner) #header-title {
-  position: static;
-  transform: none;
-  margin: 0;
-  padding: 22px 18px 10px;
-}
-
-[data-theme="dark"] #container:has(.article-inner) #logo h1 {
-  font-size: clamp(1.35rem, 2.2vw, 1.8rem);
-  letter-spacing: 0;
+  display: none !important;
 }
 
 /* Align left sidebar with main content row */
