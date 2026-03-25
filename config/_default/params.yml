@@ -35,7 +35,7 @@ toc: true
 footer:
   since: 2026
   copyright: false
-  powered: true
+  powered: false
   count: false
   busuanzi: false
   icon:
