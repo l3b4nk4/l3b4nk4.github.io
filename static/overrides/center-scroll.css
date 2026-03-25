@@ -109,7 +109,7 @@ body.no-hero-page #content {
   }
 
   html.mainsection-scroll-page {
-    scrollbar-gutter: stable;
+    scrollbar-gutter: auto;
   }
 
   body.mainsection-scroll-page #container,
@@ -159,13 +159,17 @@ body.no-hero-page #content {
     overflow-y: auto;
     overflow-x: hidden;
     overscroll-behavior: contain;
-    scrollbar-gutter: stable;
-    padding-right: 6px;
+    scrollbar-gutter: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    padding-right: 0;
     padding-bottom: 20px;
   }
 
   body.mainsection-scroll-page #main > article.article::-webkit-scrollbar {
-    width: 10px;
+    display: none;
+    width: 0;
+    height: 0;
   }
 
   body.mainsection-scroll-page #sidebar {
