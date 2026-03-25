@@ -381,7 +381,9 @@
   display: flex;
   position: relative;
   justify-content: center;
-  border: 10px var(--color-red-3-shadow) double;
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  background: transparent;
   transition:
     border 0.5s,
     background 0.5s,
@@ -391,7 +393,8 @@
   margin: 8px auto;
 
   &:hover {
-    border: 10px var(--color-h2-after) double;
+    border-color: var(--color-h2-after);
+    background: var(--red-6);
   }
 
   &:hover .sidebar-menu-icon:before {
@@ -450,9 +453,9 @@
 
 .link-active {
   background: var(--red-0);
-  border: 10px var(--color-wrap) double;
-  box-shadow: var(--shadow-red-6-shadow);
-  opacity: 0.8;
+  border-color: var(--red-2);
+  box-shadow: 0 0 0 1px var(--red-4), var(--shadow-red-6-shadow);
+  opacity: 1;
 
   &:hover {
     opacity: 1;
@@ -552,29 +555,29 @@
     }
   }
 
-  .active > ul,
+  .active-parent > ul,
   .current > ul,
-  .active > ol,
+  .active-parent > ol,
   .current > ol {
     height: auto;
     transform: scaleY(1);
   }
 
-  .active > a,
+  .active-parent > a,
   .current > a {
     opacity: 1;
   }
 
-  .active:not(.current) {
+  .active-parent {
     background: transparent;
     box-shadow: none;
   }
 
-  .active:not(.current) > a {
+  .active-parent > a {
     color: var(--red-0);
   }
 
-  .active:not(.current):before {
+  .active-parent:before {
     opacity: 0.75;
   }
 

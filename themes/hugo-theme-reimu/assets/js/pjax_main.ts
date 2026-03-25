@@ -290,27 +290,27 @@ function tocInit() {
 
     if (!target || target.classList.contains("current")) return;
 
-    _$$(".sidebar-toc-wrapper .active").forEach((element) => {
-      element.classList.remove("active", "current");
+    _$$(".sidebar-toc-wrapper .current, .sidebar-toc-wrapper .active-parent").forEach((element) => {
+      element.classList.remove("current", "active-parent");
     });
 
     sections.forEach((element) => {
-      element?.classList.remove("active");
+      element?.classList.remove("active", "active-parent");
     });
 
-    target.classList.add("active", "current");
+    target.classList.add("current");
     sections[index]?.classList.add("active");
 
     let parent = target.parentNode as HTMLElement;
 
     while (!parent.matches(".sidebar-toc-sidebar")) {
       if (parent.matches("li")) {
-        parent.classList.add("active");
+        parent.classList.add("active-parent");
         const t = document.getElementById(
           decodeURI(parent.querySelector("a").getAttribute("href").slice(1)),
         );
         if (t) {
-          t.classList.add("active");
+          t.classList.add("active-parent");
         }
       }
       parent = parent.parentNode as HTMLElement;
