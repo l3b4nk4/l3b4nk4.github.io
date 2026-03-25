@@ -134,6 +134,7 @@ home_categories:
 
 injector:
   head_end: |-
+    <meta name="application-name" content="L3B4nk4">
     <link rel="stylesheet" href="/overrides/center-scroll.css">
 
 internal_theme:

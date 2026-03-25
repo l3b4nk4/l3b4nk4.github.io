@@ -91,6 +91,12 @@ body.home-landing-page #content {
   padding-top: 0;
 }
 
+@media screen and (min-width: 960px) {
+  body.home-landing-page #sidebar .sidebar-wrap {
+    transform: translateY(28px);
+  }
+}
+
 .sidebar-wrap,
 .widget-wrap,
 .article-inner,
