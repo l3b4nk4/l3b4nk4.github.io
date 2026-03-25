@@ -48,10 +48,6 @@
       {{- end -}}
     </div>
     <footer class="article-footer">
-      {{- if or (eq .Params.copyright true) (and (not (eq .Params.copyright false)) .Site.Params.article_copyright.enable) -}}
-        {{- partial "post/copyright.html" . -}}
-      {{- end -}}
-
       {{- if or (eq .Params.sponsor true) (and (not (eq .Params.sponsor false)) .Site.Params.sponsor.enable) -}}
         {{- partial "post/sponsor.html" . -}}
       {{- end -}}
