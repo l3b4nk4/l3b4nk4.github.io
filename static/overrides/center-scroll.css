@@ -92,7 +92,7 @@ body.home-landing-page #content {
 }
 
 body.home-landing-page .home-page-head {
-  margin: 6px 0 28px;
+  margin: 6px 0 44px;
   padding: 0 6px;
 }
 
@@ -107,7 +107,7 @@ body.home-landing-page .home-page-head h1 {
 
 @media screen and (min-width: 960px) {
   body.home-landing-page #sidebar .sidebar-wrap {
-    transform: translateY(52px);
+    transform: translateY(96px);
   }
 }
 
