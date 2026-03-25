@@ -29,7 +29,7 @@ subtitle:
   text: "Security write-ups, recon logs, and lab notes"
 
 banner: "images/l3b4nk4-banner.svg"
-avatar: "l3b4nk4-avatar.svg"
+avatar: "avatar.webp"
 toc: true
 
 footer:
@@ -58,7 +58,7 @@ widgets:
 
 recent_posts_limits: 5
 tagcloud_limits: 20
-show_update_time: true
+show_update_time: false
 
 summary:
   enable: true
@@ -107,8 +107,8 @@ article_copyright:
     author: true
     link: true
     title: false
-    date: true
-    updated: true
+    date: false
+    updated: false
     license: true
     license_type: by-nc-sa
 
@@ -121,7 +121,7 @@ top:
     mask: false
 
 outdate:
-  enable: true
+  enable: false
   daysAgo: 180
   message:
     en: "This write-up was last updated on {time}. Tooling, versions, or indicators may have changed since then."

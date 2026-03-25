@@ -849,3 +849,14 @@
   min-height: 56px;
   height: 56px;
 }
+
+/* Remove date UI across the site */
+[data-theme="dark"] .post-meta span:has(.icon-calendar),
+[data-theme="dark"] .post-meta span:has(.icon-calendar-plus),
+[data-theme="dark"] .article-date,
+[data-theme="dark"] .article-date-link.icon-calendar,
+[data-theme="dark"] .article-date-link.icon-calendar-plus,
+[data-theme="dark"] .archive-article-date,
+[data-theme="dark"] #outdate-blockquote {
+  display: none !important;
+}
