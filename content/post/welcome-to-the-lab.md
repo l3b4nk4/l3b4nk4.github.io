@@ -1,8 +1,8 @@
 ---
 title: Welcome to the Lab
 description: What this blog is for, how I document work, and what kind of write-ups are coming next.
-date: 2026-03-25T09:20:00+02:00
-lastmod: 2026-03-25T09:20:00+02:00
+date: 2025-03-25T09:20:00+02:00
+lastmod: 2025-03-25T09:20:00+02:00
 tags:
   - intro
   - workflow

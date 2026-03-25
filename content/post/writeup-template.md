@@ -1,8 +1,8 @@
 ---
 title: A Write-up Template I Can Reuse
 description: A practical structure for capturing recon, exploitation, privilege escalation, and proof without losing the thread.
-date: 2026-03-25T09:30:00+02:00
-lastmod: 2026-03-25T09:30:00+02:00
+date: 2025-03-25T09:30:00+02:00
+lastmod: 2025-03-25T09:30:00+02:00
 tags:
   - template
   - methodology

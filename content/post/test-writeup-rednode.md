@@ -1,8 +1,8 @@
 ---
 title: "Test Write-up: RedNode"
 description: "A fictional lab walkthrough covering recon, web foothold, and privilege escalation for testing the blog layout."
-date: 2026-03-25T10:20:00+02:00
-lastmod: 2026-03-25T10:20:00+02:00
+date: 2025-03-25T10:20:00+02:00
+lastmod: 2025-03-25T10:20:00+02:00
 tags:
   - test
   - walkthrough
