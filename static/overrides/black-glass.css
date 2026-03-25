@@ -833,3 +833,9 @@
     margin: 0 12px 0 !important;
   }
 }
+
+/* Hide RSS button in top navigation */
+[data-theme="dark"] #nav-rss-link,
+#nav-rss-link {
+  display: none !important;
+}
