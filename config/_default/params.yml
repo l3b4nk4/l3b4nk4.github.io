@@ -1,10 +1,10 @@
 menu:
   - name: home
     url: ""
-    icon: f015
+    icon: false
   - name: about
     url: "about"
-    icon: f05a
+    icon: false
 
 mainSections: ["post"]
 author: L3B4nk4

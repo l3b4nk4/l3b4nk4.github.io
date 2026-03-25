@@ -562,16 +562,20 @@
 
   .active > a,
   .current > a {
-    color: var(--red-0);
     opacity: 1;
   }
 
-  .active {
-    background: var(--red-6);
+  .active:not(.current) {
+    background: transparent;
+    box-shadow: none;
   }
 
-  .active:before {
-    opacity: 0.9;
+  .active:not(.current) > a {
+    color: var(--red-0);
+  }
+
+  .active:not(.current):before {
+    opacity: 0.75;
   }
 
   .current {
