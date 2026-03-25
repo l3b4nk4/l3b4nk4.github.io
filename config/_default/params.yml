@@ -18,7 +18,7 @@ email: ""
 description: "Security write-ups, CTF notes, recon logs, and lab walkthroughs from L3B4nk4."
 subtitle:
   typing:
-    enable: true
+    enable: false
     strings:
       - "Security write-ups and CTF notes"
       - "Recon, exploitation, and post-exploitation logs"
@@ -32,7 +32,7 @@ subtitle:
     showCursor: true
     cursorChar: "_"
     smartBackspace: true
-  text: "Security write-ups and CTF notes"
+  text: "Security write-ups, recon logs, and lab notes"
 
 banner: "images/l3b4nk4-banner.svg"
 avatar: "l3b4nk4-avatar.svg"
