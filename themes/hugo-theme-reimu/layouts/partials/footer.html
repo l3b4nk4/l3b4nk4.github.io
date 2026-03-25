@@ -14,21 +14,23 @@
     {{- if .Site.Params.copyright -}}
       {{- .Site.Params.copyright | safeHTML -}}
     {{- end -}}
-    <div>
-      <span class="icon-copyright"></span>
-      {{- if eq (string .Site.Params.footer.since) (now.Format .Site.Params.yearFormat) -}}
-        {{- now.Format .Site.Params.yearFormat -}}
-      {{- else -}}
-        {{- .Site.Params.footer.since -}} -
-        {{- now.Format .Site.Params.yearFormat -}}
-      {{- end -}}
-      {{- if eq .Site.Params.footer.icon.url false -}}
-        &nbsp;
-      {{- else -}}
-        <span class="footer-info-sep {{ if .Site.Params.footer.icon.rotate }}rotate{{ end }}"></span>
-      {{- end -}}
-      {{ .Site.Params.author | default .Site.Title }}
-    </div>
+    {{- if not (eq .Site.Params.footer.copyright false) -}}
+      <div>
+        <span class="icon-copyright"></span>
+        {{- if eq (string .Site.Params.footer.since) (now.Format .Site.Params.yearFormat) -}}
+          {{- now.Format .Site.Params.yearFormat -}}
+        {{- else -}}
+          {{- .Site.Params.footer.since -}} -
+          {{- now.Format .Site.Params.yearFormat -}}
+        {{- end -}}
+        {{- if eq .Site.Params.footer.icon.url false -}}
+          &nbsp;
+        {{- else -}}
+          <span class="footer-info-sep {{ if .Site.Params.footer.icon.rotate }}rotate{{ end }}"></span>
+        {{- end -}}
+        {{ .Site.Params.author | default .Site.Title }}
+      </div>
+    {{- end -}}
     {{- if .Site.Params.footer.powered -}}
       <div>
         {{ i18n "powered_by" }}&nbsp;<a
