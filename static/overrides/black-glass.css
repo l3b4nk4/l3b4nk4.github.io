@@ -839,3 +839,13 @@
 #nav-rss-link {
   display: none !important;
 }
+
+/* About page: remove header title layer behind nav */
+[data-theme="dark"] #header img[alt="About"]~#header-outer #header-title {
+  display: none !important;
+}
+
+[data-theme="dark"] #header:has(img[alt="About"]) {
+  min-height: 56px;
+  height: 56px;
+}
