@@ -154,20 +154,21 @@
   overflow: hidden;
 }
 
-[data-theme="dark"] .post-wrap.right {
-  flex-direction: row !important;
-}
-
 [data-theme="dark"] .post-cover {
   width: 36%;
   background: #0a0d11;
 }
 
-[data-theme="dark"] .post-cover.left,
-[data-theme="dark"] .post-cover.right {
+[data-theme="dark"] .post-cover.left {
   clip-path: none !important;
   -webkit-clip-path: none !important;
   border-radius: 28px 0 0 28px !important;
+}
+
+[data-theme="dark"] .post-cover.right {
+  clip-path: none !important;
+  -webkit-clip-path: none !important;
+  border-radius: 0 28px 28px 0 !important;
 }
 
 [data-theme="dark"] .post-cover img {

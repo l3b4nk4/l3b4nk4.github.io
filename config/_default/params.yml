@@ -136,7 +136,7 @@ pace:
   enable: false
 
 home_categories:
-  enable: false
+  enable: true
   content:
     - categories: writeup
       cover: covers/recon-grid.svg
