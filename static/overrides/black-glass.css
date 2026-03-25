@@ -910,6 +910,7 @@
   }
 
   [data-theme="dark"] #container:has(.article-inner) #sidebar .sidebar-toc-sidebar {
+    margin-top: 22px;
     top: 116px;
     max-height: calc(100vh - 140px);
   }
