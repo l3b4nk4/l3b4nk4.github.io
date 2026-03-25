@@ -27,6 +27,11 @@
   }
 }
 
+.post-wrap.compact-home {
+  height: auto;
+  min-height: 0;
+}
+
 [data-theme="dark"] .post-wrap-left,
 [data-theme="dark"] .post-wrap-right {
   box-shadow: var(--shadow-card);
@@ -67,6 +72,10 @@
   padding: 20px;
   overflow: hidden;
   box-sizing: border-box;
+}
+
+.post-wrap.compact-home .post-info {
+  padding: 24px 28px;
 }
 
 .post-meta {
@@ -193,6 +202,12 @@
   overflow: hidden;
   text-overflow: ellipsis;
   transition: color 0.3s;
+}
+
+.post-wrap.compact-home .post-title {
+  white-space: normal;
+  overflow: visible;
+  text-overflow: unset;
 }
 
 .post-sticky {

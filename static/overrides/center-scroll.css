@@ -23,6 +23,19 @@ body,
   background: var(--site-shell-bg);
 }
 
+html,
+body {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
 [data-theme="dark"] body,
 [data-theme="dark"] #wrap,
 [data-theme="dark"] #footer {
