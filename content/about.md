@@ -5,24 +5,26 @@ date: 2025-03-25T09:15:00+02:00
 lastmod: 2025-03-25T09:15:00+02:00
 ---
 
-`L3B4nk4` is my space for security write-ups, lab walkthroughs, tooling notes, and the kind of documentation I wish I had open on the second monitor during a long night of debugging.
+`L3B4nk4` is my blog for security write-ups, lab notes, and simple walkthroughs.
 
-## What lives here
+I use this site to save useful steps, commands, and lessons from practice boxes, CTFs, and small research notes.
 
-- Web exploitation notes
-- CTF and lab write-ups
-- Recon workflows that are easy to replay
-- Privilege escalation checklists that age well
+## What I post
 
-## How I like to write
+- Write-ups from labs and CTFs
+- Recon and enumeration notes
+- Web testing notes
+- Privilege escalation tips
 
-Good write-ups should be reproducible, honest, and useful after the adrenaline wears off. I try to keep every post focused on:
+## How I write
 
-1. Scope and assumptions
-2. Commands and evidence
-3. Why the path worked
-4. What failed before the final chain clicked
+I try to keep every post clear and easy to follow:
 
-## Find me
+1. What the target was
+2. What commands I used
+3. What worked
+4. What I learned
+
+## Contact
 
 GitHub: [github.com/L3B4nk4](https://github.com/L3B4nk4)

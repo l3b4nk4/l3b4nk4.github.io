@@ -1,6 +1,9 @@
 <!doctype html>
 <html
   lang="{{ .Site.Language.LanguageCode }}" 
+  {{ if and .IsPage (in .Site.Params.mainSections .Type) -}}
+    class="mainsection-scroll-page"
+  {{ end -}}
   {{ if eq .Site.Params.dark_mode.enable true -}}
     data-theme-mode="true"
   {{ else if eq .Site.Params.dark_mode.enable false -}}
