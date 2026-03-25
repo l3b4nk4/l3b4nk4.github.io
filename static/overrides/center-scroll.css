@@ -1,3 +1,86 @@
+:root {
+  --site-shell-bg:
+    radial-gradient(circle at top left, rgba(20, 153, 135, 0.08), transparent 24%),
+    radial-gradient(circle at top right, rgba(99, 230, 217, 0.08), transparent 22%),
+    linear-gradient(180deg, #f6fffd 0%, #eefcf9 100%);
+  --site-card-border: rgba(20, 153, 135, 0.16);
+  --site-card-shadow: 0 18px 40px rgba(8, 23, 20, 0.08);
+  --site-card-shadow-strong: 0 24px 54px rgba(8, 23, 20, 0.14);
+}
+
+[data-theme="dark"]:root {
+  --site-shell-bg:
+    radial-gradient(circle at top left, rgba(20, 153, 135, 0.12), transparent 26%),
+    radial-gradient(circle at top right, rgba(99, 230, 217, 0.08), transparent 24%),
+    linear-gradient(180deg, #0d1417 0%, #0a1114 100%);
+  --site-card-border: rgba(99, 230, 217, 0.14);
+  --site-card-shadow: 0 20px 46px rgba(0, 0, 0, 0.22);
+  --site-card-shadow-strong: 0 28px 64px rgba(0, 0, 0, 0.3);
+}
+
+body,
+#wrap {
+  background: var(--site-shell-bg);
+}
+
+#header-nav {
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--site-card-border);
+}
+
+.sidebar-wrap,
+.widget-wrap,
+.article-inner,
+.post-wrap,
+.archives-outer-wrap,
+#comments,
+.article-entry .highlight,
+.article-entry blockquote,
+.article-entry details {
+  border: 1px solid var(--site-card-border);
+  box-shadow: var(--site-card-shadow);
+}
+
+.sidebar-wrap,
+.widget-wrap,
+.article-inner,
+.post-wrap,
+.archives-outer-wrap,
+#comments {
+  border-radius: 16px;
+}
+
+.post-wrap:hover,
+.widget-wrap:hover,
+.article-inner:hover {
+  box-shadow: var(--site-card-shadow-strong);
+}
+
+.article-summary,
+.article-entry .highlight,
+.article-entry blockquote,
+.article-entry details {
+  border-radius: 14px;
+}
+
+#article-nav {
+  gap: 12px;
+  overflow: visible;
+  background: transparent;
+}
+
+.article-nav-link-wrap {
+  border: 1px solid var(--site-card-border);
+  border-radius: 16px;
+  background: var(--color-wrap);
+  box-shadow: var(--site-card-shadow);
+}
+
+.article-nav-link-wrap:hover {
+  box-shadow: var(--site-card-shadow-strong);
+}
+
 @media screen and (min-width: 960px) {
   html.mainsection-scroll-page,
   body.mainsection-scroll-page {
@@ -58,6 +141,7 @@
     overscroll-behavior: contain;
     scrollbar-gutter: stable;
     padding-right: 6px;
+    padding-bottom: 20px;
   }
 
   body.mainsection-scroll-page #main > article.article::-webkit-scrollbar {
