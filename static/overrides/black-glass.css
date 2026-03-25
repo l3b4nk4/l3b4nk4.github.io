@@ -903,17 +903,17 @@
   display: none !important;
 }
 
-/* Write-up pages: move the whole TOC square with page scroll, keep inner text stable */
+/* Write-up pages: TOC square should move with scrolling, text should stay stable */
 @media screen and (min-width: 960px) {
   [data-theme="dark"] #container:has(.article-inner) .sidebar-wrapper-container.sticky {
-    position: relative;
-    top: 0;
+    position: sticky;
+    top: 104px;
   }
 
   [data-theme="dark"] #container:has(.article-inner) #sidebar .sidebar-toc-sidebar {
-    position: relative;
+    position: sticky;
     margin-top: 22px;
-    top: 0;
+    top: 116px;
     max-height: none;
   }
 
