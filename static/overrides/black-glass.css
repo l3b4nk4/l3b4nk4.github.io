@@ -938,15 +938,22 @@
 
 /* Write-up pages: square moves with page; inner TOC text stays fixed */
 @media screen and (min-width: 960px) {
+  #container:has(.article-inner) #sidebar,
+  #container:has(.article-inner) .sidebar-wrapper-container,
+  #container:has(.article-inner) .sidebar-wrapper,
+  #container:has(.article-inner) .sidebar-wrap {
+    overflow: visible !important;
+  }
+
   #container:has(.article-inner) .sidebar-wrapper-container.sticky {
-    position: static !important;
-    top: auto !important;
+    position: sticky !important;
+    top: 104px !important;
   }
 
   #container:has(.article-inner) #sidebar .sidebar-toc-sidebar {
-    position: static !important;
+    position: sticky !important;
     margin-top: 22px;
-    top: auto !important;
+    top: 116px !important;
     max-height: none !important;
   }
 
