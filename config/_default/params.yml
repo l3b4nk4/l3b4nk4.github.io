@@ -43,7 +43,7 @@ footer:
     mask: false
 
 sidebar:
-  position: right
+  position: left
   menu: true
   article:
     show_common: true
