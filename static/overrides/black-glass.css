@@ -902,29 +902,3 @@
 [data-theme="dark"] #outdate-blockquote {
   display: none !important;
 }
-
-/* Final override: keep TOC panel tall on desktop write-up pages */
-@media screen and (min-width: 960px) {
-  [data-theme="dark"] .sidebar-wrapper-container.sticky {
-    height: calc(100vh - 96px) !important;
-    max-height: calc(100vh - 96px) !important;
-  }
-
-  [data-theme="dark"] .sidebar-wrapper-container.sticky .sidebar-wrapper,
-  [data-theme="dark"] .sidebar-wrapper-container.sticky .sidebar-wrap {
-    height: 100% !important;
-    min-height: 100% !important;
-  }
-
-  [data-theme="dark"] .sidebar-wrapper-container.sticky .sidebar-toc-sidebar {
-    flex: 1 1 auto !important;
-    min-height: 0 !important;
-    max-height: none !important;
-  }
-
-  [data-theme="dark"] .sidebar-wrapper-container.sticky .sidebar-toc-wrapper {
-    flex: 1 1 auto !important;
-    min-height: 0 !important;
-    max-height: none !important;
-  }
-}
