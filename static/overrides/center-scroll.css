@@ -166,14 +166,14 @@ body.home-landing-page .sidebar-social-icon {
 }
 
 body.home-landing-page .post-wrap.compact-home {
-  --home-card-height: 160px;
+  --home-card-height: 184px;
   min-height: var(--home-card-height);
   height: var(--home-card-height);
   overflow: hidden;
 }
 
 body.home-landing-page .post-wrap.compact-home .post-cover {
-  width: 24%;
+  width: 28%;
   min-height: 100%;
   display: block;
   background: #081115;
@@ -182,32 +182,32 @@ body.home-landing-page .post-wrap.compact-home .post-cover {
 body.home-landing-page .post-wrap.compact-home .post-cover.left,
 body.home-landing-page .post-wrap.compact-home .post-cover.right {
   border-radius: 16px 0 0 16px;
-  -webkit-clip-path: polygon(0 0, calc(100% - var(--home-card-height)) 0, 100% 100%, 0 100%);
-  clip-path: polygon(0 0, calc(100% - var(--home-card-height)) 0, 100% 100%, 0 100%);
+  -webkit-clip-path: polygon(0 0, 92% 0, 100% 100%, 0 100%);
+  clip-path: polygon(0 0, 92% 0, 100% 100%, 0 100%);
 }
 
 body.home-landing-page .post-wrap.compact-home .post-info {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 16px 22px;
+  padding: 18px 24px;
 }
 
 body.home-landing-page .post-wrap.compact-home .post-title {
-  padding: 6px 0 10px;
-  font-size: 1.35rem;
+  padding: 7px 0 12px;
+  font-size: 1.48rem;
   line-height: 1.15;
 }
 
 body.home-landing-page .post-wrap.compact-home .post-article {
   -webkit-line-clamp: 2;
   line-clamp: 2;
-  line-height: 1.45;
-  font-size: 0.95rem;
+  line-height: 1.5;
+  font-size: 1rem;
 }
 
 body.home-landing-page .post-wrap.compact-home .post-meta span {
-  font-size: 0.82rem;
+  font-size: 0.88rem;
 }
 
 body.about-page #header-nav {
@@ -256,7 +256,7 @@ body.about-page #content {
   }
 
   body.home-landing-page .post-wrap.compact-home {
-    --home-card-height: 190px;
+    --home-card-height: 210px;
     height: auto;
     min-height: 0;
   }
@@ -269,12 +269,12 @@ body.about-page #content {
   body.home-landing-page .post-wrap.compact-home .post-cover.left,
   body.home-landing-page .post-wrap.compact-home .post-cover.right {
     border-radius: 16px 16px 0 0;
-    -webkit-clip-path: polygon(0 0, 100% 0, 100% 88%, 0 100%);
-    clip-path: polygon(0 0, 100% 0, 100% 88%, 0 100%);
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 78%, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 78%, 0 100%);
   }
 
   body.home-landing-page .post-wrap.compact-home .post-title {
-    font-size: 1.45rem;
+    font-size: 1.55rem;
   }
 
   body.about-page #content {
