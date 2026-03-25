@@ -90,21 +90,6 @@ This matters because the target is using the PHP built-in server with four worke
 
 If this had been single-worker, a race-based exploit would be much less reliable. With four workers, one request can keep an upload alive while another request repeatedly tries to include the session file.
 
-### other files I checked
-
-I also read a few extra files just to understand the environment better:
-
-- `/etc/passwd`
-- `/proc/self/status`
-- `/proc/self/mounts`
-
-These were useful for confirming that:
-
-- the read primitive was real
-- the PHP process was running as `www-data`
-- the challenge was inside a container
-
-But the exploit path really came from `cmdline` and `environ`.
 
 ## the key idea
 
