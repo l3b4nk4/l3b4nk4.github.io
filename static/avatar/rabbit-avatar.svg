@@ -1,0 +1,40 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="bg" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(256 164) rotate(90) scale(340)">
+      <stop stop-color="#182436"/>
+      <stop offset="1" stop-color="#0A1220"/>
+    </radialGradient>
+    <linearGradient id="ear" x1="176" y1="72" x2="336" y2="230" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F8FAFF"/>
+      <stop offset="1" stop-color="#D9E4FF"/>
+    </linearGradient>
+    <linearGradient id="innerEar" x1="204" y1="88" x2="300" y2="218" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFC3D5"/>
+      <stop offset="1" stop-color="#F59FB9"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="512" height="512" rx="96" fill="url(#bg)"/>
+
+  <ellipse cx="198" cy="170" rx="52" ry="106" transform="rotate(-12 198 170)" fill="url(#ear)"/>
+  <ellipse cx="314" cy="170" rx="52" ry="106" transform="rotate(12 314 170)" fill="url(#ear)"/>
+  <ellipse cx="198" cy="176" rx="28" ry="74" transform="rotate(-12 198 176)" fill="url(#innerEar)"/>
+  <ellipse cx="314" cy="176" rx="28" ry="74" transform="rotate(12 314 176)" fill="url(#innerEar)"/>
+
+  <circle cx="256" cy="278" r="144" fill="#F1F5FF"/>
+  <ellipse cx="256" cy="328" rx="110" ry="88" fill="#E7EEFF"/>
+
+  <circle cx="206" cy="268" r="16" fill="#1A2335"/>
+  <circle cx="306" cy="268" r="16" fill="#1A2335"/>
+  <circle cx="201" cy="262" r="4" fill="#FFFFFF"/>
+  <circle cx="301" cy="262" r="4" fill="#FFFFFF"/>
+
+  <ellipse cx="256" cy="302" rx="16" ry="12" fill="#F08AA8"/>
+  <path d="M256 314C246 324 238 332 228 338" stroke="#1A2335" stroke-width="8" stroke-linecap="round"/>
+  <path d="M256 314C266 324 274 332 284 338" stroke="#1A2335" stroke-width="8" stroke-linecap="round"/>
+
+  <path d="M178 300H134" stroke="#B4C5EE" stroke-width="6" stroke-linecap="round"/>
+  <path d="M178 316H126" stroke="#B4C5EE" stroke-width="6" stroke-linecap="round"/>
+  <path d="M334 300H378" stroke="#B4C5EE" stroke-width="6" stroke-linecap="round"/>
+  <path d="M334 316H386" stroke="#B4C5EE" stroke-width="6" stroke-linecap="round"/>
+</svg>
