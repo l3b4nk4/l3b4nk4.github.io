@@ -166,13 +166,14 @@ body.home-landing-page .sidebar-social-icon {
 }
 
 body.home-landing-page .post-wrap.compact-home {
-  min-height: 214px;
-  height: 214px;
+  --home-card-height: 160px;
+  min-height: var(--home-card-height);
+  height: var(--home-card-height);
   overflow: hidden;
 }
 
 body.home-landing-page .post-wrap.compact-home .post-cover {
-  width: 27%;
+  width: 24%;
   min-height: 100%;
   display: block;
   background: #081115;
@@ -181,31 +182,32 @@ body.home-landing-page .post-wrap.compact-home .post-cover {
 body.home-landing-page .post-wrap.compact-home .post-cover.left,
 body.home-landing-page .post-wrap.compact-home .post-cover.right {
   border-radius: 16px 0 0 16px;
-  -webkit-clip-path: polygon(0 0, 82% 0, 100% 100%, 0 100%);
-  clip-path: polygon(0 0, 82% 0, 100% 100%, 0 100%);
+  -webkit-clip-path: polygon(0 0, calc(100% - var(--home-card-height)) 0, 100% 100%, 0 100%);
+  clip-path: polygon(0 0, calc(100% - var(--home-card-height)) 0, 100% 100%, 0 100%);
 }
 
 body.home-landing-page .post-wrap.compact-home .post-info {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 20px 26px;
+  padding: 16px 22px;
 }
 
 body.home-landing-page .post-wrap.compact-home .post-title {
-  padding: 8px 0 14px;
-  font-size: 1.7rem;
+  padding: 6px 0 10px;
+  font-size: 1.35rem;
   line-height: 1.15;
 }
 
 body.home-landing-page .post-wrap.compact-home .post-article {
-  -webkit-line-clamp: 3;
-  line-clamp: 3;
-  line-height: 1.55;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  line-height: 1.45;
+  font-size: 0.95rem;
 }
 
 body.home-landing-page .post-wrap.compact-home .post-meta span {
-  font-size: 0.95rem;
+  font-size: 0.82rem;
 }
 
 body.about-page #header-nav {
@@ -254,6 +256,7 @@ body.about-page #content {
   }
 
   body.home-landing-page .post-wrap.compact-home {
+    --home-card-height: 190px;
     height: auto;
     min-height: 0;
   }
