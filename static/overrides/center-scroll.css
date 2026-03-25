@@ -87,6 +87,10 @@ body.no-hero-page #content {
   padding-top: 84px;
 }
 
+body.home-landing-page #content {
+  padding-top: 0;
+}
+
 .sidebar-wrap,
 .widget-wrap,
 .article-inner,
