@@ -9,7 +9,7 @@ menu:
 mainSections: ["post"]
 author: L3B4nk4
 email: ""
-description: "Security write-ups, CTF notes, recon logs, and lab walkthroughs from L3B4nk4."
+description: ""
 subtitle:
   typing:
     enable: false
