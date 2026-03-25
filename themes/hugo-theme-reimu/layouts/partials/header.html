@@ -1,5 +1,8 @@
 {{- $params := .Site.Params -}}
 {{- $isArticle := in .Site.Params.mainSections .Type -}}
+{{- $isLanding := or .IsHome (eq .RelPermalink "/") (eq .Permalink .Site.BaseURL) -}}
+{{- $isAboutPage := eq .RelPermalink "/about/" -}}
+{{- $hideHero := or $isLanding $isAboutPage (eq .Params.header false) -}}
 <div id="header-nav">
   <nav id="main-nav" aria-label="Primary navigation">
     {{- range .Site.Params.menu -}}
@@ -106,7 +109,7 @@
     </a>
   {{- end -}}
 </div>
-{{- if not .IsHome -}}
+{{- if not $hideHero -}}
 <header id="header" aria-label="Site header">
   {{- if not $isArticle -}}
   {{- $headerImage := .Params.banner | default .Params.cover -}}

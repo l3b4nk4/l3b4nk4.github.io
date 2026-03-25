@@ -1,4 +1,7 @@
 <!doctype html>
+{{- $isLanding := or .IsHome (eq .RelPermalink "/") (eq .Permalink .Site.BaseURL) -}}
+{{- $isAboutPage := eq .RelPermalink "/about/" -}}
+{{- $hideHero := or $isLanding $isAboutPage (eq .Params.header false) -}}
 <html
   lang="{{ .Site.Language.LanguageCode }}" 
   {{ if and .IsPage (in .Site.Params.mainSections .Type) -}}
@@ -21,7 +24,7 @@
       {{- .Site.Params.injector.head_end | safeHTML -}}
     {{- end -}}
   </head>
-  <body{{ if or .IsHome (and .IsPage (in .Site.Params.mainSections .Type)) }} class="{{ if .IsHome }}home-no-hero{{ end }}{{ if and .IsHome (and .IsPage (in .Site.Params.mainSections .Type)) }} {{ end }}{{ if and .IsPage (in .Site.Params.mainSections .Type) }}mainsection-scroll-page{{ end }}"{{ end }}>
+  <body{{ if or $hideHero (and .IsPage (in .Site.Params.mainSections .Type)) }} class="{{ if $hideHero }}no-hero-page{{ end }}{{ if and $hideHero (and .IsPage (in .Site.Params.mainSections .Type)) }} {{ end }}{{ if and .IsPage (in .Site.Params.mainSections .Type) }}mainsection-scroll-page{{ end }}"{{ end }}>
     {{- if .Site.Params.injector.body_begin -}}
       {{- .Site.Params.injector.body_begin | safeHTML -}}
     {{- end -}}
