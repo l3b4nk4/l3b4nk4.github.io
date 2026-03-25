@@ -2,12 +2,6 @@ menu:
   - name: home
     url: ""
     icon: f015
-  - name: archives
-    url: "archives"
-    icon: f07c
-  - name: tags
-    url: "tags"
-    icon: f02c
   - name: about
     url: "about"
     icon: f05a

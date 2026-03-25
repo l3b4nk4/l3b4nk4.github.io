@@ -791,6 +791,11 @@
   background-image: none !important;
 }
 
+[data-theme="dark"] #header img,
+[data-theme="dark"] #header picture {
+  display: none !important;
+}
+
 [data-theme="dark"] #header::before,
 [data-theme="dark"] #header::after,
 [data-theme="dark"] .sidebar-status-card::before,
