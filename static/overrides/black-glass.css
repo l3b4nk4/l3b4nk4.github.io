@@ -164,13 +164,13 @@
 
 [data-theme="dark"] .sidebar-wrapper-container.sticky {
   top: 76px;
-  height: calc(100vh - 96px);
-  max-height: calc(100vh - 96px);
+  height: auto;
+  max-height: none;
 }
 
 [data-theme="dark"] .sidebar-wrapper,
 [data-theme="dark"] .sidebar-wrap {
-  height: 100%;
+  height: auto;
 }
 
 [data-theme="dark"] #sidebar .sidebar-toc-sidebar {
@@ -385,19 +385,19 @@
   align-items: center;
   padding-top: 12px;
   padding-bottom: 12px;
-  min-height: calc(100vh - 124px);
+  min-height: auto;
 }
 
 [data-theme="dark"] #sidebar .sidebar-toc-sidebar {
-  display: flex;
-  flex: 1;
-  min-height: 0;
-  max-height: none;
+  display: block;
+  flex: initial;
+  min-height: auto;
+  max-height: calc(100vh - 116px);
 }
 
 [data-theme="dark"] #sidebar .sidebar-toc-wrapper {
-  flex: 1;
-  max-height: none;
+  flex: initial;
+  max-height: calc(100vh - 116px);
 }
 
 [data-theme="dark"] .sidebar-author img {
