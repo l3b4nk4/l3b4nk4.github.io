@@ -13,6 +13,9 @@
     {{- $paginator = .Paginate $homePages -}}
   {{- end -}}
   {{- $sort_config := .Site.Params.sort_order.home -}}
+  <div class="home-page-head" data-aos="{{ $ctx.Site.Params.animation.options.home.post }}">
+    <h1>L3B4nk4</h1>
+  </div>
   {{- if and (eq 1 $paginator.PageNumber) ($ctx.Site.Params.home_categories.enable) -}}
     <div class="post-categories-wrapper" data-aos="{{ $ctx.Site.Params.animation.options.home.post }}">
       {{- range $k, $v := $ctx.Site.Params.home_categories.content -}}
