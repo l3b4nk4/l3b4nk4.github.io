@@ -29,7 +29,20 @@
       {{- .Site.Params.injector.head_end | safeHTML -}}
     {{- end -}}
   </head>
-  <body{{ if or $isLanding $hideHero (and .IsPage (in .Site.Params.mainSections .Type)) }} class="{{ if $isLanding }}home-landing-page{{ end }}{{ if and $isLanding (or $hideHero (and .IsPage (in .Site.Params.mainSections .Type))) }} {{ end }}{{ if $hideHero }}no-hero-page{{ end }}{{ if and $hideHero (and .IsPage (in .Site.Params.mainSections .Type)) }} {{ end }}{{ if and .IsPage (in .Site.Params.mainSections .Type) }}mainsection-scroll-page{{ end }}"{{ end }}>
+  {{- $bodyClasses := slice -}}
+  {{- if $isLanding -}}
+    {{- $bodyClasses = $bodyClasses | append "home-landing-page" -}}
+  {{- end -}}
+  {{- if $hideHero -}}
+    {{- $bodyClasses = $bodyClasses | append "no-hero-page" -}}
+  {{- end -}}
+  {{- if $isAboutPage -}}
+    {{- $bodyClasses = $bodyClasses | append "about-page" -}}
+  {{- end -}}
+  {{- if and .IsPage (in .Site.Params.mainSections .Type) -}}
+    {{- $bodyClasses = $bodyClasses | append "mainsection-scroll-page" -}}
+  {{- end -}}
+  <body{{ if gt (len $bodyClasses) 0 }} class="{{ delimit $bodyClasses " " }}"{{ end }}>
     {{- if .Site.Params.injector.body_begin -}}
       {{- .Site.Params.injector.body_begin | safeHTML -}}
     {{- end -}}
