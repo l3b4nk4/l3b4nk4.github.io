@@ -138,6 +138,7 @@
 
 .code-figcaption {
   width: 100%;
+  box-sizing: border-box;
   display: flex;
   justify-content: space-between;
   height: 40px;
@@ -173,6 +174,7 @@
 }
 
 .code-right-wrap {
+  margin-left: auto;
   padding-right: 2px;
 }
 
