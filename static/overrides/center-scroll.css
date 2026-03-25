@@ -91,8 +91,16 @@ body.home-landing-page #content {
   padding-top: 72px;
 }
 
+body.no-hero-page:not(.home-landing-page):not(.mainsection-scroll-page) #content {
+  padding-top: 72px;
+}
+
 @media screen and (max-width: 959px) {
   body.home-landing-page #content {
+    padding-top: 48px;
+  }
+
+  body.no-hero-page:not(.home-landing-page):not(.mainsection-scroll-page) #content {
     padding-top: 48px;
   }
 }
