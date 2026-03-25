@@ -2,12 +2,11 @@
   const codeFigcaption = `
   <div class="code-figcaption">
     <div class="code-left-wrap">
-      <div class="code-decoration"></div>
-      <div class="code-lang"></div>
+      <div class="code-lang">TEXT</div>
     </div>
     <div class="code-right-wrap">
-      <div class="code-copy icon-copy"></div>
-      <div class="icon-chevron-down code-expand"></div>
+      <button type="button" class="code-copy icon-copy" aria-label="Copy code" title="Copy code"></button>
+      <button type="button" class="icon-chevron-down code-expand" aria-label="Toggle code block" title="Toggle code block"></button>
     </div>
   </div>
   <div class="code-figcaption-bottom">
@@ -82,14 +81,13 @@
       return;
     }
     const codeLanguage = code.dataset.lang;
-    if (!codeLanguage) {
-      return;
-    }
     const langName = codeLanguage
-      .replace("line-numbers", "")
-      .replace("language-", "")
-      .trim()
-      .toUpperCase();
+      ? codeLanguage
+          .replace("line-numbers", "")
+          .replace("language-", "")
+          .trim()
+          .toUpperCase() || "TEXT"
+      : "TEXT";
 
     const wrapper = code.closest(".highlight");
     if (wrapper) {
