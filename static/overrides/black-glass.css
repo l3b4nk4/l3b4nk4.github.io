@@ -464,3 +464,167 @@
     height: 180px;
   }
 }
+
+body.home-page #header {
+  min-height: 76px !important;
+  height: 76px !important;
+}
+
+body.home-page #header picture,
+body.home-page #header > img,
+body.home-page #header-title {
+  display: none !important;
+}
+
+body.home-page #content {
+  display: block;
+  margin: 28px auto 0;
+  padding-top: 0;
+  max-width: 1100px;
+}
+
+body.home-page #sidebar {
+  display: none !important;
+}
+
+body.home-page #main {
+  max-width: 100%;
+  padding: 0 28px 72px;
+}
+
+body.home-page .home-readme-shell {
+  max-width: 1040px;
+  margin: 0 auto;
+}
+
+body.home-page .home-readme-entry.article-entry,
+body.home-page .home-readme-latest {
+  padding: 0;
+}
+
+body.home-page .home-readme-entry h1,
+body.home-page .home-readme-entry h2,
+body.home-page .home-readme-latest h2,
+body.home-page .home-readme-item h3 {
+  color: #f5f8fb;
+}
+
+body.home-page .home-readme-entry h1 {
+  font-size: clamp(2.7rem, 5vw, 4rem);
+  margin: 0 0 28px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+body.home-page .home-readme-entry h2,
+body.home-page .home-readme-latest h2 {
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  margin: 48px 0 18px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+body.home-page .home-readme-entry h2::before,
+body.home-page .home-readme-entry h2::after,
+body.home-page .home-readme-latest h2::before,
+body.home-page .home-readme-latest h2::after {
+  display: none !important;
+}
+
+body.home-page .home-readme-entry p,
+body.home-page .home-readme-entry li,
+body.home-page .home-readme-item p {
+  color: #c9d4de;
+  font-size: 1.04rem;
+  line-height: 1.85;
+}
+
+body.home-page .home-readme-entry ul {
+  margin-left: 22px;
+}
+
+body.home-page .home-readme-entry code,
+body.home-page .home-readme-meta span {
+  background: rgba(255, 255, 255, 0.045);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+}
+
+body.home-page .home-readme-entry code {
+  color: #f3f8fb;
+  padding: 0.18rem 0.45rem;
+}
+
+body.home-page .home-readme-entry pre {
+  margin: 18px 0 0;
+}
+
+body.home-page .home-readme-entry pre code {
+  display: block;
+  padding: 18px 20px;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+body.home-page .home-readme-latest {
+  margin-top: 54px;
+}
+
+body.home-page .home-readme-list {
+  display: flex;
+  flex-direction: column;
+}
+
+body.home-page .home-readme-item {
+  padding: 20px 0 24px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+body.home-page .home-readme-item:first-child {
+  padding-top: 6px;
+}
+
+body.home-page .home-readme-item h3 {
+  margin: 0 0 6px;
+  font-size: 1.32rem;
+}
+
+body.home-page .home-readme-item h3 a {
+  color: #f5f8fb;
+  text-decoration: none;
+}
+
+body.home-page .home-readme-item h3 a:hover {
+  color: #8ef1e1;
+}
+
+body.home-page .home-readme-item p {
+  margin: 0 0 12px;
+}
+
+body.home-page .home-readme-meta {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+body.home-page .home-readme-meta span {
+  color: #94a4b1;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.32rem 0.58rem;
+}
+
+@media screen and (max-width: 767px) {
+  body.home-page #main {
+    padding: 0 16px 52px;
+  }
+
+  body.home-page #content {
+    margin-top: 18px;
+  }
+
+  body.home-page .home-readme-entry h1 {
+    font-size: 2.2rem;
+  }
+}
