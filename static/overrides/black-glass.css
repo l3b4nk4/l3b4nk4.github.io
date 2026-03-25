@@ -902,3 +902,15 @@
 [data-theme="dark"] #outdate-blockquote {
   display: none !important;
 }
+
+/* Write-up pages: place TOC card slightly lower for easier scrolling */
+@media screen and (min-width: 960px) {
+  [data-theme="dark"] #container:has(.article-inner) .sidebar-wrapper-container.sticky {
+    top: 104px;
+  }
+
+  [data-theme="dark"] #container:has(.article-inner) #sidebar .sidebar-toc-sidebar {
+    top: 116px;
+    max-height: calc(100vh - 140px);
+  }
+}
