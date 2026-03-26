@@ -10,14 +10,23 @@
 {{- if $isHome -}}
   {{- $posts = where $posts "Params.categories" "intersect" (slice "writeup") -}}
 {{- end -}}
+{{- $avatarPath := printf "%s%s" ("avatar/" | relURL) $params.avatar -}}
+{{- $avatarExt := lower (path.Ext $params.avatar) -}}
 <div class="sidebar-profile-card">
   <div class="sidebar-author">
-    <img
-      data-src="{{ "avatar/" | relURL }}{{ $params.avatar }}"
-      data-sizes="auto"
-      alt="{{ $params.author }}"
-      class="lazyload"
-    />
+    {{- if eq $avatarExt ".gif" -}}
+      <img
+        src="{{ $avatarPath }}"
+        alt="{{ $params.author }}"
+      />
+    {{- else -}}
+      <img
+        data-src="{{ $avatarPath }}"
+        data-sizes="auto"
+        alt="{{ $params.author }}"
+        class="lazyload"
+      />
+    {{- end -}}
     <div class="sidebar-author-name">{{ $params.author }}</div>
   </div>
 </div>
