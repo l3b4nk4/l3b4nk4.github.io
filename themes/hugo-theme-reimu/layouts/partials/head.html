@@ -130,9 +130,28 @@
 {{- end -}}
 <!-- favicon use default -->
 {{- $faviconVersion := now.Unix -}}
-<link rel="icon" type="image/gif" href="{{ printf "%s?v=%d" ("favicon.gif" | relURL) $faviconVersion }}">
-<link rel="shortcut icon" href="{{ printf "%s?v=%d" ("favicon.ico" | relURL) $faviconVersion }}">
-<link rel="icon" type="image/png" href="{{ printf "%s?v=%d" ("favicon.png" | relURL) $faviconVersion }}">
+<link
+  id="site-favicon"
+  rel="icon"
+  type="image/gif"
+  data-favicon-slot="primary"
+  data-favicon-version="{{ $faviconVersion }}"
+  data-favicon-frames="14"
+  href="{{ printf "%s?v=%d" ("favicon.gif" | relURL) $faviconVersion }}"
+>
+<link
+  id="site-shortcut-icon"
+  rel="shortcut icon"
+  data-favicon-slot="primary"
+  href="{{ printf "%s?v=%d" ("favicon.ico" | relURL) $faviconVersion }}"
+>
+<link
+  id="site-png-favicon"
+  rel="icon"
+  type="image/png"
+  data-favicon-slot="primary"
+  href="{{ printf "%s?v=%d" ("favicon.png" | relURL) $faviconVersion }}"
+>
 <link rel="apple-touch-icon" href="{{ printf "%s?v=%d" ("favicon.png" | relURL) $faviconVersion }}">
 {{- partial "helpers/scss.html" (dict "source" "css/main.scss" "temp" "main.scss" "target" "css/main.css" "ctx" .) -}}
 <!-- photo-swipe -->
