@@ -2,8 +2,8 @@
 title: "My name is ayksks "
 description: "CTF WEB challenge"
 summary: "This is the challenge where I achieved second blood: XSS → SSRF → RCE."
-date: 2026-03-25T18:49:31+02:00
-lastmod: 2026-03-25T18:49:31+02:00
+date: 2025-12-09T15:22:45+02:00
+lastmod: 2025-12-09T15:22:45+02:00
 tags:
   - CTF
   - walkthrough
