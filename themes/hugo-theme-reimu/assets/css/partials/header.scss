@@ -3,6 +3,16 @@
   height: $banner-height;
   position: relative;
 
+  @media #{$mg-normal} {
+    min-height: 280px;
+    height: 32vh;
+  }
+
+  @media #{$mq-mobile} {
+    min-height: 220px;
+    height: 26vh;
+  }
+
   img {
     position: absolute;
     top: 0;
@@ -60,6 +70,11 @@
   &.header-nav-hidden {
     top: -80px;
   }
+
+  @media #{$mg-normal} {
+    justify-content: space-between;
+    padding: 0 10px;
+  }
 }
 
 #header-title {
@@ -73,6 +88,15 @@
   filter: blur(8px);
   will-change: transform, opacity, filter;
   animation: fade-in-blur 800ms ease-out 200ms forwards;
+
+  @media #{$mg-normal} {
+    margin: $logo-size * -0.5 16px 0;
+    width: calc(100% - 32px);
+  }
+
+  @media #{$mq-mobile} {
+    top: 56%;
+  }
 }
 
 @mixin logo-text {
@@ -98,7 +122,8 @@
   }
 
   @media #{$mq-mobile} {
-    font-size: 30px;
+    font-size: 26px;
+    letter-spacing: 1px;
   }
 }
 
@@ -123,16 +148,27 @@
 
   @media #{$mq-mobile} {
     font-size: 13px;
+    width: 92%;
+    max-width: 28rem;
+    line-height: 1.45;
   }
 }
 
 #subtitle-wrap {
   margin-top: $subtitle-size;
+
+  @media #{$mq-mobile} {
+    margin-top: 12px;
+  }
 }
 
 #main-nav {
   display: flex;
   align-items: center;
+
+  @media #{$mg-normal} {
+    min-width: 0;
+  }
 }
 
 @mixin nav-link {
@@ -154,6 +190,10 @@
   &:hover {
     opacity: 1;
     transform: scale(1.1);
+  }
+
+  @media #{$mq-mobile} {
+    padding: 16px 12px;
   }
 }
 
@@ -240,6 +280,10 @@
 #i18n-nav {
   display: flex;
   align-items: center;
+
+  @media #{$mg-normal} {
+    min-width: 0;
+  }
 }
 
 #nav-sun-btn:before,
@@ -250,6 +294,10 @@
 
 #i18n-nav {
   margin-left: 8px;
+
+  @media #{$mg-normal} {
+    margin-left: 0;
+  }
 }
 
 .custom-dropdown {

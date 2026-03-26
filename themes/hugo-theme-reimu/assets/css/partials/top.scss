@@ -19,6 +19,17 @@
   z-index: 999;
   cursor: var(--cursor-pointer) !important;
 
+  @media #{$mq-mobile} {
+    bottom: 16px;
+    right: 16px;
+    width: 42px;
+    height: 42px;
+    @if $top_position == "left" {
+      left: 16px;
+      right: auto;
+    }
+  }
+
   .sidebar-top-taichi {
     width: 48px;
     height: 48px;
@@ -28,6 +39,11 @@
 
     &.rotate {
       animation: rotate-all 3s linear infinite;
+    }
+
+    @media #{$mq-mobile} {
+      width: 42px;
+      height: 42px;
     }
   }
 
@@ -44,6 +60,13 @@
       top: 0;
       text-align: center;
       line-height: 48px;
+
+      @media #{$mq-mobile} {
+        width: 42px;
+        height: 42px;
+        font-size: 18px;
+        line-height: 42px;
+      }
     }
   }
 

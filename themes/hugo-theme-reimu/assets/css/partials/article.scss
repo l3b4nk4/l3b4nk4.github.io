@@ -34,6 +34,10 @@
   @media #{$mg-normal} {
     padding: $article-padding 16px 0;
   }
+
+  @media #{$mq-mobile} {
+    padding: 16px 14px 0;
+  }
 }
 
 .article-summary {
@@ -42,6 +46,11 @@
 
 .article-date {
   display: flex;
+
+  @media #{$mg-normal} {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
 }
 
 .article-date-link {
@@ -68,6 +77,10 @@
 
   @media #{$mg-normal} {
     padding: 0 16px;
+  }
+
+  @media #{$mq-mobile} {
+    padding: 0 14px;
   }
 
   p,
@@ -206,6 +219,9 @@
   iframe {
     border: none;
     border-radius: $post-radius;
+    width: 100%;
+    max-width: 100%;
+    aspect-ratio: 16 / 9;
   }
 
   table {
@@ -345,6 +361,14 @@
     margin: 0 16px $article-padding;
   }
 
+  @media #{$mq-mobile} {
+    margin: 0 14px 18px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: flex-start;
+  }
+
   &:hover &:before {
     opacity: 0.5;
   }
@@ -364,6 +388,11 @@
     background-repeat: repeat-x;
     filter: drop-shadow(0px 0px 2px var(--red-1));
     transition: 0.3s;
+
+    @media #{$mq-mobile} {
+      flex-basis: 100%;
+      margin-bottom: 4px;
+    }
   }
 
   a {
@@ -377,6 +406,23 @@
 .article-visitor-link {
   color: var(--red-1);
   margin-top: $article-padding;
+
+  @media #{$mg-normal} {
+    margin-top: 0;
+  }
+}
+
+.article-category-list,
+.article-tag-list {
+  @media #{$mg-normal} {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
 }
 
 .article-tag-list-item {
@@ -391,6 +437,11 @@
   margin-top: $article-padding;
   margin-right: 12px;
   box-shadow: var(--shadow-meta);
+
+  @media #{$mg-normal} {
+    float: none;
+    margin: 0;
+  }
 }
 
 .article-category-link,
@@ -410,6 +461,11 @@
   &:before {
     margin-right: 8px;
   }
+
+  @media #{$mg-normal} {
+    float: none;
+    margin: 0;
+  }
 }
 
 .article-visitor-link {
@@ -419,6 +475,11 @@
   border-radius: $tag-radius;
   margin-left: 12px;
   padding: 8px 16px;
+
+  @media #{$mg-normal} {
+    float: none;
+    margin: 0;
+  }
 }
 
 #article-nav {
@@ -446,6 +507,12 @@
   height: 150px;
   min-height: 150px;
   flex-shrink: 0;
+
+  @media #{$mq-mobile} {
+    height: 120px;
+    min-height: 120px;
+    padding: 0 16px;
+  }
 
   a,
   img {
@@ -494,6 +561,11 @@
   display: -webkit-box;
   -webkit-box-orient: vertical;
   overflow: hidden;
+
+  @media #{$mq-mobile} {
+    font-size: 18px;
+    margin-top: 10px;
+  }
 }
 
 .article-gallery {

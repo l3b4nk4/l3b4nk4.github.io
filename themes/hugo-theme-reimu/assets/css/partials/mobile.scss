@@ -8,13 +8,15 @@
   #mobile-nav {
     position: fixed;
     top: 0;
-    left: -($mobile-nav-width);
-    width: $mobile-nav-width;
+    left: -100vw;
+    width: 86vw;
+    max-width: $mobile-nav-width;
     height: 100%;
     background: var(--color-mobile-nav-background);
     z-index: 1001;
     transition: 0.3s;
     overflow: auto;
+    padding-bottom: env(safe-area-inset-bottom);
 
     &::-webkit-scrollbar {
       width: 8px;
@@ -30,4 +32,9 @@
 #mobile-nav .sidebar-wrap {
   background: var(--color-mobile-nav-background);
   max-height: calc(100vh - 100px);
+
+  @media #{$mq-mobile} {
+    max-height: calc(100vh - 72px);
+    padding-bottom: calc(16px + env(safe-area-inset-bottom));
+  }
 }
