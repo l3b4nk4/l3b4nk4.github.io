@@ -12,7 +12,7 @@ tags:
   - Flask
 categories:
   - writeup
-cover: "covers/Python_sucks"
+cover: "covers/Python_sucks.png"
 draft: false
 ---
 
