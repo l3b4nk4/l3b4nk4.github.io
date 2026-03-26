@@ -3,7 +3,7 @@
 {{- $isLanding := or .IsHome (eq .RelPermalink "/") (eq .Permalink .Site.BaseURL) -}}
 {{- $isAboutPage := eq .RelPermalink "/about/" -}}
 {{- $hideHero := or $isLanding $isAboutPage (eq .Params.header false) -}}
-{{- if not $isLanding -}}
+{{- if .Site.Params.menu -}}
   <div id="header-nav">
     <nav id="main-nav" aria-label="Primary navigation">
       {{- range .Site.Params.menu -}}

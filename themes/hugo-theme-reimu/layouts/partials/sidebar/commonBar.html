@@ -6,6 +6,11 @@
   {{- $showMenu = $params.sidebar.menu -}}
 {{- end -}}
 {{- $isHome := or .ctx.IsHome (eq .ctx.Kind "home") (eq .ctx.RelPermalink "/") (eq .ctx.Permalink .ctx.Site.BaseURL) -}}
+{{- $isAboutPage := eq .ctx.RelPermalink "/about/" -}}
+{{- $showSidebarMenu := or $showMenu $mobile -}}
+{{- if and (not $mobile) (or $isHome $isAboutPage) -}}
+  {{- $showSidebarMenu = false -}}
+{{- end -}}
 {{- $posts := (where .ctx.Site.RegularPages "Section" "in" $params.mainSections) -}}
 {{- if $isHome -}}
   {{- $posts = where $posts "Params.categories" "intersect" (slice "writeup") -}}
@@ -36,7 +41,7 @@
     <div class="sidebar-state-number">{{ len $posts }}</div>
   </div>
 </div>
-<div class="sidebar-social" {{ if not (or $showMenu $mobile) }}style="margin-bottom: 20px;"{{ end }}>
+<div class="sidebar-social" {{ if not $showSidebarMenu }}style="margin-bottom: 20px;"{{ end }}>
   {{- range $name, $url := $params.social -}}
     <div class="icon-{{ $name }} sidebar-social-icon">
       <a
@@ -49,7 +54,7 @@
     </div>
   {{- end -}}
 </div>
-{{- if or $showMenu $mobile -}}
+{{- if $showSidebarMenu -}}
 <div class="sidebar-menu">
   {{- range $params.menu -}}
     <div class="sidebar-menu-link-wrap">
