@@ -570,13 +570,35 @@
 
 @media #{$mg-normal} {
   body.mainsection-scroll-page {
+    .article-meta {
+      padding: 10px 12px 0;
+    }
+
+    .hr-line {
+      margin: 8px 12px;
+    }
+
+    .article-entry {
+      padding: 0 12px;
+    }
+
+    .article-footer {
+      margin: 0 12px 16px;
+      gap: 8px;
+    }
+
     .article-date-link {
-      padding: 8px 14px;
-      margin: 0 8px 10px 0;
+      padding: 7px 12px;
+      margin: 0 6px 8px 0;
+      font-size: 13px;
     }
 
     .article-summary {
-      margin-bottom: 12px !important;
+      margin-bottom: 8px !important;
+    }
+
+    .article-summary p {
+      margin: 10px 0;
     }
   }
 }

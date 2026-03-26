@@ -97,8 +97,9 @@ _$$(".article-entry table").forEach((element) => {
 // Mobile nav
 var isMobileNavAnim = false;
 var closeMobileNav = () => {
-  if (isMobileNavAnim || !document.body.classList.contains("mobile-nav-on"))
+  if (!document.body.classList.contains("mobile-nav-on"))
     return false;
+  isMobileNavAnim = false;
   document.body.classList.remove("mobile-nav-on");
   _$("#mask").classList.add("hide");
   return true;
@@ -128,11 +129,12 @@ _$("#mobile-nav .mobile-nav-close")
     closeMobileNav();
   });
 
-_$("#mobile-nav .mobile-toc-back")
-  ?.off("click")
-  .on("click", () => {
+_$$("#mobile-nav .mobile-toc-back").forEach((element) => {
+  element.off("click").on("click", (event) => {
+    event.preventDefault();
     closeMobileNav();
   });
+});
 
 _$$(".sidebar-toc-btn").forEach((element) => {
   element.off("click").on("click", function () {

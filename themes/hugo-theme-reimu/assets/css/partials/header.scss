@@ -303,21 +303,21 @@
 @media #{$mg-normal} {
   body.mainsection-scroll-page {
     #header {
-      min-height: 150px;
-      height: 18vh;
+      min-height: 108px;
+      height: 12vh;
     }
 
     #header img {
-      height: 120%;
+      height: 100%;
     }
 
     #header-title {
-      top: 58%;
-      margin-top: -18px;
+      top: 56%;
+      margin-top: -12px;
     }
 
     #logo {
-      font-size: 22px;
+      font-size: 20px;
       letter-spacing: 0.5px;
     }
 
@@ -334,18 +334,18 @@
 @media #{$mq-mobile} {
   body.mainsection-scroll-page {
     #header {
-      min-height: 124px;
-      height: 15vh;
+      min-height: 88px;
+      height: 88px;
     }
 
     #header-title {
-      top: 60%;
+      top: 55%;
       width: calc(100% - 24px);
-      margin: -14px 12px 0;
+      margin: -10px 12px 0;
     }
 
     #logo {
-      font-size: 21px;
+      font-size: 18px;
     }
   }
 }

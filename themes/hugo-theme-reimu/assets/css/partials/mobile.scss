@@ -63,11 +63,13 @@
   background: var(--red-5);
   color: var(--red-1);
   font: inherit;
+  font-size: 14px;
+  font-weight: 700;
   line-height: 1;
   box-shadow: var(--shadow-meta);
 
   &::before {
-    content: "<";
+    content: "←";
     font-weight: 700;
     line-height: 1;
   }
