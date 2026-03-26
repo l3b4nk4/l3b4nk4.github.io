@@ -23,7 +23,7 @@ draft: false
 > _Note: the flag is in a random file_
 > 
 > _meaning we need RCE_
-
+## XSS
 there is a bot we need XSS to get admin cookie and login as admin after trying injecting payloads in the Parameters and finally An alert popped up.
 
 ![captionless image](https://miro.medium.com/v2/format:webp/1*dq_wZegtfqWRD4LKOOZBtQ.png)
@@ -47,7 +47,7 @@ we can get the token admin but the admin does not connect to network how can we 
 > 4`–we got admin cookie in our logs`
 
 with this payload we can get admin cookie
-
+### get admin cookie
 ```
 <script>var c=document.cookie;document.cookie='token=YOUR_COOKIE;path=/upload';var f=new FormData();f.append('description',c);fetch('/upload',{method:'POST',body:f});</script>
 ```
@@ -64,6 +64,7 @@ now we need RCE to get the flag because it was random file how can we get RCE fr
 Now it is time for our New CVE React2shell ([CVE-2025–66478](https://github.com/vercel/next.js/security/advisories/GHSA-9qr9-h5gf-34mp))and when you type [http://internal-service:1337](http://internal-service:1337/) and check Health It sends the request powered by next.js
 
 ![captionless image](https://miro.medium.com/v2/resize:fit:1400/format:webp/1*4FfCG9wgj4Dt4kDXmEIcnw.png)
+## React2shell
 
 Now it is time to get RCE with react2shell and this the request sent to service
 
@@ -94,9 +95,9 @@ and here is the flag
 
 ![captionless image](https://miro.medium.com/v2/format:webp/1*qyGIxCvN5jk-F9Fh7MHu3g.png)
 
+## flag
 > `_nullctf{br0_7h15_3xpl017_15_50_r3c3n7_why_d1d_y0u_m4k3_7h15_4_ch4ll3ng3}_`
 
 woo-hoo, we got the flag
 
 And that’s a wrap for this challenge — see you in the next hack!👾
-------------------------------------------------------------------
