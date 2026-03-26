@@ -142,14 +142,4 @@ Inside the history was the base64-encoded data from the XSS step.
 
 After decoding it, I finally got the flag.
 
-## Wrap-up
 
-This challenge was fun because the intended solve was not just one bug. It was a full chain:
-
-1. abuse a negative transfer to get unlimited money
-2. use that access to reach the bot
-3. turn the message feature into XSS
-4. leak the confidential page through transaction search
-5. abuse the bank-master naming logic to read the leaked data
-
-That is it for this one. See you in the next challenge.
