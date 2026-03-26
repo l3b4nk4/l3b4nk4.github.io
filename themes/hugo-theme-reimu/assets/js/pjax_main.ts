@@ -34,11 +34,11 @@ var scrollIntoViewAndWait = (
       });
       element.scrollIntoView({
         behavior: "smooth",
-        block: "center",
-        inline: "center",
+        block: "start",
+        inline: "nearest",
       });
     } else {
-      element.scrollIntoView({ block: "center", inline: "center" });
+      element.scrollIntoView({ block: "start", inline: "nearest" });
       resolve();
     }
   });

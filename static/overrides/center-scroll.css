@@ -416,6 +416,10 @@ body.about-page #content {
     height: 0;
   }
 
+  body.mainsection-scroll-page #main > article.article .article-entry :is(h1, h2, h3, h4, h5, h6) {
+    scroll-margin-top: 16px;
+  }
+
   body.mainsection-scroll-page #sidebar {
     height: 100%;
   }
