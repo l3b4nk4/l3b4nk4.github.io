@@ -9,6 +9,7 @@ tags:
   - walkthrough
   - web
   - XSS
+  - IDOR
 categories:
   - writeup
 cover: "covers/a-very-small-locker.png"
