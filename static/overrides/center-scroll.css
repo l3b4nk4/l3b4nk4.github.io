@@ -83,6 +83,22 @@ body::-webkit-scrollbar {
   border-bottom: 1px solid var(--site-card-border);
 }
 
+#header-nav,
+#header-nav:hover,
+[data-theme="dark"] #header-nav,
+[data-theme="dark"] #header-nav:hover {
+  background: var(--site-shell-nav-bg);
+}
+
+#header-nav.header-nav-hidden,
+[data-theme="dark"] #header-nav.header-nav-hidden {
+  top: 0;
+}
+
+.sidebar-author img:not(.lazyload) {
+  opacity: 1;
+}
+
 body.no-hero-page #content {
   padding-top: 84px;
 }

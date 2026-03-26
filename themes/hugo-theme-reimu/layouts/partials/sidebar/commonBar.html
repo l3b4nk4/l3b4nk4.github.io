@@ -16,17 +16,19 @@
   {{- $posts = where $posts "Params.categories" "intersect" (slice "writeup") -}}
 {{- end -}}
 {{- $avatarPath := printf "%s%s" ("avatar/" | relURL) $params.avatar -}}
+{{- $avatarVersion := now.Unix -}}
+{{- $avatarSrc := printf "%s?v=%d" $avatarPath $avatarVersion -}}
 {{- $avatarExt := lower (path.Ext $params.avatar) -}}
 <div class="sidebar-profile-card">
   <div class="sidebar-author">
     {{- if eq $avatarExt ".gif" -}}
       <img
-        src="{{ $avatarPath }}"
+        src="{{ $avatarSrc }}"
         alt="{{ $params.author }}"
       />
     {{- else -}}
       <img
-        data-src="{{ $avatarPath }}"
+        data-src="{{ $avatarSrc }}"
         data-sizes="auto"
         alt="{{ $params.author }}"
         class="lazyload"
