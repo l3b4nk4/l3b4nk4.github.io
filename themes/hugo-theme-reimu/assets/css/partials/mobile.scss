@@ -38,3 +38,37 @@
     padding-bottom: calc(16px + env(safe-area-inset-bottom));
   }
 }
+
+#mobile-nav .sidebar-toc-sidebar {
+  @media #{$mq-mobile} {
+    padding: 12px 16px 0;
+  }
+}
+
+#mobile-nav .mobile-toc-header {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  padding-bottom: 8px;
+  background: var(--color-mobile-nav-background);
+}
+
+#mobile-nav .mobile-toc-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 0;
+  border-radius: $tag-radius;
+  padding: 10px 14px;
+  background: var(--red-5);
+  color: var(--red-1);
+  font: inherit;
+  line-height: 1;
+  box-shadow: var(--shadow-meta);
+
+  &::before {
+    content: "<";
+    font-weight: 700;
+    line-height: 1;
+  }
+}

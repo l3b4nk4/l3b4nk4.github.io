@@ -568,6 +568,19 @@
   }
 }
 
+@media #{$mg-normal} {
+  body.mainsection-scroll-page {
+    .article-date-link {
+      padding: 8px 14px;
+      margin: 0 8px 10px 0;
+    }
+
+    .article-summary {
+      margin-bottom: 12px !important;
+    }
+  }
+}
+
 .article-gallery {
   position: relative;
 }

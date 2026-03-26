@@ -96,6 +96,13 @@ _$$(".article-entry table").forEach((element) => {
 
 // Mobile nav
 var isMobileNavAnim = false;
+var closeMobileNav = () => {
+  if (isMobileNavAnim || !document.body.classList.contains("mobile-nav-on"))
+    return false;
+  document.body.classList.remove("mobile-nav-on");
+  _$("#mask").classList.add("hide");
+  return true;
+};
 
 _$("#main-nav-toggle")
   ?.off("click")
@@ -112,19 +119,19 @@ _$("#main-nav-toggle")
 _$("#mask")
   ?.off("click")
   .on("click", () => {
-    if (isMobileNavAnim || !document.body.classList.contains("mobile-nav-on"))
-      return;
-    document.body.classList.remove("mobile-nav-on");
-    _$("#mask").classList.add("hide");
+    closeMobileNav();
   });
 
 _$("#mobile-nav .mobile-nav-close")
   ?.off("click")
   .on("click", () => {
-    if (isMobileNavAnim || !document.body.classList.contains("mobile-nav-on"))
-      return;
-    document.body.classList.remove("mobile-nav-on");
-    _$("#mask").classList.add("hide");
+    closeMobileNav();
+  });
+
+_$("#mobile-nav .mobile-toc-back")
+  ?.off("click")
+  .on("click", () => {
+    closeMobileNav();
   });
 
 _$$(".sidebar-toc-btn").forEach((element) => {
@@ -219,10 +226,7 @@ window.on("scroll", __sidebarTopScrollHandler);
 // toc
 _$$("#mobile-nav #TableOfContents li").forEach((element) => {
   element.off("click").on("click", () => {
-    if (isMobileNavAnim || !document.body.classList.contains("mobile-nav-on"))
-      return;
-    document.body.classList.remove("mobile-nav-on");
-    _$("#mask").classList.add("hide");
+    closeMobileNav();
   });
 });
 

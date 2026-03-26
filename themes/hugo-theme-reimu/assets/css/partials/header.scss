@@ -300,6 +300,56 @@
   }
 }
 
+@media #{$mg-normal} {
+  body.mainsection-scroll-page {
+    #header {
+      min-height: 150px;
+      height: 18vh;
+    }
+
+    #header img {
+      height: 120%;
+    }
+
+    #header-title {
+      top: 58%;
+      margin-top: -18px;
+    }
+
+    #logo {
+      font-size: 22px;
+      letter-spacing: 0.5px;
+    }
+
+    #subtitle-wrap {
+      display: none;
+    }
+
+    #content {
+      padding-top: 0;
+    }
+  }
+}
+
+@media #{$mq-mobile} {
+  body.mainsection-scroll-page {
+    #header {
+      min-height: 124px;
+      height: 15vh;
+    }
+
+    #header-title {
+      top: 60%;
+      width: calc(100% - 24px);
+      margin: -14px 12px 0;
+    }
+
+    #logo {
+      font-size: 21px;
+    }
+  }
+}
+
 .custom-dropdown {
   position: relative;
 }

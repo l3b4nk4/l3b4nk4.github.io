@@ -7,6 +7,11 @@
         {{- partial "sidebar/commonBar.html" (dict "ctx" . "mobile" true) -}}
       {{- else -}}
         <div class="sidebar-toc-sidebar">
+          <div class="mobile-toc-header">
+            <button class="mobile-toc-back" type="button" aria-label="Back to article">
+              Back to article
+            </button>
+          </div>
           {{- partial "sidebar/tocBar.html" . -}}
         </div>
         <div class="sidebar-common-sidebar hidden">
