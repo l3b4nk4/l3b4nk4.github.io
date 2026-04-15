@@ -141,9 +141,6 @@ home_categories:
     - categories: writeup
       title: Writeups
       cover: "covers/recon-grid.svg"
-    - categories: cve-research
-      title: CVE & Research
-      cover: "covers/privesc-map.svg"
 
 injector:
   head_end: |-
