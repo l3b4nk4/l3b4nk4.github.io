@@ -45,8 +45,6 @@
                   />
                 {{- end -}}
               {{- end -}}
-              <h2>{{ $v.categories }}</h2>
-              <h3>{{ i18n "home_categories.count" (len (index $ctx.Site.Taxonomies.categories (lower $v.categories))) }}</h3>
             </div>
           </div>
         {{- end -}}
