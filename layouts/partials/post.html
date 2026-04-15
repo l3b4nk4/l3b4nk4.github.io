@@ -1,0 +1,28 @@
+{{- $page := .page -}}
+{{- $ctx := .ctx -}}
+{{- $compactHome := or $ctx.IsHome (eq $ctx.RelPermalink "/") (eq $ctx.Permalink $ctx.Site.BaseURL) -}}
+
+<div class="post-wrapper">
+  <div class="post-wrap text-card{{ if $compactHome }} compact-home{{ end }}" data-aos="{{ $ctx.Site.Params.animation.options.home.post }}">
+    {{- if $page.Params.link -}}
+    <a class="post-link" href="{{ $page.Params.link }}" itemprop="url" target="_blank"
+      rel="noopener nofollow noreferrer" aria-label="{{ $page.Title }}" title="{{ $page.Title }}">
+    </a>
+    {{- else -}}
+    <a class="post-link" href="{{ $page.Permalink | relURL }}" aria-label="{{ $page.Title }}" title="{{ $page.Title }}">
+    </a>
+    {{- end -}}
+    <div class="post-info">
+      <h2 class="post-title">{{ $page.Title }}</h2>
+      <article class="post-article">
+        {{- if $page.Params.description -}}
+        {{- $page.Params.description | plainify | truncate 120 -}}
+        {{- else if $page.Summary -}}
+        {{- $page.Summary | plainify | truncate 120 -}}
+        {{- else -}}
+        {{- $page.RawContent | plainify | truncate 120 -}}
+        {{- end -}}
+      </article>
+    </div>
+  </div>
+</div>

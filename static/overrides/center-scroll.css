@@ -227,6 +227,54 @@ body.home-landing-page .post-wrap.compact-home .post-meta span {
   font-size: 0.88rem;
 }
 
+.post-wrap.text-card,
+body.home-landing-page .post-wrap.text-card.compact-home {
+  min-height: 0;
+  height: auto;
+  display: block;
+  overflow: hidden;
+  border: 0;
+  border-radius: 4px;
+  background: #23282f;
+  box-shadow: none;
+}
+
+.post-wrap.text-card:hover,
+body.home-landing-page .post-wrap.text-card.compact-home:hover {
+  box-shadow: none;
+  transform: none;
+}
+
+.post-wrap.text-card .post-info,
+body.home-landing-page .post-wrap.text-card.compact-home .post-info {
+  display: block;
+  padding: 22px 22px 20px;
+}
+
+.post-wrap.text-card .post-title,
+body.home-landing-page .post-wrap.text-card.compact-home .post-title {
+  margin: 0;
+  padding: 0 0 12px;
+  color: #1ab7a4;
+  font-size: 1.65rem;
+  font-weight: 700;
+  line-height: 1.18;
+  letter-spacing: 0;
+}
+
+.post-wrap.text-card .post-article,
+body.home-landing-page .post-wrap.text-card.compact-home .post-article {
+  color: #b9a99a;
+  font-size: 1.12rem;
+  line-height: 1.35;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+}
+
+.post-wrapper:hover .post-wrap.text-card .post-title {
+  color: #23c8b4;
+}
+
 @media screen and (max-width: 959px) {
   body.home-landing-page #content {
     padding-top: 48px;
@@ -285,6 +333,22 @@ body.home-landing-page .post-wrap.compact-home .post-meta span {
   body.home-landing-page .post-wrap.compact-home .post-title {
     font-size: 1.55rem;
   }
+
+  .post-wrap.text-card .post-info,
+  body.home-landing-page .post-wrap.text-card.compact-home .post-info {
+    padding: 18px 18px 16px;
+  }
+
+  .post-wrap.text-card .post-title,
+  body.home-landing-page .post-wrap.text-card.compact-home .post-title {
+    font-size: 1.38rem;
+    padding-bottom: 10px;
+  }
+
+  .post-wrap.text-card .post-article,
+  body.home-landing-page .post-wrap.text-card.compact-home .post-article {
+    font-size: 0.98rem;
+  }
 }
 
 .sidebar-wrap,
@@ -313,6 +377,12 @@ body.home-landing-page .post-wrap.compact-home .post-meta span {
 .widget-wrap:hover,
 .article-inner:hover {
   box-shadow: var(--site-card-shadow-strong);
+}
+
+.post-wrap.text-card,
+.post-wrap.text-card:hover {
+  border: 0;
+  box-shadow: none;
 }
 
 .article-summary,
