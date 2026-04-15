@@ -1,0 +1,99 @@
+{{- $params := .ctx.Site.Params -}}
+{{- $mobile := .mobile -}}
+{{- $showMenu := true -}}
+{{- /* Backward compatibility */ -}}
+{{- if and (reflect.IsMap $params.sidebar) (isset $params.sidebar "menu") -}}
+  {{- $showMenu = $params.sidebar.menu -}}
+{{- end -}}
+{{- $isHome := or .ctx.IsHome (eq .ctx.Kind "home") (eq .ctx.RelPermalink "/") (eq .ctx.Permalink .ctx.Site.BaseURL) -}}
+{{- $isAboutPage := eq .ctx.RelPermalink "/about/" -}}
+{{- $showSidebarMenu := or $showMenu $mobile -}}
+{{- if and (not $mobile) (or $isHome $isAboutPage) -}}
+  {{- $showSidebarMenu = false -}}
+{{- end -}}
+{{- $posts := where .ctx.Site.RegularPages "Section" "in" $params.mainSections -}}
+{{- if $isHome -}}
+  {{- $homeCategoryKeys := slice -}}
+  {{- if $params.home_categories.enable -}}
+    {{- range $params.home_categories.content -}}
+      {{- with .categories -}}
+        {{- $homeCategoryKeys = $homeCategoryKeys | append (lower .) -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+  {{- if gt (len $homeCategoryKeys) 0 -}}
+    {{- $posts = where $posts "Params.categories" "intersect" $homeCategoryKeys -}}
+  {{- end -}}
+{{- end -}}
+{{- $avatarPath := printf "%s%s" ("avatar/" | relURL) $params.avatar -}}
+{{- $avatarVersion := now.Unix -}}
+{{- $avatarSrc := printf "%s?v=%d" $avatarPath $avatarVersion -}}
+{{- $avatarExt := lower (path.Ext $params.avatar) -}}
+<div class="sidebar-profile-card">
+  <div class="sidebar-author">
+    {{- if eq $avatarExt ".gif" -}}
+      <img
+        src="{{ $avatarSrc }}"
+        alt="{{ $params.author }}"
+      />
+    {{- else -}}
+      <img
+        data-src="{{ $avatarSrc }}"
+        data-sizes="auto"
+        alt="{{ $params.author }}"
+        class="lazyload"
+      />
+    {{- end -}}
+    <div class="sidebar-author-name">{{ $params.author }}</div>
+  </div>
+</div>
+<div class="sidebar-state">
+  <div class="sidebar-state-article">
+    <div>{{ i18n "sidebar.post" }}</div>
+    <div class="sidebar-state-number">{{ len $posts }}</div>
+  </div>
+</div>
+<div class="sidebar-social" {{ if not $showSidebarMenu }}style="margin-bottom: 20px;"{{ end }}>
+  {{- range $name, $url := $params.social -}}
+    <div class="icon-{{ $name }} sidebar-social-icon">
+      <a
+        href="{{ $url }}"
+        itemprop="url"
+        target="_blank"
+        aria-label="{{ $name }}"
+        rel="noopener nofollow noreferrer"
+      ></a>
+    </div>
+  {{- end -}}
+</div>
+{{- if $showSidebarMenu -}}
+<div class="sidebar-menu">
+  {{- range $params.menu -}}
+    <div class="sidebar-menu-link-wrap">
+      <a
+        class="sidebar-menu-link-dummy"
+        href="{{ .url | relLangURL }}"
+        aria-label="{{ i18n .name }}"
+      ></a>
+      {{- if ne .icon false -}}
+        <div class='sidebar-menu-icon icon {{ if or (and (eq .icon "e62b") ($params.icon_font)) (and (eq .icon "f6ad") (not $params.icon_font)) (not .icon) }}rotate{{ end }}'>
+          {{- if .icon -}}
+            {{- if and (strings.Contains .icon ".") (strings.Contains .icon "/") -}}
+              <img src="{{ .icon | relURL }}" alt="{{ .name }} icon" class="" style="height: 1em;">
+            {{- else -}}
+              &#x{{- .icon -}};
+            {{- end -}}
+          {{- else -}}
+            {{- if $params.icon_font -}}
+              &#xe62b;
+            {{- else -}}
+              &#xf6ad;
+            {{- end -}}
+          {{- end -}}
+        </div>
+      {{- end -}}
+      <div class="sidebar-menu-link">{{ i18n .name }}</div>
+    </div>
+  {{- end -}}
+</div>
+{{- end -}}
