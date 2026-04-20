@@ -1,0 +1,41 @@
+{{- if not (in .Params.categories "cve-research") -}}
+  {{- if or .PrevInSection .NextInSection -}}
+    <nav
+      id="article-nav"
+      aria-label="Article navigation"
+      data-aos="{{ .Site.Params.animation.options.article.nav }}"
+    >
+      {{- with .PrevInSection -}}
+        {{- $summary := .Params.description | default (.Summary | plainify) -}}
+        <div class="article-nav-link-wrap left">
+          <a
+            href="{{ .Permalink | relURL }}"
+            aria-label="{{ i18n "newer" }}: {{ .Title | default "(no title)" }}"
+            title="{{ i18n "newer" }}: {{ .Title | default "(no title)" }}"
+          ></a>
+          <div class="article-nav-caption">{{ i18n "newer" }}</div>
+          <h3 class="article-nav-title">{{ .Title | default "(no title)" }}</h3>
+          {{- if $summary -}}
+            <p class="article-nav-summary">{{ $summary | plainify | truncate 140 }}</p>
+          {{- end -}}
+        </div>
+      {{- end -}}
+
+      {{- with .NextInSection -}}
+        {{- $summary := .Params.description | default (.Summary | plainify) -}}
+        <div class="article-nav-link-wrap right">
+          <a
+            href="{{ .Permalink | relURL }}"
+            aria-label="{{ i18n "older" }}: {{ .Title | default "(no title)" }}"
+            title="{{ i18n "older" }}: {{ .Title | default "(no title)" }}"
+          ></a>
+          <div class="article-nav-caption">{{ i18n "older" }}</div>
+          <h3 class="article-nav-title">{{ .Title | default "(no title)" }}</h3>
+          {{- if $summary -}}
+            <p class="article-nav-summary">{{ $summary | plainify | truncate 140 }}</p>
+          {{- end -}}
+        </div>
+      {{- end -}}
+    </nav>
+  {{- end -}}
+{{- end -}}
