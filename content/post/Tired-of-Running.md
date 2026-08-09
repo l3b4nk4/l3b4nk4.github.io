@@ -337,7 +337,8 @@ http://flagserver:5001/047d15db72b47a7e8b874b279789f9fb2c76703be748b3593f399c9b0
 ```text
 africc{wh4t_4_gr34t_marathon}
 ```
-solver.py
+## solver
+
 ```python
 #!/usr/bin/env python3
 import hashlib
