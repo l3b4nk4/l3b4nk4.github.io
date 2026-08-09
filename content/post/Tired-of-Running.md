@@ -138,7 +138,7 @@ It does **not** protect:
 
 Those two values are inserted directly into the SQL query string.
 
-That means if we can use the desync to replace:
+That means  we can use the desync to replace:
 
 - `parameter = username`
 
