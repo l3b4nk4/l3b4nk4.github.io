@@ -5,14 +5,8 @@ menu:
   - name: writeups
     url: "categories/writeup"
     icon: false
-  - name: cve_research
-    url: "categories/cve-research"
-    icon: false
   - name: about
     url: "about"
-    icon: false
-  - name: cv
-    url: "cv"
     icon: false
 
 mainSections: ["post"]
