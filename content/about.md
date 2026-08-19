@@ -45,9 +45,6 @@ Active on HackerOne and Bugcrowd. Reported pypdf vulnerabilities credited in pub
 - **Tools:** Burp Suite, FFUF, sqlmap, Linux, TryHackMe, Hack The Box, GitHub Security Advisories, HackerOne, Bugcrowd.
 - **Vulnerability Research:** Denial-of-service analysis, PDF parser security, responsible disclosure, vulnerability documentation, and remediation validation.
 
-### EDUCATION
-**Mansoura University - Electronics and Engineering Department** | 2024 - 2029
-- Grade: 85%
 
 ### COURSES AND CERTIFICATIONS
 - CASA: Certified API Security Analyst - APISec University, 2026
