@@ -103,7 +103,8 @@ body.no-hero-page #content {
   padding-top: 84px;
 }
 
-body.home-landing-page #content {
+body.home-landing-page #content,
+body.about-page #content {
   padding-top: 72px;
 }
 
@@ -534,12 +535,15 @@ body.home-landing-page .post-wrap.text-card.compact-home .post-article {
 
 /* Make sidebar sticky on about and home pages */
 :is(body.about-page, body.home-landing-page) #sidebar {
-  height: 100%;
-}
-
-:is(body.about-page, body.home-landing-page) .sidebar-wrapper-container {
-  max-height: calc(100vh - 104px);
+  align-self: flex-start;
   position: -webkit-sticky;
   position: sticky;
-  top: 84px;
+  top: 72px;
+  max-height: calc(100vh - 90px);
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+
+:is(body.about-page, body.home-landing-page) #sidebar::-webkit-scrollbar {
+  display: none;
 }
