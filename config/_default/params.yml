@@ -11,6 +11,9 @@ menu:
   - name: about
     url: "about"
     icon: false
+  - name: cv
+    url: "cv"
+    icon: false
 
 mainSections: ["post"]
 author: L3B4nk4
