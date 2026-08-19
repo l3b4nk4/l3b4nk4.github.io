@@ -2,8 +2,8 @@ menu:
   - name: home
     url: ""
     icon: false
-  - name: categories
-    url: "categories"
+  - name: writeups
+    url: "categories/writeup"
     icon: false
   - name: about
     url: "about"
