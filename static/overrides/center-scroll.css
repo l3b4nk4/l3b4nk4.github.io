@@ -107,13 +107,13 @@ body.home-landing-page #content {
   padding-top: 72px;
 }
 
-body.home-landing-page #sidebar .sidebar-wrap {
+:is(body.home-landing-page, body.about-page) #sidebar .sidebar-wrap {
   justify-content: flex-start;
   padding: 22px;
   gap: 22px;
 }
 
-body.home-landing-page .sidebar-profile-card {
+:is(body.home-landing-page, body.about-page) .sidebar-profile-card {
   width: 100%;
   padding: 26px 18px 22px;
   border: 1px solid var(--site-card-border);
@@ -121,7 +121,7 @@ body.home-landing-page .sidebar-profile-card {
   background: rgba(9, 14, 19, 0.88);
 }
 
-body.home-landing-page .sidebar-author img {
+:is(body.home-landing-page, body.about-page) .sidebar-author img {
   width: 176px;
   height: 176px;
   min-width: 176px;
@@ -131,13 +131,13 @@ body.home-landing-page .sidebar-author img {
   box-shadow: 0 18px 32px rgba(0, 0, 0, 0.24);
 }
 
-body.home-landing-page .sidebar-author-name {
+:is(body.home-landing-page, body.about-page) .sidebar-author-name {
   margin: 0;
   font-size: 2rem;
   letter-spacing: 0.08em;
 }
 
-body.home-landing-page .sidebar-state {
+:is(body.home-landing-page, body.about-page) .sidebar-state {
   width: min(100%, 150px);
   margin: 0 auto;
   padding: 0;
@@ -146,35 +146,35 @@ body.home-landing-page .sidebar-state {
   gap: 0;
 }
 
-body.home-landing-page .sidebar-state > div,
-body.home-landing-page .sidebar-state > a {
+:is(body.home-landing-page, body.about-page) .sidebar-state > div,
+:is(body.home-landing-page, body.about-page) .sidebar-state > a {
   padding: 0 10px;
   min-width: 0;
 }
 
-body.home-landing-page .sidebar-state > div + div,
-body.home-landing-page .sidebar-state > a + div,
-body.home-landing-page .sidebar-state > div + a,
-body.home-landing-page .sidebar-state > a + a {
+:is(body.home-landing-page, body.about-page) .sidebar-state > div + div,
+:is(body.home-landing-page, body.about-page) .sidebar-state > a + div,
+:is(body.home-landing-page, body.about-page) .sidebar-state > div + a,
+:is(body.home-landing-page, body.about-page) .sidebar-state > a + a {
   border-left: 1px solid var(--site-card-border);
 }
 
-body.home-landing-page .sidebar-state > div div:first-child,
-body.home-landing-page .sidebar-state > a div:first-child {
+:is(body.home-landing-page, body.about-page) .sidebar-state > div div:first-child,
+:is(body.home-landing-page, body.about-page) .sidebar-state > a div:first-child {
   font-size: 0.95rem;
   color: var(--grey-7);
 }
 
-body.home-landing-page .sidebar-state-number {
+:is(body.home-landing-page, body.about-page) .sidebar-state-number {
   font-size: 1.9rem;
 }
 
-body.home-landing-page .sidebar-social {
+:is(body.home-landing-page, body.about-page) .sidebar-social {
   width: 100%;
   gap: 12px;
 }
 
-body.home-landing-page .sidebar-social-icon {
+:is(body.home-landing-page, body.about-page) .sidebar-social-icon {
   width: 48px;
   height: 48px;
   border: 1px solid var(--site-card-border);
@@ -280,35 +280,35 @@ body.home-landing-page .post-wrap.text-card.compact-home .post-article {
     padding-top: 48px;
   }
 
-  body.home-landing-page #sidebar .sidebar-wrap {
+  :is(body.home-landing-page, body.about-page) #sidebar .sidebar-wrap {
     padding: 16px;
     gap: 18px;
   }
 
-  body.home-landing-page .sidebar-profile-card {
+  :is(body.home-landing-page, body.about-page) .sidebar-profile-card {
     padding: 20px 16px 18px;
   }
 
-  body.home-landing-page .sidebar-author img {
+  :is(body.home-landing-page, body.about-page) .sidebar-author img {
     width: 132px;
     height: 132px;
     min-width: 132px;
     min-height: 132px;
   }
 
-  body.home-landing-page .sidebar-author-name {
+  :is(body.home-landing-page, body.about-page) .sidebar-author-name {
     font-size: 1.6rem;
   }
 
-  body.home-landing-page .sidebar-state {
+  :is(body.home-landing-page, body.about-page) .sidebar-state {
     grid-template-columns: 1fr;
     gap: 14px;
   }
 
-  body.home-landing-page .sidebar-state > div + div,
-  body.home-landing-page .sidebar-state > a + div,
-  body.home-landing-page .sidebar-state > div + a,
-  body.home-landing-page .sidebar-state > a + a {
+  :is(body.home-landing-page, body.about-page) .sidebar-state > div + div,
+  :is(body.home-landing-page, body.about-page) .sidebar-state > a + div,
+  :is(body.home-landing-page, body.about-page) .sidebar-state > div + a,
+  :is(body.home-landing-page, body.about-page) .sidebar-state > a + a {
     border-left: 0;
   }
 
@@ -532,8 +532,8 @@ body.home-landing-page .post-wrap.text-card.compact-home .post-article {
   }
 }
 
-/* Make sidebar sticky on about page */
-body.about-page .sidebar-wrapper-container {
+/* Make sidebar sticky on about and home pages */
+:is(body.about-page, body.home-landing-page) .sidebar-wrapper-container {
   max-height: calc(100vh - 104px);
   position: -webkit-sticky;
   position: sticky;
