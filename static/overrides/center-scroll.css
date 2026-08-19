@@ -534,6 +534,11 @@ body.home-landing-page .post-wrap.text-card.compact-home .post-article {
 }
 
 /* Make sidebar sticky on about and home pages */
+:is(body.about-page, body.home-landing-page) #wrap {
+  height: auto;
+  min-height: 100%;
+}
+
 :is(body.about-page, body.home-landing-page) #sidebar {
   align-self: flex-start;
   position: -webkit-sticky;
