@@ -531,3 +531,11 @@ body.home-landing-page .post-wrap.text-card.compact-home .post-article {
     margin: 0 10px;
   }
 }
+
+/* Make sidebar sticky on about page */
+body.about-page .sidebar-wrapper-container {
+  max-height: calc(100vh - 104px);
+  position: -webkit-sticky;
+  position: sticky;
+  top: 84px;
+}
