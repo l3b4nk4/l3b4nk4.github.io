@@ -1,7 +1,7 @@
 {{- $page := .page -}}
 {{- $index := .index -}}
 {{- $ctx := .ctx -}}
-{{- $compactHome := or $ctx.IsHome (eq $ctx.RelPermalink "/") (eq $ctx.Permalink $ctx.Site.BaseURL) -}}
+{{- $compactHome := or $ctx.IsHome (eq $ctx.RelPermalink "/") (eq $ctx.Permalink $ctx.Site.BaseURL) (eq $ctx.Type "categories") -}}
 {{- $isRight := and (not $compactHome) (eq (mod $index 2) 1) -}}
 
 <div class="post-wrapper">

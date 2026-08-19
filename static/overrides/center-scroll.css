@@ -103,18 +103,17 @@ body.no-hero-page #content {
   padding-top: 84px;
 }
 
-body.home-landing-page #content,
-body.about-page #content {
+body.no-hero-page #content {
   padding-top: 72px;
 }
 
-:is(body.home-landing-page, body.about-page) #sidebar .sidebar-wrap {
+:is(body.no-hero-page) #sidebar .sidebar-wrap {
   justify-content: flex-start;
   padding: 22px;
   gap: 22px;
 }
 
-:is(body.home-landing-page, body.about-page) .sidebar-profile-card {
+:is(body.no-hero-page) .sidebar-profile-card {
   width: 100%;
   padding: 26px 18px 22px;
   border: 1px solid var(--site-card-border);
@@ -122,7 +121,7 @@ body.about-page #content {
   background: rgba(9, 14, 19, 0.88);
 }
 
-:is(body.home-landing-page, body.about-page) .sidebar-author img {
+:is(body.no-hero-page) .sidebar-author img {
   width: 176px;
   height: 176px;
   min-width: 176px;
@@ -132,13 +131,13 @@ body.about-page #content {
   box-shadow: 0 18px 32px rgba(0, 0, 0, 0.24);
 }
 
-:is(body.home-landing-page, body.about-page) .sidebar-author-name {
+:is(body.no-hero-page) .sidebar-author-name {
   margin: 0;
   font-size: 2rem;
   letter-spacing: 0.08em;
 }
 
-:is(body.home-landing-page, body.about-page) .sidebar-state {
+:is(body.no-hero-page) .sidebar-state {
   width: min(100%, 150px);
   margin: 0 auto;
   padding: 0;
@@ -147,35 +146,35 @@ body.about-page #content {
   gap: 0;
 }
 
-:is(body.home-landing-page, body.about-page) .sidebar-state > div,
-:is(body.home-landing-page, body.about-page) .sidebar-state > a {
+:is(body.no-hero-page) .sidebar-state > div,
+:is(body.no-hero-page) .sidebar-state > a {
   padding: 0 10px;
   min-width: 0;
 }
 
-:is(body.home-landing-page, body.about-page) .sidebar-state > div + div,
-:is(body.home-landing-page, body.about-page) .sidebar-state > a + div,
-:is(body.home-landing-page, body.about-page) .sidebar-state > div + a,
-:is(body.home-landing-page, body.about-page) .sidebar-state > a + a {
+:is(body.no-hero-page) .sidebar-state > div + div,
+:is(body.no-hero-page) .sidebar-state > a + div,
+:is(body.no-hero-page) .sidebar-state > div + a,
+:is(body.no-hero-page) .sidebar-state > a + a {
   border-left: 1px solid var(--site-card-border);
 }
 
-:is(body.home-landing-page, body.about-page) .sidebar-state > div div:first-child,
-:is(body.home-landing-page, body.about-page) .sidebar-state > a div:first-child {
+:is(body.no-hero-page) .sidebar-state > div div:first-child,
+:is(body.no-hero-page) .sidebar-state > a div:first-child {
   font-size: 0.95rem;
   color: var(--grey-7);
 }
 
-:is(body.home-landing-page, body.about-page) .sidebar-state-number {
+:is(body.no-hero-page) .sidebar-state-number {
   font-size: 1.9rem;
 }
 
-:is(body.home-landing-page, body.about-page) .sidebar-social {
+:is(body.no-hero-page) .sidebar-social {
   width: 100%;
   gap: 12px;
 }
 
-:is(body.home-landing-page, body.about-page) .sidebar-social-icon {
+:is(body.no-hero-page) .sidebar-social-icon {
   width: 48px;
   height: 48px;
   border: 1px solid var(--site-card-border);
@@ -183,53 +182,53 @@ body.about-page #content {
   background: rgba(255, 255, 255, 0.03);
 }
 
-body.home-landing-page .post-wrap.compact-home {
+body.no-hero-page .post-wrap.compact-home {
   --home-card-height: 184px;
   min-height: var(--home-card-height);
   height: var(--home-card-height);
   overflow: hidden;
 }
 
-body.home-landing-page .post-wrap.compact-home .post-cover {
+body.no-hero-page .post-wrap.compact-home .post-cover {
   width: 28%;
   min-height: 100%;
   display: block;
   background: #081115;
 }
 
-body.home-landing-page .post-wrap.compact-home .post-cover.left,
-body.home-landing-page .post-wrap.compact-home .post-cover.right {
+body.no-hero-page .post-wrap.compact-home .post-cover.left,
+body.no-hero-page .post-wrap.compact-home .post-cover.right {
   border-radius: 16px 0 0 16px;
   -webkit-clip-path: polygon(0 0, 92% 0, 100% 100%, 0 100%);
   clip-path: polygon(0 0, 92% 0, 100% 100%, 0 100%);
 }
 
-body.home-landing-page .post-wrap.compact-home .post-info {
+body.no-hero-page .post-wrap.compact-home .post-info {
   display: flex;
   flex-direction: column;
   justify-content: center;
   padding: 18px 24px;
 }
 
-body.home-landing-page .post-wrap.compact-home .post-title {
+body.no-hero-page .post-wrap.compact-home .post-title {
   padding: 7px 0 12px;
   font-size: 1.48rem;
   line-height: 1.15;
 }
 
-body.home-landing-page .post-wrap.compact-home .post-article {
+body.no-hero-page .post-wrap.compact-home .post-article {
   -webkit-line-clamp: 2;
   line-clamp: 2;
   line-height: 1.5;
   font-size: 1rem;
 }
 
-body.home-landing-page .post-wrap.compact-home .post-meta span {
+body.no-hero-page .post-wrap.compact-home .post-meta span {
   font-size: 0.88rem;
 }
 
 .post-wrap.text-card,
-body.home-landing-page .post-wrap.text-card.compact-home {
+body.no-hero-page .post-wrap.text-card.compact-home {
   min-height: 0;
   height: auto;
   display: block;
@@ -241,19 +240,19 @@ body.home-landing-page .post-wrap.text-card.compact-home {
 }
 
 .post-wrap.text-card:hover,
-body.home-landing-page .post-wrap.text-card.compact-home:hover {
+body.no-hero-page .post-wrap.text-card.compact-home:hover {
   box-shadow: none;
   transform: none;
 }
 
 .post-wrap.text-card .post-info,
-body.home-landing-page .post-wrap.text-card.compact-home .post-info {
+body.no-hero-page .post-wrap.text-card.compact-home .post-info {
   display: block;
   padding: 22px 22px 20px;
 }
 
 .post-wrap.text-card .post-title,
-body.home-landing-page .post-wrap.text-card.compact-home .post-title {
+body.no-hero-page .post-wrap.text-card.compact-home .post-title {
   margin: 0;
   padding: 0 0 12px;
   color: #1ab7a4;
@@ -264,7 +263,7 @@ body.home-landing-page .post-wrap.text-card.compact-home .post-title {
 }
 
 .post-wrap.text-card .post-article,
-body.home-landing-page .post-wrap.text-card.compact-home .post-article {
+body.no-hero-page .post-wrap.text-card.compact-home .post-article {
   color: #b9a99a;
   font-size: 1.12rem;
   line-height: 1.35;
@@ -277,77 +276,77 @@ body.home-landing-page .post-wrap.text-card.compact-home .post-article {
 }
 
 @media screen and (max-width: 959px) {
-  body.home-landing-page #content {
+  body.no-hero-page #content {
     padding-top: 48px;
   }
 
-  :is(body.home-landing-page, body.about-page) #sidebar .sidebar-wrap {
+  :is(body.no-hero-page) #sidebar .sidebar-wrap {
     padding: 16px;
     gap: 18px;
   }
 
-  :is(body.home-landing-page, body.about-page) .sidebar-profile-card {
+  :is(body.no-hero-page) .sidebar-profile-card {
     padding: 20px 16px 18px;
   }
 
-  :is(body.home-landing-page, body.about-page) .sidebar-author img {
+  :is(body.no-hero-page) .sidebar-author img {
     width: 132px;
     height: 132px;
     min-width: 132px;
     min-height: 132px;
   }
 
-  :is(body.home-landing-page, body.about-page) .sidebar-author-name {
+  :is(body.no-hero-page) .sidebar-author-name {
     font-size: 1.6rem;
   }
 
-  :is(body.home-landing-page, body.about-page) .sidebar-state {
+  :is(body.no-hero-page) .sidebar-state {
     grid-template-columns: 1fr;
     gap: 14px;
   }
 
-  :is(body.home-landing-page, body.about-page) .sidebar-state > div + div,
-  :is(body.home-landing-page, body.about-page) .sidebar-state > a + div,
-  :is(body.home-landing-page, body.about-page) .sidebar-state > div + a,
-  :is(body.home-landing-page, body.about-page) .sidebar-state > a + a {
+  :is(body.no-hero-page) .sidebar-state > div + div,
+  :is(body.no-hero-page) .sidebar-state > a + div,
+  :is(body.no-hero-page) .sidebar-state > div + a,
+  :is(body.no-hero-page) .sidebar-state > a + a {
     border-left: 0;
   }
 
-  body.home-landing-page .post-wrap.compact-home {
+  body.no-hero-page .post-wrap.compact-home {
     --home-card-height: 210px;
     height: auto;
     min-height: 0;
   }
 
-  body.home-landing-page .post-wrap.compact-home .post-cover {
+  body.no-hero-page .post-wrap.compact-home .post-cover {
     width: 100%;
     height: 190px;
   }
 
-  body.home-landing-page .post-wrap.compact-home .post-cover.left,
-  body.home-landing-page .post-wrap.compact-home .post-cover.right {
+  body.no-hero-page .post-wrap.compact-home .post-cover.left,
+  body.no-hero-page .post-wrap.compact-home .post-cover.right {
     border-radius: 16px 16px 0 0;
     -webkit-clip-path: polygon(0 0, 100% 0, 100% 78%, 0 100%);
     clip-path: polygon(0 0, 100% 0, 100% 78%, 0 100%);
   }
 
-  body.home-landing-page .post-wrap.compact-home .post-title {
+  body.no-hero-page .post-wrap.compact-home .post-title {
     font-size: 1.55rem;
   }
 
   .post-wrap.text-card .post-info,
-  body.home-landing-page .post-wrap.text-card.compact-home .post-info {
+  body.no-hero-page .post-wrap.text-card.compact-home .post-info {
     padding: 18px 18px 16px;
   }
 
   .post-wrap.text-card .post-title,
-  body.home-landing-page .post-wrap.text-card.compact-home .post-title {
+  body.no-hero-page .post-wrap.text-card.compact-home .post-title {
     font-size: 1.38rem;
     padding-bottom: 10px;
   }
 
   .post-wrap.text-card .post-article,
-  body.home-landing-page .post-wrap.text-card.compact-home .post-article {
+  body.no-hero-page .post-wrap.text-card.compact-home .post-article {
     font-size: 0.98rem;
   }
 }
@@ -534,12 +533,12 @@ body.home-landing-page .post-wrap.text-card.compact-home .post-article {
 }
 
 /* Make sidebar sticky on about and home pages */
-:is(body.about-page, body.home-landing-page) #wrap {
+:is(body.no-hero-page) #wrap {
   height: auto;
   min-height: 100%;
 }
 
-:is(body.about-page, body.home-landing-page) #sidebar {
+:is(body.no-hero-page) #sidebar {
   align-self: flex-start;
   position: -webkit-sticky;
   position: sticky;
@@ -549,6 +548,6 @@ body.home-landing-page .post-wrap.text-card.compact-home .post-article {
   scrollbar-width: none;
 }
 
-:is(body.about-page, body.home-landing-page) #sidebar::-webkit-scrollbar {
+:is(body.no-hero-page) #sidebar::-webkit-scrollbar {
   display: none;
 }
