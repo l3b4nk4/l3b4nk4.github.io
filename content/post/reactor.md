@@ -80,7 +80,7 @@ The `engineer` hash was MD5, and CrackStation recovered it:
 
 ![CrackStation result showing the engineer MD5 hash was cracked](/img/Reactor/crack.png)
 
-I am leaving the recovered password out of the post because the screenshot has it redacted. With that credential, SSH gave me a proper shell as `engineer`.
+ SSH gave me a proper shell as `engineer`.
 
 ## Process Enumeration
 
