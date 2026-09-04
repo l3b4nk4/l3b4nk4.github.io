@@ -50,7 +50,7 @@ Nuclei flagged `CVE-2025-55182`, the React Server Components unauthenticated RCE
 
 ## Getting Code Execution
 
-I used the exploit to test a simple command first:
+I used the [exploit](https://github.com/Chocapikk/CVE-2025-55182/blob/main/exploit.py) to test a simple command first:
 
 ```bash
 python3 exploit.py -u http://10.129.119.52:3000/ -c "id"
