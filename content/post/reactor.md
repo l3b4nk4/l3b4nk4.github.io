@@ -22,7 +22,6 @@ draft: false
 
 Reactor was a clean chain: fingerprint the web app, turn a React Server Components bug into command execution, recover an SSH credential from the app database, then abuse a root Node.js inspector bound to localhost.
 
-The interesting part was not one loud trick. Each step gave just enough access to reach the next trust boundary.
 
 ## Recon
 
