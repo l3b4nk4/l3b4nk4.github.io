@@ -132,8 +132,6 @@ That completed Reactor.
 
 The initial RCE only landed as `node`, but it was enough to read application-local data. The weak MD5 hash turned that into SSH access as `engineer`, and the root-owned inspector finished the chain.
 
-For defense, the big fixes are straightforward: patch React Server Components/Next.js dependencies, store passwords with a modern password hashing scheme instead of MD5, and never leave a privileged Node.js process running with an inspector reachable by lower-privileged local users.
-
 References:
 
 - [React advisory for CVE-2025-55182](https://react.dev/blog/2025/12/03/critical-security-vulnerability-in-react-server-components)
