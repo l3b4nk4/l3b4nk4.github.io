@@ -2,8 +2,8 @@
 title: "Wizard King"
 description: "CTF web challenge"
 summary: "Wizard King chains CL.TE request smuggling into an admin cookie leak, then turns an admin-only MariaDB client query into RCE."
-date: 2026-08-09T00:00:00+02:00
-lastmod: 2026-09-13T00:00:00+02:00
+date: 2026-09-13T22:43:34+02:00
+lastmod: 2026-09-13T22:43:34+02:00
 tags:
   - CTF
   - walkthrough
