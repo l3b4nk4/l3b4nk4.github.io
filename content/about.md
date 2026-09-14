@@ -16,7 +16,7 @@ I also play CTFs under the name **@0xl4gh**, where I improve my offensive securi
 
 ---
 
-## 👨‍💻 Resume / CV
+##  Resume / CV
 
 **Junior Penetration Tester | Security Researcher | Web & API Security**  
 Mansoura, Egypt | [LinkedIn](https://www.linkedin.com/in/ahmedibrahimreda/)
