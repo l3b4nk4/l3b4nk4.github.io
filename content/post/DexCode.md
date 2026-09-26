@@ -354,16 +354,6 @@ The reversal works because each bit is **prepended** to the output zone, not app
 
 The original string `1011` read left-to-right becomes `1101` — exactly the reverse.
 
-### Edge Cases
-
-**Empty string** (`^*`): Rule 1 fails immediately (no bits to capture). Rule 2 matches `^*` and deletes it. Output: empty string. Correct.
-
-**Single bit** (`^0*`): Rule 1 fires once, moving `0` past `*`, giving `^*0`. Then Rule 2 deletes `^*`. Output: `0`. Correct (a single character reversed is itself).
-
-### Step Complexity
-
-For an n-bit input, the algorithm performs exactly **n + 1** rule applications (n shifts + 1 cleanup), followed by a linear scan of the n-character output. Total: **O(n)** steps. Even the largest test case (16 bits) uses only ~33 steps — well within the 400,000 step budget.
-
 ---
 
 ## Solver
