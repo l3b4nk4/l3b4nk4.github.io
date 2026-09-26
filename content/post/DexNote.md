@@ -269,6 +269,3 @@ print(f"\nCheck {WEBHOOK} for the flag cookie!")
 CATF{...}
 ```
 
-## Key Takeaways
-
-- **DOM Clobbering** is a powerful technique when code reads from `window.*` properties without initializing them first. The `applyTheme()` function uses `window.THEME || {}` — a perfect clobbering target since `THEME` is never explicitly defined.
