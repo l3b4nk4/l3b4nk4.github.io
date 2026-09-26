@@ -324,8 +324,9 @@ function tocInit() {
 
     const tocWrapper = _$(".sidebar-toc-wrapper") as HTMLElement | null;
     if (tocWrapper) {
+      const targetTop = target.getBoundingClientRect().top - tocWrapper.getBoundingClientRect().top + tocWrapper.scrollTop;
       tocWrapper.scrollTo({
-        top: tocWrapper.scrollTop + target.offsetTop - tocWrapper.offsetHeight / 2,
+        top: targetTop - tocWrapper.offsetHeight / 2,
         behavior: "smooth",
       });
     }
