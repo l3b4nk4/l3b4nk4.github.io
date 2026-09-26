@@ -261,6 +261,6 @@ print(f"\nCheck {WEBHOOK} for the flag cookie!")
 
 ## Flag
 
-```
+```text
 CATF{t0n1ght_15_th3_n1ght}
 ```
