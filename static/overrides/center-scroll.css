@@ -559,3 +559,39 @@ body.no-hero-page .post-wrap.text-card.compact-home .post-article {
 .sidebar-toc-wrapper {
   scroll-behavior: smooth;
 }
+
+/* TOC bar: resilient text — wrap long headings instead of truncating them */
+.sidebar-toc-wrapper li {
+  white-space: normal;
+  overflow: visible;
+  text-overflow: clip;
+}
+
+.sidebar-toc-wrapper li > a {
+  display: inline-block;
+  vertical-align: middle;
+  max-width: calc(100% - 22px);
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+
+/* TOC bar: visible keyboard focus state */
+.sidebar-toc-wrapper a:focus-visible {
+  outline: 2px solid var(--red-2);
+  outline-offset: 2px;
+  border-radius: 6px;
+  opacity: 1;
+}
+
+/* TOC bar: honor reduced-motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .sidebar-toc-wrapper,
+  .sidebar-toc-wrapper li,
+  .sidebar-toc-wrapper li:before,
+  .sidebar-toc-wrapper a,
+  .sidebar-toc-wrapper nav ul,
+  .sidebar-toc-wrapper nav ol {
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
