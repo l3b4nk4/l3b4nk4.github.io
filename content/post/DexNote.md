@@ -115,6 +115,8 @@ When two elements share the same `id`, the browser exposes them as an `HTMLColle
 
 When `location.href = theme.redirect` runs, JavaScript calls `toString()` on the anchor element, which returns its resolved `href`.
 
+![XSS alert triggered via DOM Clobbering + tab bypass](/img/dexnote-alert.png)
+
 ### Step 2: Bypassing SpatterGuard's Scheme Check
 
 The sanitizer's regex to detect dangerous schemes is:
