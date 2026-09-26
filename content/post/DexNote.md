@@ -185,10 +185,7 @@ The sanitizer's regex to detect dangerous schemes is:
 
 This expects the literal string `javascript` or `data` at the start, optionally followed by whitespace, then a colon. But it doesn't account for **whitespace characters inside the scheme name**.
 
-HTML and the URL spec handle tab characters (`\t`, `0x09`) differently:
-
-- **In the DOM**: `attr.value` preserves the tab character literally. `"java\tscript:"` does **not** match the regex because `java<TAB>script` ≠ `javascript`.
-- **In the URL parser**: the [WHATWG URL spec](https://url.spec.whatwg.org/#scheme-start-state) mandates stripping ASCII tabs and newlines during scheme resolution. So the anchor's `.href` getter returns `"javascript:..."` with the tab removed.
+In the DOM, `attr.value` preserves the tab character (`\t`, `0x09`) literally, so `"java\tscript:"` does **not** match the regex — `java<TAB>script` ≠ `javascript`.
 
 This means:
 
