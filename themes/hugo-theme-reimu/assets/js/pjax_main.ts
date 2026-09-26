@@ -246,10 +246,11 @@ _$$("#mobile-nav .sidebar-menu-link-dummy").forEach((element) => {
 function tocInit() {
   if (!_$("#sidebar")) return;
   const scrollContainer = getArticleScrollContainer();
-  const navItems =
+  const navItems = (
     getComputedStyle(_$("#sidebar")!).display === "block"
-      ? _$$("#sidebar .sidebar-toc-wrapper li")
-      : _$$("#mobile-nav .sidebar-toc-wrapper li");
+      ? [..._$$("#sidebar .sidebar-toc-wrapper li")]
+      : [..._$$("#mobile-nav .sidebar-toc-wrapper li")]
+  ).filter((li) => li.querySelector("a"));
   if (!navItems.length) return;
 
   let activeLock = null;
@@ -471,11 +472,11 @@ _$(".share-icon.icon-weixin")
     });
   });
 
-const imgElement = _$("#header > img") as HTMLImageElement;
-if (imgElement.src || imgElement.style.background) {
+const imgElement = _$("#header > img") as HTMLImageElement | null;
+if (imgElement && (imgElement.src || imgElement.style.background)) {
   window.bannerElement = imgElement;
 } else {
-  window.bannerElement = _$("#header > picture img") as HTMLImageElement;
+  window.bannerElement = (_$("#header > picture img") as HTMLImageElement | null) || undefined;
 }
 
 window.generateSchemeHandler?.();
