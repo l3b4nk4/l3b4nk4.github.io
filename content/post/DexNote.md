@@ -101,19 +101,83 @@ The execution order is critical: first `renderNote()` adds sanitized HTML to the
 
 ### Step 1: DOM Clobbering `window.THEME.redirect`
 
-The sanitizer allows the `id` and `name` attributes on `<a>` tags. This enables [DOM Clobbering](https://portswigger.net/web-security/dom-based/dom-clobbering) — a technique where HTML elements with specific `id`/`name` attributes create properties on the `window` object.
+#### What is DOM Clobbering?
 
-When two elements share the same `id`, the browser exposes them as an `HTMLCollection` on `window`. An `HTMLCollection` supports named item access via the `name` attribute:
+DOM Clobbering is a technique that exploits a legacy behavior in browsers: **HTML elements with `id` or `name` attributes automatically create properties on the global `window` object** (and on `document`). This is part of the [HTML spec's "named access on the Window object"](https://html.spec.whatwg.org/multipage/nav-history-apis.html#named-access-on-the-window-object) — a feature that exists for backward compatibility with ancient web pages.
+
+For example, if you put this in a page:
 
 ```html
-<a id=THEME></a>
-<a id=THEME name=redirect href="http://evil.com"></a>
+<img id="foo">
 ```
 
-- `window.THEME` → `HTMLCollection` (two elements with `id="THEME"`)
-- `window.THEME.redirect` → the second `<a>` element (matched by `name="redirect"`)
+Then `window.foo` returns that `<img>` element — without any JavaScript having assigned it. The browser did it automatically.
 
-When `location.href = theme.redirect` runs, JavaScript calls `toString()` on the anchor element, which returns its resolved `href`.
+This becomes a security issue when **JavaScript code reads from `window.*` properties that were never explicitly initialized**. An attacker who can inject HTML (even sanitized HTML that strips all scripts) can "clobber" those properties with DOM elements and influence the code's behavior.
+
+#### Why `app.js` is vulnerable
+
+Look at the target code:
+
+```js
+function applyTheme() {
+  const theme = window.THEME || {};
+  if (theme.redirect) {
+    location.href = theme.redirect;
+  }
+}
+```
+
+The code reads `window.THEME` — but **`THEME` is never defined anywhere in the JavaScript**. It doesn't exist as a variable, it's not set by any script, there's no `window.THEME = ...` in the codebase. Under normal conditions `window.THEME` is `undefined`, so `theme` falls back to `{}`, and nothing happens.
+
+But if an attacker can inject an HTML element with `id="THEME"` into the DOM, then `window.THEME` is no longer `undefined` — it's that element. And if `theme.redirect` is truthy, the code navigates the browser to whatever value it holds.
+
+#### Clobbering a nested property (`THEME.redirect`)
+
+The tricky part: we don't just need `window.THEME` to exist — we need `window.THEME.redirect` to be truthy and to resolve to a useful value. A single element like `<a id="THEME">` would make `window.THEME` return the anchor element, but `anchorElement.redirect` is `undefined`.
+
+This is where **`HTMLCollection` named item access** comes in. When **two or more elements share the same `id`**, the browser doesn't return a single element — it returns an `HTMLCollection`:
+
+```html
+<a id="THEME"></a>
+<a id="THEME" name="redirect" href="http://evil.com"></a>
+```
+
+Now:
+
+1. `window.THEME` → returns an `HTMLCollection` containing both `<a>` elements.
+2. `HTMLCollection` supports **named item access**: accessing a property on it looks for a child element whose `id` or `name` matches that property name.
+3. `window.THEME.redirect` → the collection's internal `namedItem("redirect")` returns the second anchor (because it has `name="redirect"`).
+4. `window.THEME.redirect` is now a truthy `HTMLAnchorElement`.
+
+#### From element to navigation
+
+When the code executes `location.href = theme.redirect`, JavaScript needs to convert the `HTMLAnchorElement` to a string. It calls `toString()` on the element, which for anchor elements returns the **resolved `href`** — in this case `http://evil.com`.
+
+So the browser navigates to `http://evil.com`. We have an **attacker-controlled redirect** using nothing but two `<a>` tags with `id` and `name` attributes — no JavaScript injection needed at this stage.
+
+#### Why the sanitizer doesn't stop it
+
+SpatterGuard explicitly allows:
+- The `<a>` tag (in `ALLOWED_TAGS`)
+- The `id`, `name`, and `href` attributes (in `ALLOWED_ATTRS`)
+
+These are considered "safe" attributes by most sanitizers. But when combined with code that reads uninitialized `window` properties, they become a gadget for DOM Clobbering. The sanitizer has no way to know that `id="THEME"` is dangerous — it's the application code that created the vulnerability by trusting `window.THEME` without initializing it.
+
+#### The full clobbering chain
+
+```
+Injected HTML:  <a id=THEME></a><a id=THEME name=redirect href="..."></a>
+                  │                    │
+                  ▼                    ▼
+window.THEME  →  HTMLCollection [ anchor1, anchor2 ]
+                                         │
+window.THEME.redirect  →  namedItem("redirect")  →  anchor2
+                                                        │
+location.href = theme.redirect  →  anchor2.toString()  →  "..."
+                                                            │
+                                                   Browser navigates ✓
+```
 
 ![XSS alert triggered via DOM Clobbering + tab bypass](/img/dexnote-alert.png)
 
