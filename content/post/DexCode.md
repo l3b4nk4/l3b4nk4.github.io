@@ -108,8 +108,6 @@ Two critical details about cursor behavior:
 1. **Without a `|` marker in the output**: the cursor advances past the entire replacement text (`i += len(text)`). The engine moves forward and never revisits what it just wrote.
 2. **With a `|` marker in the output**: the cursor moves to `match_start + offset_of(|)`. This is the key to looping — placing `|` at the very beginning of the output resets the cursor back to the match start position.
 
-The engine also enforces a hard step budget of **400,000** rule applications. Any ruleset that doesn't terminate within this budget is rejected.
-
 ---
 
 ## Deep Dive: The Custom Regex Compiler
