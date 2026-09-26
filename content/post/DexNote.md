@@ -175,12 +175,6 @@ location.href = theme.redirect  →  anchor2.toString()  →  "..."
                                                    Browser navigates ✓
 ```
 
-```html
-<a id=THEME></a><a id=THEME name=redirect href="java	script:alert(1)"></a>
-```
-
-![XSS alert triggered via DOM Clobbering + tab bypass](/img/dexnote-alert.png)
-
 ## Bypassing SpatterGuard
 
 The sanitizer's regex to detect dangerous schemes is:
@@ -205,6 +199,14 @@ This means:
 1. `attr.value` = `"java\tscript:alert(1)"` → regex does **not** match → attribute is **kept**.
 2. `element.href` (the getter) = `"javascript:alert(1)"` → tab is stripped by the URL parser.
 3. `location.href = element` → `toString()` returns the resolved href → **JavaScript executes**.
+
+With both techniques combined, this minimal payload fires an alert:
+
+```html
+<a id=THEME></a><a id=THEME name=redirect href="java	script:alert(1)"></a>
+```
+
+![XSS alert triggered via DOM Clobbering + tab bypass](/img/dexnote-alert.png)
 
 ## Cookie Exfiltration
 
