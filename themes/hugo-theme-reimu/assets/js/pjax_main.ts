@@ -281,7 +281,8 @@ function tocInit() {
 
   const sections = [...navItems].map((element, index) => {
     const link = element.querySelector("a");
-    link!.off("click").on("click", (e) => anchorScroll(e, index));
+    if (!link) return null;
+    link.off("click").on("click", (e) => anchorScroll(e, index));
     const anchor = document.getElementById(
       decodeURI(link.getAttribute("href")).slice(1),
     );
