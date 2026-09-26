@@ -13,7 +13,7 @@ tags:
   - string-rewriting
 categories:
   - writeup
-draft: true
+draft: false
 ---
 
 ## Challenge Overview
@@ -437,5 +437,5 @@ s.close()
 ## Flag
 
 ```
-CATF{REDACTED}
+CATF{th3_c0d3_0f_h4rry_r3v3r535_bl00d}
 ```
