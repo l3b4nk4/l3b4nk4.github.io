@@ -503,9 +503,15 @@ body.no-hero-page .post-wrap.text-card.compact-home .post-article {
     max-height: 100%;
   }
 
-  body.mainsection-scroll-page .sidebar-wrapper,
-  body.mainsection-scroll-page .sidebar-wrap {
+  body.mainsection-scroll-page .sidebar-wrapper {
     height: 100%;
+  }
+
+  /* height:auto (not 100%) keeps align-items:stretch active so the wrap is
+     clamped to the sidebar and the TOC scrolls internally on short viewports */
+  body.mainsection-scroll-page .sidebar-wrap {
+    height: auto;
+    min-height: 0;
   }
 
   body.mainsection-scroll-page .sidebar-toc-sidebar,
