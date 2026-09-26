@@ -322,9 +322,8 @@ function tocInit() {
       parent = parent.parentNode as HTMLElement;
     }
 
-    const hiddenToc = _$(".sidebar-toc-sidebar.hidden");
     const tocWrapper = _$(".sidebar-toc-wrapper") as HTMLElement | null;
-    if (hiddenToc && tocWrapper) {
+    if (tocWrapper) {
       tocWrapper.scrollTo({
         top: tocWrapper.scrollTop + target.offsetTop - tocWrapper.offsetHeight / 2,
         behavior: "smooth",

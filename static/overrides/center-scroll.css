@@ -551,3 +551,11 @@ body.no-hero-page .post-wrap.text-card.compact-home .post-article {
 :is(body.no-hero-page) #sidebar::-webkit-scrollbar {
   display: none;
 }
+
+.sidebar-toc-wrapper .current {
+  scroll-margin-block: 40%;
+}
+
+.sidebar-toc-wrapper {
+  scroll-behavior: smooth;
+}
