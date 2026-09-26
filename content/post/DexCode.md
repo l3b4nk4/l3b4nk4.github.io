@@ -1,7 +1,7 @@
 ---
 title: "DexCode"
 description: "CTF misc challenge"
-summary: "A UTS #35 transliteration challenge: write rewriting rules that reverse an arbitrary binary string — solved with a three-rule regex-capture loop."
+summary: "A UTS #35 transliteration challenge: write rewriting rules that reverse an arbitrary binary string — solved with a two-rule regex-capture loop."
 date: 2026-09-26T00:00:00+02:00
 lastmod: 2026-09-26T00:00:00+02:00
 tags:
@@ -37,7 +37,7 @@ LEFT { KEY } RIGHT > RESULT ;
 - If there are no braces, the entire left-hand side is the KEY.
 - **Scanning** runs left-to-right. The first rule (in file order) whose KEY matches at the cursor fires. If no rule matches, the cursor advances one position.
 - The **RESULT** replaces the matched KEY text. It supports `$1`–`$9` back-references and a single cursor marker `|`. After a rewrite, scanning resumes at `match_start + offset_of(|)`. Without `|`, the cursor advances past the replacement.
-- Single-quoted text (e.g. `'*'`) in the KEY is matched literally.
+- Single-quoted text (e.g. `'*'`) in the KEY is matched literally, and `\` escapes the next character.
 - The engine has a step budget of 400,000.
 
 ## The Reversal Algorithm
@@ -55,25 +55,23 @@ The algorithm repeatedly strips the first bit after `^` and appends it right aft
 1101            clean up ^* → done
 ```
 
-Each step uses a regex like `\^0(.*)\*` to capture everything between the first bit and the `*` marker, then reconstructs the string without that first bit, placing it after `*`.
+Each step uses a regex with `([01])` to capture the first bit and `([01]*)` to capture the remaining bits before `*`, then reconstructs the string with the first bit placed after `*`.
 
-## The Solution — 3 Rules
+## The Solution — 2 Rules
 
 ```
-'^'0(.*)'*' > |^$1*0
-'^'1(.*)'*' > |^$1*1
-'^''*' >
+^([01])([01]*)\* > |^$2*$1
+^\* >
 ```
 
 ### How each rule works
 
-| Rule | Regex | Fires when | Effect |
-|------|-------|-----------|--------|
-| `'^'0(.*)'*' > \|^$1*0` | `\^0(.*)\*` | First bit after `^` is `0` | Removes leading `0`, appends it after `*` |
-| `'^'1(.*)'*' > \|^$1*1` | `\^1(.*)\*` | First bit after `^` is `1` | Removes leading `1`, appends it after `*` |
-| `'^''*' >` | `\^\*` | `^` is directly before `*` (no bits left) | Removes both markers, leaving the reversed output |
+| Rule | Compiled Regex | Fires when | Effect |
+|------|---------------|-----------|--------|
+| `^([01])([01]*)\* > \|^$2*$1` | `\^([01])([01]*)\*` | There's at least one bit between `^` and `*` | Strips the first bit (`$1`), keeps the rest (`$2`), appends `$1` after `*` |
+| `^\* >` | `\^\*` | `^` is directly before `*` (no bits left) | Removes both markers, leaving the reversed output |
 
-The `|` at the start of every result keeps the cursor at position 0, so the next iteration immediately picks up the next bit. The `(.*)` capture group grabs everything between the consumed bit and `*`, and `$1` puts it back in place.
+The `|` at the start of the result keeps the cursor at position 0, so the next iteration immediately picks up the next bit. Using `([01])` to match either bit in a single rule keeps the ruleset minimal.
 
 ### Complexity
 
@@ -82,23 +80,23 @@ For an n-bit input, the algorithm runs exactly n+1 rule applications (n bit-move
 ## Detailed Trace: `^1011*` → `1101`
 
 ```
-Step 1: cursor=0, rule 2 fires on "^1011*"
-        match: ^1(011)* → result: ^011*1
+Step 1: cursor=0, rule 1 fires on "^1011*"
+        $1=1, $2=011 → result: ^011*1
         string: "^011*1", cursor reset to 0
 
 Step 2: cursor=0, rule 1 fires on "^011*1"
-        match: ^0(11)* → result: ^11*0
+        $1=0, $2=11 → result: ^11*0
         string: "^11*01", cursor reset to 0
 
-Step 3: cursor=0, rule 2 fires on "^11*01"
-        match: ^1(1)* → result: ^1*1
+Step 3: cursor=0, rule 1 fires on "^11*01"
+        $1=1, $2=1 → result: ^1*1
         string: "^1*101", cursor reset to 0
 
-Step 4: cursor=0, rule 2 fires on "^1*101"
-        match: ^1()* → result: ^*1
+Step 4: cursor=0, rule 1 fires on "^1*101"
+        $1=1, $2=(empty) → result: ^*1
         string: "^*1101", cursor reset to 0
 
-Step 5: cursor=0, rule 3 fires on "^*1101"
+Step 5: cursor=0, rule 2 fires on "^*1101"
         match: ^* → result: (empty)
         string: "1101", cursor at 0
 
@@ -114,9 +112,8 @@ import socket, time
 
 HOST, PORT = "169.58.140.254", 8110
 RULES = [
-    "'^'0(.*)'*' > |^$1*0",
-    "'^'1(.*)'*' > |^$1*1",
-    "'^''*' >",
+    "^([01])([01]*)\\* > |^$2*$1",
+    "^\\* >",
     "",
 ]
 
@@ -149,7 +146,7 @@ print(data.decode("utf-8", "replace"))
 s.close()
 ```
 
-Or simply paste the three rules into a netcat session:
+Or simply paste the two rules into a netcat session:
 
 ```bash
 nc 169.58.140.254 8110
@@ -158,9 +155,8 @@ nc 169.58.140.254 8110
 Then type:
 
 ```
-'^'0(.*)'*' > |^$1*0
-'^'1(.*)'*' > |^$1*1
-'^''*' >
+^([01])([01]*)\* > |^$2*$1
+^\* >
 
 ```
 
