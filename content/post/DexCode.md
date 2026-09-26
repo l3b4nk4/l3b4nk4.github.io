@@ -18,7 +18,7 @@ draft: false
 
 ## Challenge Overview
 
-**DexCode** is a misc challenge where you connect to a TCP service running a custom string-rewriting engine — a subset of [UTS #35 transliteration](https://seriot.ch/computation/uts35/) — and write rules that **reverse any binary string** up to 16 bits long. No variables, no loops, no conditionals: just ordered pattern-replacement rules applied left-to-right. As [Seriot's research](https://seriot.ch/computation/uts35/) shows, this minimal system is Turing-complete.
+**DexCode** is a misc challenge where you connect to a TCP service running a custom string-rewriting engine — a subset of [UTS #35 transliteration](https://seriot.ch/computation/uts35/) — and write rules that **reverse any binary string** up to 16 bits long. No variables, no loops, no conditionals: just ordered pattern-replacement rules applied left-to-right. As Seriot's research shows, this minimal system is Turing-complete.
 
 ---
 
