@@ -18,11 +18,7 @@ draft: false
 
 ## Challenge Overview
 
-**DexCode** is a miscellaneous CTF challenge themed around Dexter Morgan's ritual "Code." You connect to a TCP service that presents a custom string-rewriting engine — a faithful subset of the [UTS #35 transliteration](https://seriot.ch/computation/uts35/) standard — and asks you to write a set of rewriting rules that **reverse any binary string**.
-
-The engine is not a traditional programming language. There are no variables, no loops, no conditionals. Instead, you define a list of pattern-replacement rules, and the engine applies them repeatedly as it scans through the string from left to right. It is a computation model closer to a Turing machine than to Python — and as [Seriot's research demonstrates](https://seriot.ch/computation/uts35/), this subset of UTS #35 is indeed Turing-complete.
-
-Your rules must handle every possible binary string up to 16 bits long, including the empty string.
+**DexCode** is a misc challenge where you connect to a TCP service running a custom string-rewriting engine — a subset of [UTS #35 transliteration](https://seriot.ch/computation/uts35/) — and write rules that **reverse any binary string** up to 16 bits long. No variables, no loops, no conditionals: just ordered pattern-replacement rules applied left-to-right. As [Seriot's research](https://seriot.ch/computation/uts35/) shows, this minimal system is Turing-complete.
 
 ---
 
