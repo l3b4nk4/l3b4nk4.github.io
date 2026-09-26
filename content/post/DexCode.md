@@ -13,6 +13,7 @@ tags:
   - string-rewriting
 categories:
   - writeup
+cover: "covers/DexCode.webp"
 draft: false
 ---
 
