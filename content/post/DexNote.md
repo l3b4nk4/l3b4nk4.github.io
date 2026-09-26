@@ -272,5 +272,3 @@ CATF{...}
 ## Key Takeaways
 
 - **DOM Clobbering** is a powerful technique when code reads from `window.*` properties without initializing them first. The `applyTheme()` function uses `window.THEME || {}` — a perfect clobbering target since `THEME` is never explicitly defined.
-- **Sanitizer bypasses** via tab/newline injection in URL schemes remain effective against regex-based checks. The URL spec's stripping of ASCII tabs during scheme parsing creates a gap between what the regex sees and what the browser resolves.
-- **Defense**: use `new URL(href).protocol` instead of regex to check the **resolved** scheme, and initialize global variables explicitly (e.g., `const THEME = { redirect: null }` as a `const` declaration) before any user content is rendered to prevent DOM clobbering.
