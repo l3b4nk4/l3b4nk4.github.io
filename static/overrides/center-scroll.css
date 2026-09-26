@@ -560,6 +560,14 @@ body.no-hero-page .post-wrap.text-card.compact-home .post-article {
   scroll-behavior: smooth;
 }
 
+/* TOC bar: hide phantom empty entries Hugo emits when heading levels are
+   skipped (e.g. an h2 followed directly by an h4 below endLevel) */
+.sidebar-toc-wrapper li:not(:has(a)),
+.sidebar-toc-wrapper ul:not(:has(a)),
+.sidebar-toc-wrapper ol:not(:has(a)) {
+  display: none;
+}
+
 /* TOC bar: resilient text — wrap long headings instead of truncating them */
 .sidebar-toc-wrapper li {
   white-space: normal;
